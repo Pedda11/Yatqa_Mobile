@@ -7,10 +7,9 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.example.yatqa_mobile.R
 import com.example.yatqa_mobile.data.datamodels.Login
-import com.example.yatqa_mobile.data.local.getDatabase
 import com.example.yatqa_mobile.databinding.FragmentLoginBinding
 import com.example.yatqa_mobile.ui.main.MainViewModel
 
@@ -28,7 +27,7 @@ class LoginFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = DataBindingUtil.inflate(
             inflater,
             R.layout.fragment_login,
@@ -48,26 +47,28 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-        val database = getDatabase(requireActivity().application)
-
-        binding.editTextInputUserPassword.setText(viewModel.loginList.value?.find { it.id == 0 }?.userPassword)
-
         viewModel.actionCompleted.observe(
-            viewLifecycleOwner,
-            Observer {
-                if (it) {
-                    viewModel.unsetComplete()
-                    database.loginDatabaseDao.getAll()
-                }
+            viewLifecycleOwner
+        ) {
+            if (it) {
+                viewModel.unsetComplete()
+                findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToFavoritesFragment())
             }
-        )
+        }
+
+        viewModel.loginList.observe(
+            viewLifecycleOwner
+        ) {
+            if (it.size > 0) {
+                findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToFavoritesFragment())
+            }
+        }
 
         binding.cbSaveToFav.setOnClickListener {
             if (binding.cbSaveToFav.isChecked){
-                binding.editTextInputListName.visibility = View.VISIBLE
+                binding.editTilListName.visibility = View.VISIBLE
             }else{
-                binding.editTextInputListName.visibility = View.GONE
+                binding.editTilListName.visibility = View.GONE
             }
         }
 

@@ -6,4 +6,6 @@
     <string name="loginName">Username</string>
     <string name="loginPassword">Password</string>
     <string name="FavName">Listname</string>
+    <string name="edit">edit</string>
+    <string name="toLogin">to manuel login</string>
 </resources>

@@ -6,4 +6,6 @@
     <string name="loginName">Benutzername</string>
     <string name="loginPassword">Passwort</string>
     <string name="FavName">Anzeigename</string>
+    <string name="edit">Bearbeiten</string>
+    <string name="toLogin">zum manuellen Login</string>
 </resources>
