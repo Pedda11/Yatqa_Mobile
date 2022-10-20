@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">Yatqa_Mobile</string>
+    <string name="app_name">Yatqa</string>
+    <string name="connect">connect</string>
+    <string name="SaveToFav">save to favorites</string>
+    <string name="toFav">go to favorites</string>
+    <string name="loginName">Username</string>
+    <string name="loginPassword">Password</string>
+    <string name="FavName">Listname</string>
 </resources>

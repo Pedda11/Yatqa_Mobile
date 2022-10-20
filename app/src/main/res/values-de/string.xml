@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Yatqa</string>
+    <string name="connect">Verbinden</string>
+    <string name="SaveToFav">in Favoriten speichern</string>
+    <string name="toFav">Zur Favoritenliste</string>
+    <string name="loginName">Benutzername</string>
+    <string name="loginPassword">Passwort</string>
+    <string name="FavName">Anzeigename</string>
+</resources>
