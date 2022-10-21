@@ -8,4 +8,6 @@
     <string name="FavName">Listname</string>
     <string name="edit">edit</string>
     <string name="toLogin">to manuel login</string>
+    <string name="Stats">Statistics</string>
+    <string name="config">Configurations</string>
 </resources>
