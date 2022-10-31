@@ -14,7 +14,7 @@
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/top_nav_bar_login"
-            android:layout_width="409dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="?attr/colorPrimary"
             android:minHeight="?attr/actionBarSize"
@@ -43,7 +43,8 @@
                 android:layout_height="wrap_content"
                 android:digits="0123456789."
                 android:hint="IP"
-                android:inputType="number|numberDecimal" />
+                android:inputType="number|numberDecimal"
+                android:text="116.203.11.17" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <LinearLayout
@@ -70,7 +71,8 @@
                     android:layout_height="wrap_content"
                     android:digits="0123456789"
                     android:hint="Port"
-                    android:inputType="number|numberDecimal" />
+                    android:inputType="number|numberDecimal"
+                    android:text="9987" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -86,7 +88,8 @@
                     android:layout_height="wrap_content"
                     android:digits="0123456789"
                     android:hint="Query-Port"
-                    android:inputType="number|numberDecimal" />
+                    android:inputType="number|numberDecimal"
+                    android:text="10011" />
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
 
@@ -104,7 +107,8 @@
                 android:id="@+id/edit_textInputUserName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/loginName" />
+                android:hint="@string/loginName"
+                android:text="apiTest" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -121,7 +125,8 @@
                 android:id="@+id/edit_textInputUserPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/loginPassword" />
+                android:hint="@string/loginPassword"
+                android:text="M6zdEzC0" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -140,7 +145,8 @@
                 android:id="@+id/edit_textInputListName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/FavName" />
+                android:hint="@string/FavName"
+                android:text="TestServer" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <CheckBox
@@ -148,6 +154,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:checked="true"
             android:text="@string/SaveToFav"
             app:layout_constraintEnd_toEndOf="@+id/edit_tilUserPassword"
             app:layout_constraintHorizontal_bias="0.0"

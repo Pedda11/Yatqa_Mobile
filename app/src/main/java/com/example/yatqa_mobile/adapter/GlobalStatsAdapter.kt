@@ -13,10 +13,9 @@ import com.example.yatqa_mobile.data.datamodels.Login
 import com.github.theholywaffle.teamspeak3.TS3Config
 import com.github.theholywaffle.teamspeak3.TS3Query
 
-class FavoritesAdapter(
-    private val dataset: List<Login>,
-    val ts3ApiConnect: (Int) -> Unit
-) : RecyclerView.Adapter<FavoritesAdapter.ItemViewHolder>() {
+class GlobalStatsAdapter(
+    private val dataset: List<Login>
+) : RecyclerView.Adapter<GlobalStatsAdapter.ItemViewHolder>() {
 
     inner class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val card: CardView = itemView.findViewById(R.id.cv_fav_item)
@@ -45,24 +44,8 @@ class FavoritesAdapter(
      */
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
 
-        // Hole den Favoriten aus dem dataset
-        val fav = dataset[position]
 
-        // Setze den Namen und die Telefonnummer
-        holder.tvListName.text = fav.listName
-        holder.tvIp.text = fav.ip
-        holder.tvQPort.text = fav.qPort.toString()
-        holder.tvPort.text = fav.port.toString()
-        holder.tvUserName.text = fav.userName
 
-        holder.card.setOnLongClickListener {
-            holder.btnEdit.visibility = View.VISIBLE
-            true
-        }
-
-        holder.card.setOnClickListener {
-            ts3ApiConnect(fav.id)
-        }
     }
 
     /**

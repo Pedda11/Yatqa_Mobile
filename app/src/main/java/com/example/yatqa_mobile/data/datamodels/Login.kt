@@ -10,9 +10,9 @@ data class Login(
     val id: Int,
 
     val ip: String,
-    val qPort: Int,
-    val port: Int,
-    val userName: String,
-    val userPassword: String,
+    val qPort: Int = 10011,
+    val port: Int?,
+    val userName: String?,
+    val userPassword: String?,
     val listName: String
 )

@@ -1,6 +1,7 @@
 package com.example.yatqa_mobile.ui.login
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -66,23 +67,27 @@ class LoginFragment : Fragment() {
 
         binding.btnLogin.setOnClickListener {
             if (binding.cbSaveToFav.isChecked) {
-                val ip = binding.editTextInputIp.text.toString()
-                val qPort = binding.editTextInputQport.text.toString().toInt()
-                val port = binding.editTextInputPort.text.toString().toInt()
-                val userName = binding.editTextInputUserName.text.toString()
-                val userPassword = binding.editTextInputUserPassword.text.toString()
-                val listName = binding.editTextInputListName.text.toString()
-                val newLogin = Login(
-                    id = 0,
-                    ip = ip,
-                    qPort = qPort,
-                    port = port,
-                    userName = userName,
-                    userPassword = userPassword,
-                    listName = listName
-                )
+                try {
+                    val ip = binding.editTextInputIp.text.toString()
+                    val qPort = binding.editTextInputQport.text.toString().toInt()
+                    val port = binding.editTextInputPort.text.toString().toInt()
+                    val userName = binding.editTextInputUserName.text.toString()
+                    val userPassword = binding.editTextInputUserPassword.text.toString()
+                    val listName = binding.editTextInputListName.text.toString()
+                    val newLogin = Login(
+                        id = 0,
+                        ip = ip,
+                        qPort = qPort,
+                        port = port,
+                        userName = userName,
+                        userPassword = userPassword,
+                        listName = listName
+                    )
 
-                viewModel.insert(newLogin)
+                    viewModel.insert(newLogin)
+                }catch (e: Exception){
+                    Log.e("LoginFragment", "btnLoginClicked: $e")
+                }
             }
         }
     }
