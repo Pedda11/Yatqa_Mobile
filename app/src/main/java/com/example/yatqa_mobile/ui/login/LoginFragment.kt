@@ -48,24 +48,68 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.actionCompleted.observe(
+        val loginId = requireArguments().getInt("loginId")
+
+        if (loginId != 0) {
+            val login = viewModel.loginList.value!!.find { it.id == loginId }
+            if (login != null) {
+                binding.editTextInputIp.setText(login.ip)
+                binding.editTextInputQport.setText(login.qPort.toString())
+                binding.editTextInputPort.setText(if (login.port == null) "" else login.port.toString())
+                binding.editTextInputUserName.setText(login.userName)
+                binding.editTextInputUserPassword.setText(login.userPassword)
+                binding.editTextInputListName.setText(login.listName)
+
+                binding.btnLogin.text = getString(R.string.saveChanges)
+                binding.cbSaveToFav.visibility = View.GONE
+                binding.cbSaveToFav.isChecked = false
+                binding.editTilListName.visibility = View.VISIBLE
+            }
+        }
+
+        viewModel.connectionCompleted.observe(
             viewLifecycleOwner
         ) {
             if (it) {
-                viewModel.unsetComplete()
                 findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToFavoritesFragment())
             }
         }
 
         binding.cbSaveToFav.setOnClickListener {
-            if (binding.cbSaveToFav.isChecked){
+            if (binding.cbSaveToFav.isChecked) {
                 binding.editTilListName.visibility = View.VISIBLE
-            }else{
+            } else {
                 binding.editTilListName.visibility = View.GONE
             }
         }
 
         binding.btnLogin.setOnClickListener {
+
+            if (loginId != 0) {
+                try {
+                    val ip = binding.editTextInputIp.text.toString()
+                    val qPort = binding.editTextInputQport.text.toString().toInt()
+                    val port = binding.editTextInputPort.text.toString().toInt()
+                    val userName = binding.editTextInputUserName.text.toString()
+                    val userPassword = binding.editTextInputUserPassword.text.toString()
+                    val listName = binding.editTextInputListName.text.toString()
+                    val loginChanged = Login(
+                        id = loginId,
+                        ip = ip,
+                        qPort = qPort,
+                        port = port,
+                        userName = userName,
+                        userPassword = userPassword,
+                        listName = listName
+                    )
+
+                    viewModel.updateLogin(loginChanged)
+
+                    findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToFavoritesFragment())
+                } catch (e: Exception) {
+                    Log.e("LoginFragment", "btnLoginClicked changing Logindata: $e")
+                }
+            }
             if (binding.cbSaveToFav.isChecked) {
                 try {
                     val ip = binding.editTextInputIp.text.toString()
@@ -85,8 +129,10 @@ class LoginFragment : Fragment() {
                     )
 
                     viewModel.insert(newLogin)
-                }catch (e: Exception){
-                    Log.e("LoginFragment", "btnLoginClicked: $e")
+
+                    findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToGlobalServerFragment())
+                } catch (e: Exception) {
+                    Log.e("LoginFragment", "btnLoginClicked with new Login: $e")
                 }
             }
         }

@@ -8,12 +8,9 @@ import androidx.lifecycle.viewModelScope
 import com.example.yatqa_mobile.data.Repository
 import com.example.yatqa_mobile.data.datamodels.Login
 import com.example.yatqa_mobile.data.local.getDatabase
-import com.github.theholywaffle.teamspeak3.TS3Config
-import com.github.theholywaffle.teamspeak3.TS3Query
+import com.github.theholywaffle.teamspeak3.api.wrapper.HostInfo
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlin.math.log
-import kotlin.random.Random
 
 class MainViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -22,63 +19,65 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private val repository = Repository(database)
 
     val loginList = repository.loginList
+    lateinit var hostInfo: HostInfo
 
     //to observe loading times
-    private val _actionCompleted = MutableLiveData(false)
-    val actionCompleted: LiveData<Boolean>
-        get() = _actionCompleted
+    private val _connectionCompleted = MutableLiveData(false)
+    val connectionCompleted: LiveData<Boolean>
+        get() = _connectionCompleted
 
-    //insert a new login to database
+    private val _getGlobalDataCompleted = MutableLiveData(false)
+    val getGlobalDataCompleted: LiveData<Boolean>
+        get() = _getGlobalDataCompleted
+
     fun insert(login: Login) {
         viewModelScope.launch {
             repository.insert(login)
-            _actionCompleted.value = true
+            setConnectComplete()
         }
     }
 
     fun updateLogin(login: Login) {
         viewModelScope.launch {
             repository.update(login)
-            _actionCompleted.value = true
+            setConnectComplete()
         }
     }
 
-    fun deleteContact(login: Login) {
+    var removeLogin: (Login) -> Unit = {
         viewModelScope.launch {
-            repository.deleteLogin(login)
-            _actionCompleted.value = true
+            repository.deleteLogin(it)
+            setConnectComplete()
         }
     }
 
-    fun unsetComplete() {
-        _actionCompleted.value = false
+    fun setConnectComplete() {
+        _connectionCompleted.postValue(true)
     }
 
-    val ts3ApiConnect: (Int) -> Unit = { loginId: Int ->
+    fun unsetConnectComplete() {
+        _connectionCompleted.value = false
+    }
+
+    fun setGetDataComplete() {
+        _getGlobalDataCompleted.value = true
+    }
+
+    fun unsetGetDataComplete() {
+        _connectionCompleted.value = false
+    }
+
+    fun getHostInfo() {
+        viewModelScope.launch {
+            hostInfo = repository.apiGetGlobalData()!!
+            setGetDataComplete()
+        }
+    }
+
+    val ts3ApiConnect: (Login) -> Unit = {
         viewModelScope.launch(Dispatchers.IO) {
-
-            val login = loginList.value?.find { it.id == loginId }
-
-            if (login != null) {
-
-                val ts3 = TS3Config()
-                ts3.setHost(login.ip)
-                ts3.setQueryPort(login.qPort)
-
-                val ts3Query = TS3Query(ts3)
-                ts3Query.connect()
-
-
-                val tsApi = ts3Query.api
-
-                tsApi.login(login.userName, login.userPassword)
-                tsApi.selectVirtualServerByPort(8080)
-                tsApi.setNickname("API-TEST-BOT ${Random.nextInt(1,50000)}")
-                tsApi.sendChannelMessage("Hi there.")
-
-                val dsiacuj = tsApi.hostInfo
-                println(dsiacuj)
-            }
+            repository.apiConnect(it)
+            setConnectComplete()
         }
     }
 }

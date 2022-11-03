@@ -12,7 +12,6 @@ import com.example.yatqa_mobile.R
 import com.example.yatqa_mobile.adapter.FavoritesAdapter
 import com.example.yatqa_mobile.databinding.FragmentFavoritesBinding
 import com.example.yatqa_mobile.ui.main.MainViewModel
-import com.github.theholywaffle.teamspeak3.TS3Config
 
 class FavoritesFragment: Fragment() {
     private lateinit var binding: FragmentFavoritesBinding
@@ -51,14 +50,14 @@ class FavoritesFragment: Fragment() {
         viewModel.loginList.observe(
             viewLifecycleOwner
         ) {
-            recycler.adapter = FavoritesAdapter(it, viewModel.ts3ApiConnect)
+            recycler.adapter = FavoritesAdapter(it, viewModel.ts3ApiConnect,viewModel.removeLogin)
             if (it.isEmpty()){
-                findNavController().navigate(FavoritesFragmentDirections.actionFavoritesFragmentToLoginFragment())
+                findNavController().navigate(FavoritesFragmentDirections.actionFavoritesFragmentToLoginFragment(0))
             }
         }
 
         binding.btnToLogin.setOnClickListener {
-            findNavController().navigate(FavoritesFragmentDirections.actionFavoritesFragmentToLoginFragment())
+            findNavController().navigate(FavoritesFragmentDirections.actionFavoritesFragmentToLoginFragment(0))
         }
     }
 }

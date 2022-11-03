@@ -7,15 +7,18 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.lifecycle.viewmodel.viewModelFactory
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.yatqa_mobile.R
 import com.example.yatqa_mobile.data.datamodels.Login
+import com.example.yatqa_mobile.ui.login.FavoritesFragmentDirections
 import com.github.theholywaffle.teamspeak3.TS3Config
 import com.github.theholywaffle.teamspeak3.TS3Query
 
 class FavoritesAdapter(
     private val dataset: List<Login>,
-    val ts3ApiConnect: (Int) -> Unit
+    val ts3ApiConnect: (Login) -> Unit,
+    val removeLogin: (Login) -> Unit
 ) : RecyclerView.Adapter<FavoritesAdapter.ItemViewHolder>() {
 
     inner class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -26,6 +29,7 @@ class FavoritesAdapter(
         val tvPort: TextView = itemView.findViewById(R.id.tv_port)
         val tvUserName: TextView = itemView.findViewById(R.id.tv_username)
         val btnEdit: Button = itemView.findViewById(R.id.btn_edit)
+        val btnDel: Button = itemView.findViewById(R.id.btn_del)
     }
 
     /**
@@ -57,11 +61,21 @@ class FavoritesAdapter(
 
         holder.card.setOnLongClickListener {
             holder.btnEdit.visibility = View.VISIBLE
+            holder.btnDel.visibility = View.VISIBLE
             true
         }
 
+        holder.btnDel.setOnClickListener {
+            removeLogin(fav)
+        }
+
+        holder.btnEdit.setOnClickListener {
+            holder.itemView.findNavController().navigate(FavoritesFragmentDirections.actionFavoritesFragmentToLoginFragment(fav.id))
+        }
+
         holder.card.setOnClickListener {
-            ts3ApiConnect(fav.id)
+            ts3ApiConnect(fav)
+            holder.itemView.findNavController().navigate(FavoritesFragmentDirections.actionFavoritesFragmentToGlobalServerFragment())
         }
     }
 

@@ -1,13 +1,30 @@
 <resources>
     <string name="app_name">Yatqa</string>
     <string name="connect">Verbinden</string>
-    <string name="SaveToFav">in Favoriten speichern</string>
+    <string name="saveToFav">in Favoriten speichern</string>
     <string name="toFav">Zur Favoritenliste</string>
     <string name="loginName">Benutzername</string>
     <string name="loginPassword">Passwort</string>
-    <string name="FavName">Anzeigename</string>
+    <string name="favName">Anzeigename</string>
     <string name="edit">Bearbeiten</string>
+    <string name="del">Löschen</string>
+    <string name="saveChanges">änderungen speichern</string>
     <string name="toLogin">zum manuellen Login</string>
-    <string name="Stats">Statistiken</string>
+    <string name="Stats">Statistiken(aus Sicht des Servers)</string>
     <string name="config">Konfigurationen</string>
+    <string name="vServerTitle">Virtelle Server</string>
+    <string name="vServerOnline">Server online:</string>
+    <string name="useOnline">Benutzer:</string>
+    <string name="channel">Channel:</string>
+    <string name="currUploadTitle">Derzeitiger Upload</string>
+    <string name="currTotalSek">Gesamt diese Sek:</string>
+    <string name="currTotalMin">Gesamt diese Min:</string>
+    <string name="currFileSek">Dateien diese Sek:</string>
+    <string name="currDownloadTitle">Derzeitiger Download</string>
+    <string name="transferredDataTitle">Übertragene Daten seit Start</string>
+    <string name="transferredSend">Gesendet:</string>
+    <string name="transferredReceived">Empfangen:</string>
+    <string name="transferredSum">Summe:</string>
+    <string name="transferredPacketsTitle">Übertragene Packete seit Start</string>
+    <string name="transferredFilesTitle">Übertragene Dateien seit Start</string>
 </resources>

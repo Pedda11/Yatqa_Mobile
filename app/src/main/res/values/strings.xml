@@ -1,13 +1,30 @@
 <resources>
     <string name="app_name">Yatqa</string>
     <string name="connect">connect</string>
-    <string name="SaveToFav">save to favorites</string>
+    <string name="saveToFav">save to favorites</string>
     <string name="toFav">go to favorites</string>
     <string name="loginName">Username</string>
     <string name="loginPassword">Password</string>
-    <string name="FavName">Listname</string>
+    <string name="favName">List name</string>
     <string name="edit">edit</string>
-    <string name="toLogin">to manuel login</string>
-    <string name="Stats">Statistics</string>
+    <string name="del">delete</string>
+    <string name="saveChanges">save changes</string>
+    <string name="toLogin">go to manuel login</string>
+    <string name="Stats">Statistics(From the server\'s point of view)</string>
     <string name="config">Configurations</string>
+    <string name="vServerTitle">Virtual server</string>
+    <string name="vServerOnline">Server online:</string>
+    <string name="useOnline">User:</string>
+    <string name="channel">Channel:</string>
+    <string name="currUploadTitle">Current upload</string>
+    <string name="currTotalSek">Total this sek:</string>
+    <string name="currTotalMin">Total this min:</string>
+    <string name="currFileSek">Files this sek:</string>
+    <string name="currDownloadTitle">Current download</string>
+    <string name="transferredDataTitle">Transferred data since start</string>
+    <string name="transferredSend">Send:</string>
+    <string name="transferredReceived">Received:</string>
+    <string name="transferredSum">Sum:</string>
+    <string name="transferredPacketsTitle">Transferred packets since start</string>
+    <string name="transferredFilesTitle">Transferred files since start</string>
 </resources>
