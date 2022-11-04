@@ -19,6 +19,7 @@
     <string name="vServerTitle">Virtelle Server</string>
     <string name="vServerOnline">Server online:</string>
     <string name="useOnline">Benutzer:</string>
+    <string name="userOnlineValue">%$1s/%$2s</string>
     <string name="channel">Channel:</string>
     <string name="currUploadTitle">Derzeitiger Upload</string>
     <string name="currTotalSek">Gesamt diese Sek:</string>
@@ -26,7 +27,7 @@
     <string name="currFileSek">Dateien diese Sek:</string>
     <string name="currDownloadTitle">Derzeitiger Download</string>
     <string name="transferredDataTitle">Übertragene Daten seit Start</string>
-    <string name="transferredSend">Gesendet:</string>
+    <string name="transferredSent">Gesendet:</string>
     <string name="transferredReceived">Empfangen:</string>
     <string name="transferredSum">Summe:</string>
     <string name="transferredPacketsTitle">Übertragene Packete seit Start</string>
@@ -49,5 +50,17 @@
     <string name="transferMaxUpload">Maximaler Upload:</string>
     <string name="transferMaxDownload">Maximaler Download:</string>
     <string name="transferPort">Dateitransfer-Port:</string>
-    <string name="unlimited">unbegrenzt:</string>
+    <string name="unlimited">unbegrenzt</string>
+
+    //endings
+    <string name="strGibs">%1$s GiB/s</string>
+    <string name="strMibs">%1$s MiB/s</string>
+    <string name="strKibs">%1$s KiB/s</string>
+    <string name="strGib">%1$s GiB</string>
+    <string name="strMib">%1$s MiB</string>
+    <string name="strGb">%1$s GB</string>
+    <string name="strMb">%1$s MB</string>
+
+    //other
+    <string name="slash">/</string>
 </resources>

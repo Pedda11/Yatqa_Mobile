@@ -304,7 +304,7 @@
                         android:id="@+id/cv_current_download"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="24dp"
+                        android:layout_marginTop="8dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/cv_current_upload">
@@ -426,7 +426,7 @@
                         android:id="@+id/cv_transfered_data"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="24dp"
+                        android:layout_marginTop="8dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/cv_current_download">
@@ -471,12 +471,12 @@
                                         tools:srcCompat="@tools:sample/avatars" />
 
                                     <TextView
-                                        android:id="@+id/tv_transfered_send"
+                                        android:id="@+id/tv_transfered_sent"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginStart="16dp"
                                         android:layout_marginTop="8dp"
-                                        android:text="@string/transferredSend"
+                                        android:text="@string/transferredSent"
                                         app:layout_constraintStart_toEndOf="@+id/iv_transfered_data_left"
                                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -486,8 +486,8 @@
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="8dp"
                                         android:text="@string/transferredReceived"
-                                        app:layout_constraintStart_toStartOf="@+id/tv_transfered_send"
-                                        app:layout_constraintTop_toBottomOf="@+id/tv_transfered_send" />
+                                        app:layout_constraintStart_toStartOf="@+id/tv_transfered_sent"
+                                        app:layout_constraintTop_toBottomOf="@+id/tv_transfered_sent" />
 
                                     <TextView
                                         android:id="@+id/tv_transfered_sum"
@@ -501,12 +501,12 @@
                                         app:layout_constraintTop_toBottomOf="@+id/tv_transfered_received" />
 
                                     <TextView
-                                        android:id="@+id/tv_transfered_send_value"
+                                        android:id="@+id/tv_transfered_sent_value"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginEnd="16dp"
                                         app:layout_constraintEnd_toStartOf="@+id/iv_transfered_data_right"
-                                        app:layout_constraintTop_toTopOf="@+id/tv_transfered_send"
+                                        app:layout_constraintTop_toTopOf="@+id/tv_transfered_sent"
                                         tools:text="Text und so" />
 
                                     <TextView
@@ -514,8 +514,8 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="8dp"
-                                        app:layout_constraintEnd_toEndOf="@+id/tv_transfered_send_value"
-                                        app:layout_constraintTop_toBottomOf="@+id/tv_transfered_send_value"
+                                        app:layout_constraintEnd_toEndOf="@+id/tv_transfered_sent_value"
+                                        app:layout_constraintTop_toBottomOf="@+id/tv_transfered_sent_value"
                                         tools:text="Text und so" />
 
                                     <TextView
@@ -547,7 +547,7 @@
                         android:id="@+id/cv_transfered_packets"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="24dp"
+                        android:layout_marginTop="8dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/cv_transfered_data">
@@ -592,12 +592,12 @@
                                         tools:srcCompat="@tools:sample/avatars" />
 
                                     <TextView
-                                        android:id="@+id/tv_packets_send"
+                                        android:id="@+id/tv_packets_sent"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginStart="16dp"
                                         android:layout_marginTop="8dp"
-                                        android:text="@string/transferredSend"
+                                        android:text="@string/transferredSent"
                                         app:layout_constraintStart_toEndOf="@+id/iv_packets_left"
                                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -607,8 +607,8 @@
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="8dp"
                                         android:text="@string/transferredReceived"
-                                        app:layout_constraintStart_toStartOf="@+id/tv_packets_send"
-                                        app:layout_constraintTop_toBottomOf="@+id/tv_packets_send" />
+                                        app:layout_constraintStart_toStartOf="@+id/tv_packets_sent"
+                                        app:layout_constraintTop_toBottomOf="@+id/tv_packets_sent" />
 
                                     <TextView
                                         android:id="@+id/tv_packets_sum"
@@ -622,12 +622,12 @@
                                         app:layout_constraintTop_toBottomOf="@+id/tv_packets_received" />
 
                                     <TextView
-                                        android:id="@+id/tv_packets_send_value"
+                                        android:id="@+id/tv_packets_sent_value"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginEnd="16dp"
                                         app:layout_constraintEnd_toStartOf="@+id/iv_packets_right"
-                                        app:layout_constraintTop_toTopOf="@+id/tv_packets_send"
+                                        app:layout_constraintTop_toTopOf="@+id/tv_packets_sent"
                                         tools:text="Text und so" />
 
                                     <TextView
@@ -635,8 +635,8 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="8dp"
-                                        app:layout_constraintEnd_toEndOf="@+id/tv_packets_send_value"
-                                        app:layout_constraintTop_toBottomOf="@+id/tv_packets_send_value"
+                                        app:layout_constraintEnd_toEndOf="@+id/tv_packets_sent_value"
+                                        app:layout_constraintTop_toBottomOf="@+id/tv_packets_sent_value"
                                         tools:text="Text und so" />
 
                                     <TextView
@@ -668,7 +668,7 @@
                         android:id="@+id/cv_transfered_files"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="24dp"
+                        android:layout_marginTop="8dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/cv_transfered_packets">
@@ -713,12 +713,12 @@
                                         tools:srcCompat="@tools:sample/avatars" />
 
                                     <TextView
-                                        android:id="@+id/tv_files_send"
+                                        android:id="@+id/tv_files_sent"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginStart="16dp"
                                         android:layout_marginTop="8dp"
-                                        android:text="@string/transferredSend"
+                                        android:text="@string/transferredSent"
                                         app:layout_constraintStart_toEndOf="@+id/iv_files_left"
                                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -728,8 +728,8 @@
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="8dp"
                                         android:text="@string/transferredReceived"
-                                        app:layout_constraintStart_toStartOf="@+id/tv_files_send"
-                                        app:layout_constraintTop_toBottomOf="@+id/tv_files_send" />
+                                        app:layout_constraintStart_toStartOf="@+id/tv_files_sent"
+                                        app:layout_constraintTop_toBottomOf="@+id/tv_files_sent" />
 
                                     <TextView
                                         android:id="@+id/tv_files_sum"
@@ -743,12 +743,12 @@
                                         app:layout_constraintTop_toBottomOf="@+id/tv_files_received" />
 
                                     <TextView
-                                        android:id="@+id/tv_files_send_value"
+                                        android:id="@+id/tv_files_sent_value"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginEnd="16dp"
                                         app:layout_constraintEnd_toStartOf="@+id/iv_files_right"
-                                        app:layout_constraintTop_toTopOf="@+id/tv_files_send"
+                                        app:layout_constraintTop_toTopOf="@+id/tv_files_sent"
                                         tools:text="Text und so" />
 
                                     <TextView
@@ -756,8 +756,8 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="8dp"
-                                        app:layout_constraintEnd_toEndOf="@+id/tv_files_send_value"
-                                        app:layout_constraintTop_toBottomOf="@+id/tv_files_send_value"
+                                        app:layout_constraintEnd_toEndOf="@+id/tv_files_sent_value"
+                                        app:layout_constraintTop_toBottomOf="@+id/tv_files_sent_value"
                                         tools:text="Text und so" />
 
                                     <TextView
@@ -815,8 +815,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="16dp"
                                 app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                tools:text="@string/serverQueriesTitle" />
+                                app:layout_constraintTop_toTopOf="parent" />
 
                             <com.google.android.material.card.MaterialCardView
                                 android:layout_width="match_parent"
@@ -965,9 +964,9 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="16dp"
+                                android:text="@string/standardGroupsTitle"
                                 app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                tools:text="@string/standardGroupsTitle" />
+                                app:layout_constraintTop_toTopOf="parent" />
 
                             <com.google.android.material.card.MaterialCardView
                                 android:layout_width="match_parent"
@@ -1083,6 +1082,7 @@
                         android:id="@+id/cv_config_transfer_user_view"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
                         android:layout_marginBottom="80dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -1098,9 +1098,9 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="16dp"
+                                android:text="@string/transferClientView"
                                 app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                tools:text="@string/transferClientView" />
+                                app:layout_constraintTop_toTopOf="parent" />
 
                             <com.google.android.material.card.MaterialCardView
                                 android:layout_width="match_parent"

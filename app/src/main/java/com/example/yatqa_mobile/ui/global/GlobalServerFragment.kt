@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.Observer
 import com.example.yatqa_mobile.R
 import com.example.yatqa_mobile.databinding.FragmentGlobalserverStatsConfigBinding
 import com.example.yatqa_mobile.ui.main.MainViewModel
@@ -16,6 +15,12 @@ class GlobalServerFragment : Fragment() {
 
     private lateinit var binding: FragmentGlobalserverStatsConfigBinding
     private val viewModel: MainViewModel by activityViewModels()
+
+    private val giB = 1073741824
+    private val gB = 1000000000
+    private val miB = 1073741824
+    private val mB = 1000000
+    private val kiB = 1024
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,216 +43,232 @@ class GlobalServerFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.connectionCompleted.observe(
-            viewLifecycleOwner,
-            Observer {
-                if (it) {
-                    viewModel.getHostInfo()
-                    viewModel.unsetConnectComplete()
-                }
+            viewLifecycleOwner
+        ) {
+            if (it) {
+                viewModel.getHostInfo()
+                viewModel.unsetConnectComplete()
             }
-        )
+        }
 
         viewModel.getGlobalDataCompleted.observe(
-            viewLifecycleOwner,
-            Observer {
-                if (it) {
+            viewLifecycleOwner
+        ) {
+            if (it) {
 
-                    //Virtual Server
-                    binding.tvServerValue.text =
-                        viewModel.hostInfo.totalRunningServers.toString() + "/10"
-                    binding.tvChannelValue.text = viewModel.hostInfo.totalChannels.toString()
-                    binding.tvUserValue.text =
-                        viewModel.hostInfo.totalClientsOnline.toString() + "/" + viewModel.hostInfo.totalMaxClients.toString()
+                //Virtual Server
+                binding.tvServerValue.text =
+                    viewModel.hostInfo.totalRunningServers.toString()
+                binding.tvChannelValue.text = viewModel.hostInfo.totalChannels.toString()
+                binding.tvUserValue.text = String.format(
+                    resources.getString(R.string.userOnlineValue),
+                    viewModel.hostInfo.totalClientsOnline.toString(),
+                    viewModel.hostInfo.totalMaxClients.toString()
+                )
 
-                    binding.ivVServerLeftIcon.setImageResource(R.drawable.server01_1)
-                    binding.ivVServerRightIcon.setImageResource(R.drawable.diagram1)
 
-                    //Current upload
-                    binding.tvCurUploadTotalSekValue.text =
-                        String.format(
+                binding.ivVServerLeftIcon.setImageResource(R.drawable.server01_1)
+                binding.ivVServerRightIcon.setImageResource(R.drawable.diagram1)
+
+                //Current upload
+                binding.tvCurUploadTotalSekValue.text = getString(
+                    R.string.strKibs, String.format(
+                        "%.2f",
+                        viewModel.hostInfo.bandwidthSentLastSecond.toDouble() / kiB
+                    )
+                )
+                binding.tvCurUploadTotalMinValue.text = getString(
+                    R.string.strKibs, String.format(
+                        "%.2f", viewModel.hostInfo.bandwidthSentLastMinute.toDouble() / kiB
+                    )
+                )
+                binding.tvCurUploadDataSekValue.text = getString(
+                    R.string.strKibs, String.format(
+                        "%.2f",
+                        viewModel.hostInfo.fileTransferBandwidthSent.toDouble() / kiB
+                    )
+                )
+                binding.ivCurrUploadLeftIcon.setImageResource(R.drawable.upload)
+
+                //Current download
+                binding.tvCurDownloadTotalSekValue.text = getString(
+                    R.string.strKibs, String.format(
+                        "%.2f",
+                        viewModel.hostInfo.bandwidthReceivedLastSecond.toDouble() / kiB
+                    )
+                )
+                binding.tvCurDownloadTotalMinValue.text = getString(
+                    R.string.strKibs, String.format(
+                        "%.2f",
+                        viewModel.hostInfo.bandwidthReceivedLastMinute.toDouble() / kiB
+                    )
+                )
+
+                binding.tvCurDownloadDataSekValue.text = getString(
+                    R.string.strKibs, String.format(
+                        "%.2f",
+                        viewModel.hostInfo.fileTransferBandwidthReceived.toDouble() / kiB
+                    )
+                )
+                binding.ivCurrDownloadLeftIcon.setImageResource(R.drawable.download)
+
+                //Transferred data
+                binding.tvTransferedSentValue.text = getString(
+                    R.string.strGib, String.format(
+                        "%.2f",
+                        viewModel.hostInfo.bytesSentTotal.toDouble() / giB
+                    )
+                )
+                binding.tvTransferedReceivedValue.text = getString(
+                    R.string.strGib, String.format(
+                        "%.2f",
+                        viewModel.hostInfo.bytesReceivedTotal.toDouble() / giB
+                    )
+                )
+                binding.tvTransferedSumValue.text = getString(
+                    R.string.strGib, String.format(
+                        "%.2f", (viewModel.hostInfo.bytesSentTotal.toDouble() +
+                                viewModel.hostInfo.bytesReceivedTotal.toDouble()) / giB
+                    )
+                )
+                binding.ivTransferedDataLeft.setImageResource(R.drawable.tranferred_data)
+                binding.ivTransferedDataRight.setImageResource(R.drawable.diagram2)
+
+                //Transferred packets
+                binding.tvPacketsSentValue.text = getString(
+                    R.string.strGb, String.format(
+                        "%.2f",
+                        viewModel.hostInfo.packetsSentTotal.toDouble() / gB
+                    )
+                )
+                binding.tvPacketsReceivedValue.text = getString(
+                    R.string.strMb, String.format(
+                        "%.2f",
+                        viewModel.hostInfo.packetsReceivedTotal.toDouble() / mB
+                    )
+                )
+                binding.tvPacketsSumValue.text = getString(
+                    R.string.strGb, String.format(
+                        "%.2f", (viewModel.hostInfo.packetsSentTotal.toDouble() +
+                                viewModel.hostInfo.packetsReceivedTotal.toDouble()) / gB
+                    )
+                )
+
+                binding.ivPacketsLeft.setImageResource(R.drawable.transferred_packages)
+                binding.ivPacketsRight.setImageResource(R.drawable.diagram2)
+
+                //Transferred files
+                binding.tvFilesSentValue.text = getString(
+                    R.string.strMib, String.format(
+                        "%.2f",
+                        viewModel.hostInfo.fileTransferBytesSent.toDouble() / miB
+                    )
+                )
+                binding.tvFilesReceivedValue.text = getString(
+                    R.string.strMib, String.format(
+                        "%.2f",
+                        viewModel.hostInfo.fileTransferBytesReceived.toDouble() / miB
+                    )
+                )
+                binding.tvFilesSumValue.text = getString(
+                    R.string.strMib, String.format(
+                        "%.2f", (viewModel.hostInfo.fileTransferBytesSent.toDouble() +
+                                viewModel.hostInfo.fileTransferBytesReceived.toDouble()) / miB
+                    )
+                )
+
+                //Server queries
+                binding.ivFilesLeft.setImageResource(R.drawable.transferred_files)
+                binding.ivFilesRight.setImageResource(R.drawable.diagram2)
+
+                binding.tvGuestQueryGroupValue.text =
+                    viewModel.instanceInfo.guestServerQueryGroup.toString()
+                binding.tvCommandsTillFloodValue.text =
+                    viewModel.instanceInfo.maxFloodCommands.toString()
+                binding.tvPeriodFloodValue.text = viewModel.instanceInfo.maxFloodTime.toString()
+                binding.tvBanTimeFloodValue.text =
+                    viewModel.instanceInfo.floodBanTime.toString()
+                binding.tvQueryConnectionsPerIpValue.text =
+                    viewModel.instanceInfo["serverinstance_serverquery_max_connections_per_ip"]
+
+                binding.ivServerQuerys.setImageResource(R.drawable.spyglass)
+
+                //Standard groups
+                binding.tvServeradminGroupTemplateId.text =
+                    viewModel.instanceInfo.serverAdminGroup.toString()
+                binding.tvServerguestGroupTemplateId.text =
+                    viewModel.instanceInfo.defaultServerGroup.toString()
+                binding.tvChanneladminGroupTemplateId.text =
+                    viewModel.instanceInfo.channelAdminGroup.toString()
+                binding.tvChannelguestGroupTemplateId.text =
+                    viewModel.instanceInfo.defaultChannelGroup.toString()
+
+                binding.ivStandradGroups.setImageResource(R.drawable.groups)
+
+                //file transfer user view
+                val currentBandwidthUpload =
+                    viewModel.instanceInfo["serverinstance_max_upload_total_bandwidth"].toBigInteger()
+                val currentBandwidthDownload =
+                    viewModel.instanceInfo["serverinstance_max_download_total_bandwidth"].toBigInteger()
+                val defaultBandwidth = ("18446744073709551615").toBigInteger()
+
+                if (currentBandwidthUpload == defaultBandwidth) {
+                    binding.tvTransferMaxUploadValue.text = getString(R.string.unlimited)
+                } else if (currentBandwidthUpload > (giB).toBigInteger()) {
+                    binding.tvTransferMaxUploadValue.text = getString(
+                        R.string.strGibs, String.format(
                             "%.2f",
-                            viewModel.hostInfo.bandwidthSentLastSecond.toDouble() / 1024
-                        ) + " KiB/s"
-                    binding.tvCurUploadTotalMinValue.text =
-                        String.format(
+                            (currentBandwidthUpload.toDouble() / giB)
+                        )
+                    )
+                } else if (currentBandwidthUpload > (miB).toBigInteger()) {
+                    binding.tvTransferMaxUploadValue.text = getString(
+                        R.string.strMibs, String.format(
                             "%.2f",
-                            viewModel.hostInfo.bandwidthSentLastMinute.toDouble() / 1024
-                        ) + " KiB/s"
-                    binding.tvCurUploadDataSekValue.text =
-                        String.format(
+                            (currentBandwidthUpload.toDouble() / miB)
+                        )
+                    )
+                } else {
+                    binding.tvTransferMaxUploadValue.text = getString(
+                        R.string.strKibs, String.format(
                             "%.2f",
-                            viewModel.hostInfo.fileTransferBandwidthSent.toDouble() / 1024
-                        ) + " KiB/s"
-
-                    binding.ivCurrUploadLeftIcon.setImageResource(R.drawable.upload)
-
-                    //Current download
-                    binding.tvCurDownloadTotalSekValue.text =
-                        String.format(
-                            "%.2f",
-                            viewModel.hostInfo.bandwidthReceivedLastSecond.toDouble() / 1024
-                        ) + " KiB/s"
-                    binding.tvCurDownloadTotalMinValue.text =
-                        String.format(
-                            "%.2f",
-                            viewModel.hostInfo.bandwidthReceivedLastMinute.toDouble() / 1024
-                        ) + " KiB/s"
-                    binding.tvCurDownloadDataSekValue.text =
-                        String.format(
-                            "%.2f",
-                            viewModel.hostInfo.fileTransferBandwidthReceived.toDouble() / 1024
-                        ) + " KiB/s"
-
-                    binding.ivCurrDownloadLeftIcon.setImageResource(R.drawable.download)
-
-                    //Transferred data
-                    binding.tvTransferedSendValue.text =
-                        String.format(
-                            "%.2f",
-                            viewModel.hostInfo.bytesSentTotal.toDouble() / 1073741824
-                        ) + " GiB"
-                    binding.tvTransferedReceivedValue.text =
-                        String.format(
-                            "%.2f",
-                            viewModel.hostInfo.bytesReceivedTotal.toDouble() / 1073741824
-                        ) + " GiB"
-                    binding.tvTransferedSumValue.text =
-                        String.format(
-                            "%.2f", (viewModel.hostInfo.bytesSentTotal.toDouble() +
-                                    viewModel.hostInfo.bytesReceivedTotal.toDouble()) / 1073741824
-                        ) + " GiB"
-
-                    binding.ivTransferedDataLeft.setImageResource(R.drawable.tranferred_data)
-                    binding.ivTransferedDataRight.setImageResource(R.drawable.diagram2)
-
-                    //Transferred packets
-                    binding.tvPacketsSendValue.text =
-                        String.format(
-                            "%.2f",
-                            viewModel.hostInfo.packetsSentTotal.toDouble() / 1000000000
-                        ) + " G"
-                    binding.tvPacketsReceivedValue.text =
-                        String.format(
-                            "%.2f",
-                            viewModel.hostInfo.packetsReceivedTotal.toDouble() / 1000000
-                        ) + " M"
-                    binding.tvPacketsSumValue.text =
-                        String.format(
-                            "%.2f", (viewModel.hostInfo.packetsSentTotal.toDouble() +
-                                    viewModel.hostInfo.packetsReceivedTotal.toDouble()) / 1000000000
-                        ) + " G"
-
-                    binding.ivPacketsLeft.setImageResource(R.drawable.transferred_packages)
-                    binding.ivPacketsRight.setImageResource(R.drawable.diagram2)
-
-                    //Transferred files
-                    binding.tvFilesSendValue.text =
-                        String.format(
-                            "%.2f",
-                            viewModel.hostInfo.fileTransferBytesSent.toDouble() / 1048576
-                        ) + " MiB"
-                    binding.tvFilesReceivedValue.text =
-                        String.format(
-                            "%.2f",
-                            viewModel.hostInfo.fileTransferBytesReceived.toDouble() / 1048576
-                        ) + " MiB"
-                    binding.tvFilesSumValue.text =
-                        String.format(
-                            "%.2f", (viewModel.hostInfo.fileTransferBytesSent.toDouble() +
-                                    viewModel.hostInfo.fileTransferBytesReceived.toDouble()) / 1048576
-                        ) + " MiB"
-
-                    //Server queries
-                    binding.ivFilesLeft.setImageResource(R.drawable.transferred_files)
-                    binding.ivFilesRight.setImageResource(R.drawable.diagram2)
-
-                    binding.tvGuestQueryGroupValue.text =
-                        viewModel.instanceInfo.guestServerQueryGroup.toString()
-                    binding.tvCommandsTillFloodValue.text =
-                        viewModel.instanceInfo.maxFloodCommands.toString()
-                    binding.tvPeriodFloodValue.text = viewModel.instanceInfo.maxFloodTime.toString()
-                    binding.tvBanTimeFloodValue.text =
-                        viewModel.instanceInfo.floodBanTime.toString()
-                    binding.tvQueryConnectionsPerIpValue.text =
-                        viewModel.instanceInfo["serverinstance_serverquery_max_connections_per_ip"]
-
-                    binding.ivServerQuerys.setImageResource(R.drawable.spyglass)
-
-                    //Standard groups
-                    binding.tvServeradminGroupTemplateId.text =
-                        viewModel.instanceInfo.serverAdminGroup.toString()
-                    binding.tvServerguestGroupTemplateId.text =
-                        viewModel.instanceInfo.defaultServerGroup.toString()
-                    binding.tvChanneladminGroupTemplateId.text =
-                        viewModel.instanceInfo.channelAdminGroup.toString()
-                    binding.tvChannelguestGroupTemplateId.text =
-                        viewModel.instanceInfo.defaultChannelGroup.toString()
-
-                    binding.ivStandradGroups.setImageResource(R.drawable.groups)
-
-                    //file transfer user view
-                    val currentBandwidthUpload =
-                        viewModel.instanceInfo["serverinstance_max_upload_total_bandwidth"].toBigInteger()
-                    val currentBandwidthDownload =
-                        viewModel.instanceInfo["serverinstance_max_download_total_bandwidth"].toBigInteger()
-                    val defaultBandwidth = ("18446744073709551615").toBigInteger()
-
-                    if (currentBandwidthUpload == defaultBandwidth) {
-                        binding.tvTransferMaxUploadValue.text = getString(R.string.unlimited)
-                    } else if (currentBandwidthUpload > (1073741824).toBigInteger()) {
-                        binding.tvTransferMaxUploadValue.text =
-                            String.format(
-                                "%.2f",
-                                (currentBandwidthUpload.toDouble() / 1073741824)
-                            ) + " GiB/s"
-                    } else if (currentBandwidthUpload > (1048576).toBigInteger()) {
-                        binding.tvTransferMaxUploadValue.text =
-                            String.format(
-                                "%.2f",
-                                (currentBandwidthUpload.toDouble() / 1048576)
-                            ) + " MiB/s"
-                    } else{
-                        binding.tvTransferMaxUploadValue.text =
-                            String.format(
-                                "%.2f",
-                                (currentBandwidthUpload.toDouble() / 1024)
-                            ) + " kiB/s"
-                    }
-
-                    if (currentBandwidthDownload == defaultBandwidth) {
-                        binding.tvTransferMaxDownloadValue.text = getString(R.string.unlimited)
-                    } else if (currentBandwidthDownload > (1073741824).toBigInteger()) {
-                        binding.tvTransferMaxDownloadValue.text =
-                            String.format(
-                                "%.2f",
-                                (currentBandwidthDownload.toDouble() / 1073741824)
-                            ) + " GiB/s"
-                    } else if (currentBandwidthDownload > (1048576).toBigInteger()) {
-                        binding.tvTransferMaxDownloadValue.text =
-                            String.format(
-                                "%.2f",
-                                (currentBandwidthDownload.toDouble() / 1048576)
-                            ) + " MiB/s"
-                    } else{
-                        binding.tvTransferMaxDownloadValue.text =
-                            String.format(
-                                "%.2f",
-                                (currentBandwidthDownload.toDouble() / 1024)
-                            ) + " kiB/s"
-                    }
-
-
-                    /*if (viewModel.instanceInfo.maxDownloadBandwidth == (defaultBandwidth)){
-                        binding.tvTransferMaxDownloadValue.text = getString(R.string.unlimited)
-                    }*/
-                        binding.tvTransferPortValue.text =
-                            viewModel.instanceInfo.fileTransferPort.toString()
-
-                    binding.ivTransfer.setImageResource(R.drawable.transfer)
-
-                    viewModel.unsetGetDataComplete()
+                            (currentBandwidthUpload.toDouble() / kiB)
+                        )
+                    )
                 }
+
+                if (currentBandwidthDownload == defaultBandwidth) {
+                    binding.tvTransferMaxDownloadValue.text = getString(R.string.unlimited)
+                } else if (currentBandwidthDownload > (giB).toBigInteger()) {
+                    binding.tvTransferMaxDownloadValue.text = getString(
+                        R.string.strGibs, String.format(
+                            "%.2f",
+                            (currentBandwidthDownload.toDouble() / giB)
+                        )
+                    )
+                } else if (currentBandwidthDownload > (miB).toBigInteger()) {
+                    binding.tvTransferMaxDownloadValue.text = getString(
+                        R.string.strMibs, String.format(
+                            "%.2f",
+                            (currentBandwidthDownload.toDouble() / miB)
+                        )
+                    )
+                } else {
+                    binding.tvTransferMaxDownloadValue.text = getString(
+                        R.string.strKibs, String.format(
+                            "%.2f",
+                            (currentBandwidthDownload.toDouble() / kiB)
+                        )
+                    )
+                }
+
+                binding.tvTransferPortValue.text =
+                    viewModel.instanceInfo.fileTransferPort.toString()
+
+                binding.ivTransfer.setImageResource(R.drawable.transfer)
+
+                viewModel.unsetGetDataComplete()
             }
-        )
+        }
     }
 }

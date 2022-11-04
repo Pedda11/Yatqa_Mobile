@@ -67,14 +67,6 @@ class LoginFragment : Fragment() {
             }
         }
 
-        viewModel.connectionCompleted.observe(
-            viewLifecycleOwner
-        ) {
-            if (it) {
-                findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToFavoritesFragment())
-            }
-        }
-
         binding.cbSaveToFav.setOnClickListener {
             if (binding.cbSaveToFav.isChecked) {
                 binding.editTilListName.visibility = View.VISIBLE
