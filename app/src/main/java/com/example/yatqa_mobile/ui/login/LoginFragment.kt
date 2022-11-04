@@ -85,6 +85,7 @@ class LoginFragment : Fragment() {
 
         binding.btnLogin.setOnClickListener {
 
+
             if (loginId != 0) {
                 try {
                     val ip = binding.editTextInputIp.text.toString()
@@ -110,31 +111,44 @@ class LoginFragment : Fragment() {
                     Log.e("LoginFragment", "btnLoginClicked changing Logindata: $e")
                 }
             }
-            if (binding.cbSaveToFav.isChecked) {
-                try {
-                    val ip = binding.editTextInputIp.text.toString()
-                    val qPort = binding.editTextInputQport.text.toString().toInt()
-                    val port = binding.editTextInputPort.text.toString().toInt()
-                    val userName = binding.editTextInputUserName.text.toString()
-                    val userPassword = binding.editTextInputUserPassword.text.toString()
-                    val listName = binding.editTextInputListName.text.toString()
-                    val newLogin = Login(
-                        id = 0,
-                        ip = ip,
-                        qPort = qPort,
-                        port = port,
-                        userName = userName,
-                        userPassword = userPassword,
-                        listName = listName
-                    )
 
-                    viewModel.insert(newLogin)
+            try {
+                val ip = binding.editTextInputIp.text.toString()
+                val qPort = binding.editTextInputQport.text.toString().toInt()
+                val port = binding.editTextInputPort.text.toString().toInt()
+                val userName = binding.editTextInputUserName.text.toString()
+                val userPassword = binding.editTextInputUserPassword.text.toString()
+                val listName = binding.editTextInputListName.text.toString()
+                val newLogin = Login(
+                    id = 0,
+                    ip = ip,
+                    qPort = qPort,
+                    port = port,
+                    userName = userName,
+                    userPassword = userPassword,
+                    listName = listName
+                )
 
+                if (binding.cbSaveToFav.isChecked) {
+                    saveNewLogin(newLogin)
+                } else{
+                    viewModel.ts3ApiConnect(newLogin)
                     findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToGlobalServerFragment())
-                } catch (e: Exception) {
-                    Log.e("LoginFragment", "btnLoginClicked with new Login: $e")
                 }
+
+            } catch (e: Exception) {
+                Log.e("LoginFragment", "Login credentials, connect: $e")
             }
+        }
+    }
+
+    private fun saveNewLogin(newLogin: Login) {
+        try {
+            viewModel.insert(newLogin)
+
+            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToFavoritesFragment())
+        } catch (e: Exception) {
+            Log.e("LoginFragment", "saveNewLogin, goto favorites: $e")
         }
     }
 }

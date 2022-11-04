@@ -1,5 +1,8 @@
 <resources>
+    //App name
     <string name="app_name">Yatqa</string>
+
+    /login and favorite fragment
     <string name="connect">Verbinden</string>
     <string name="saveToFav">in Favoriten speichern</string>
     <string name="toFav">Zur Favoritenliste</string>
@@ -10,8 +13,9 @@
     <string name="del">Löschen</string>
     <string name="saveChanges">änderungen speichern</string>
     <string name="toLogin">zum manuellen Login</string>
+
+    //global stats
     <string name="Stats">Statistiken(aus Sicht des Servers)</string>
-    <string name="config">Konfigurationen</string>
     <string name="vServerTitle">Virtelle Server</string>
     <string name="vServerOnline">Server online:</string>
     <string name="useOnline">Benutzer:</string>
@@ -27,4 +31,23 @@
     <string name="transferredSum">Summe:</string>
     <string name="transferredPacketsTitle">Übertragene Packete seit Start</string>
     <string name="transferredFilesTitle">Übertragene Dateien seit Start</string>
+
+    //global config
+    <string name="config">Konfigurationen</string>
+    <string name="serverQueriesTitle">Serverquerys</string>
+    <string name="queryGuestGroup">Query-Gast-Gruppe:</string>
+    <string name="queryCommandsTillFlood">Befehle bis Flood:</string>
+    <string name="queryPeriodTillFlood">Zeitraum für Flood:</string>
+    <string name="queryBanTimeFlood">Bannzeit für Flood:</string>
+    <string name="queryConnectionPerIp">Query-Verbindungen je IP:</string>
+    <string name="standardGroupsTitle">Standartgruppen</string>
+    <string name="serverAdminTemplate">Serveradmin-Vorlage:</string>
+    <string name="ServerGuestTemplate">Servergast-Vorlage:</string>
+    <string name="channelAdminTemplate">Channeladmin-Vorlage:</string>
+    <string name="channelGuestTemplate">Channelgast-Vorlage:</string>
+    <string name="transferClientView">Dateitransfers und -Limits aus Benutzersicht</string>
+    <string name="transferMaxUpload">Maximaler Upload:</string>
+    <string name="transferMaxDownload">Maximaler Download:</string>
+    <string name="transferPort">Dateitransfer-Port:</string>
+    <string name="unlimited">unbegrenzt:</string>
 </resources>

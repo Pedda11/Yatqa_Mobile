@@ -67,6 +67,7 @@ class FavoritesAdapter(
 
         holder.btnDel.setOnClickListener {
             removeLogin(fav)
+            notifyDataSetChanged()
         }
 
         holder.btnEdit.setOnClickListener {

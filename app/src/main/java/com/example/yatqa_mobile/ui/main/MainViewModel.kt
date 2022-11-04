@@ -9,6 +9,7 @@ import com.example.yatqa_mobile.data.Repository
 import com.example.yatqa_mobile.data.datamodels.Login
 import com.example.yatqa_mobile.data.local.getDatabase
 import com.github.theholywaffle.teamspeak3.api.wrapper.HostInfo
+import com.github.theholywaffle.teamspeak3.api.wrapper.InstanceInfo
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -20,6 +21,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     val loginList = repository.loginList
     lateinit var hostInfo: HostInfo
+    lateinit var instanceInfo: InstanceInfo
 
     //to observe loading times
     private val _connectionCompleted = MutableLiveData(false)
@@ -70,6 +72,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     fun getHostInfo() {
         viewModelScope.launch {
             hostInfo = repository.apiGetGlobalData()!!
+            instanceInfo = repository.apiGetInstanceData()!!
             setGetDataComplete()
         }
     }

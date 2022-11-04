@@ -157,8 +157,93 @@ class GlobalServerFragment : Fragment() {
                                     viewModel.hostInfo.fileTransferBytesReceived.toDouble()) / 1048576
                         ) + " MiB"
 
+                    //Server queries
                     binding.ivFilesLeft.setImageResource(R.drawable.transferred_files)
                     binding.ivFilesRight.setImageResource(R.drawable.diagram2)
+
+                    binding.tvGuestQueryGroupValue.text =
+                        viewModel.instanceInfo.guestServerQueryGroup.toString()
+                    binding.tvCommandsTillFloodValue.text =
+                        viewModel.instanceInfo.maxFloodCommands.toString()
+                    binding.tvPeriodFloodValue.text = viewModel.instanceInfo.maxFloodTime.toString()
+                    binding.tvBanTimeFloodValue.text =
+                        viewModel.instanceInfo.floodBanTime.toString()
+                    binding.tvQueryConnectionsPerIpValue.text =
+                        viewModel.instanceInfo["serverinstance_serverquery_max_connections_per_ip"]
+
+                    binding.ivServerQuerys.setImageResource(R.drawable.spyglass)
+
+                    //Standard groups
+                    binding.tvServeradminGroupTemplateId.text =
+                        viewModel.instanceInfo.serverAdminGroup.toString()
+                    binding.tvServerguestGroupTemplateId.text =
+                        viewModel.instanceInfo.defaultServerGroup.toString()
+                    binding.tvChanneladminGroupTemplateId.text =
+                        viewModel.instanceInfo.channelAdminGroup.toString()
+                    binding.tvChannelguestGroupTemplateId.text =
+                        viewModel.instanceInfo.defaultChannelGroup.toString()
+
+                    binding.ivStandradGroups.setImageResource(R.drawable.groups)
+
+                    //file transfer user view
+                    val currentBandwidthUpload =
+                        viewModel.instanceInfo["serverinstance_max_upload_total_bandwidth"].toBigInteger()
+                    val currentBandwidthDownload =
+                        viewModel.instanceInfo["serverinstance_max_download_total_bandwidth"].toBigInteger()
+                    val defaultBandwidth = ("18446744073709551615").toBigInteger()
+
+                    if (currentBandwidthUpload == defaultBandwidth) {
+                        binding.tvTransferMaxUploadValue.text = getString(R.string.unlimited)
+                    } else if (currentBandwidthUpload > (1073741824).toBigInteger()) {
+                        binding.tvTransferMaxUploadValue.text =
+                            String.format(
+                                "%.2f",
+                                (currentBandwidthUpload.toDouble() / 1073741824)
+                            ) + " GiB/s"
+                    } else if (currentBandwidthUpload > (1048576).toBigInteger()) {
+                        binding.tvTransferMaxUploadValue.text =
+                            String.format(
+                                "%.2f",
+                                (currentBandwidthUpload.toDouble() / 1048576)
+                            ) + " MiB/s"
+                    } else{
+                        binding.tvTransferMaxUploadValue.text =
+                            String.format(
+                                "%.2f",
+                                (currentBandwidthUpload.toDouble() / 1024)
+                            ) + " kiB/s"
+                    }
+
+                    if (currentBandwidthDownload == defaultBandwidth) {
+                        binding.tvTransferMaxDownloadValue.text = getString(R.string.unlimited)
+                    } else if (currentBandwidthDownload > (1073741824).toBigInteger()) {
+                        binding.tvTransferMaxDownloadValue.text =
+                            String.format(
+                                "%.2f",
+                                (currentBandwidthDownload.toDouble() / 1073741824)
+                            ) + " GiB/s"
+                    } else if (currentBandwidthDownload > (1048576).toBigInteger()) {
+                        binding.tvTransferMaxDownloadValue.text =
+                            String.format(
+                                "%.2f",
+                                (currentBandwidthDownload.toDouble() / 1048576)
+                            ) + " MiB/s"
+                    } else{
+                        binding.tvTransferMaxDownloadValue.text =
+                            String.format(
+                                "%.2f",
+                                (currentBandwidthDownload.toDouble() / 1024)
+                            ) + " kiB/s"
+                    }
+
+
+                    /*if (viewModel.instanceInfo.maxDownloadBandwidth == (defaultBandwidth)){
+                        binding.tvTransferMaxDownloadValue.text = getString(R.string.unlimited)
+                    }*/
+                        binding.tvTransferPortValue.text =
+                            viewModel.instanceInfo.fileTransferPort.toString()
+
+                    binding.ivTransfer.setImageResource(R.drawable.transfer)
 
                     viewModel.unsetGetDataComplete()
                 }

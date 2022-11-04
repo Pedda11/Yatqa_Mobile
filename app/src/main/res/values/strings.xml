@@ -1,5 +1,8 @@
 <resources>
+    //App name
     <string name="app_name">Yatqa</string>
+
+    /login and favorite fragment
     <string name="connect">connect</string>
     <string name="saveToFav">save to favorites</string>
     <string name="toFav">go to favorites</string>
@@ -10,8 +13,9 @@
     <string name="del">delete</string>
     <string name="saveChanges">save changes</string>
     <string name="toLogin">go to manuel login</string>
+
+    //global stats
     <string name="Stats">Statistics(From the server\'s point of view)</string>
-    <string name="config">Configurations</string>
     <string name="vServerTitle">Virtual server</string>
     <string name="vServerOnline">Server online:</string>
     <string name="useOnline">User:</string>
@@ -27,4 +31,23 @@
     <string name="transferredSum">Sum:</string>
     <string name="transferredPacketsTitle">Transferred packets since start</string>
     <string name="transferredFilesTitle">Transferred files since start</string>
+
+    //global config
+    <string name="config">Configurations</string>
+    <string name="serverQueriesTitle">Server queries</string>
+    <string name="queryGuestGroup">Query-guest-group:</string>
+    <string name="queryCommandsTillFlood">Commands till flood:</string>
+    <string name="queryPeriodTillFlood">Period till flood:</string>
+    <string name="queryBanTimeFlood">Ban time for flood:</string>
+    <string name="queryConnectionPerIp">Query-connections per IP:</string>
+    <string name="standardGroupsTitle">Standardgroups</string>
+    <string name="serverAdminTemplate">Serveradmin-Template:</string>
+    <string name="ServerGuestTemplate">Serverguest-Template:</string>
+    <string name="channelAdminTemplate">Channeladmin-Template:</string>
+    <string name="channelGuestTemplate">Channelguest-Template:</string>
+    <string name="transferClientView">File transfers and limits from the user\'s perspective</string>
+    <string name="transferMaxUpload">Maximum upload:</string>
+    <string name="transferMaxDownload">Maximum download:</string>
+    <string name="transferPort">File transfer port:</string>
+    <string name="unlimited">unlimited:</string>
 </resources>

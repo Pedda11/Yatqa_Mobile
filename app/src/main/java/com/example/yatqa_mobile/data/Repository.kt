@@ -9,6 +9,7 @@ import com.github.theholywaffle.teamspeak3.TS3Api
 import com.github.theholywaffle.teamspeak3.TS3Config
 import com.github.theholywaffle.teamspeak3.TS3Query
 import com.github.theholywaffle.teamspeak3.api.wrapper.HostInfo
+import com.github.theholywaffle.teamspeak3.api.wrapper.InstanceInfo
 
 const val TAG = "Repository"
 
@@ -69,6 +70,15 @@ class Repository(private val database: LoginDatabase) {
             _ts3Api.value?.hostInfo
         } catch (e: Exception) {
             Log.e(TAG, "Error while getting HostInfo from _ts3Api: $e")
+            null
+        }
+    }
+
+    fun apiGetInstanceData(): InstanceInfo? {
+        return try {
+            _ts3Api.value?.instanceInfo
+        } catch (e: Exception) {
+            Log.e(TAG, "Error while getting InstanceInfo from _ts3Api: $e")
             null
         }
     }
