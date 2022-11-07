@@ -1,11 +1,13 @@
 package com.example.yatqa_mobile.ui.main
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.yatqa_mobile.data.Repository
+import com.example.yatqa_mobile.data.TAG
 import com.example.yatqa_mobile.data.datamodels.Login
 import com.example.yatqa_mobile.data.local.getDatabase
 import com.github.theholywaffle.teamspeak3.api.wrapper.HostInfo
@@ -71,9 +73,13 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     fun getHostInfo() {
         viewModelScope.launch {
-            hostInfo = repository.apiGetGlobalData()!!
-            instanceInfo = repository.apiGetInstanceData()!!
-            setGetDataComplete()
+            try {
+                hostInfo = repository.apiGetGlobalData()!!
+                instanceInfo = repository.apiGetInstanceData()!!
+                setGetDataComplete()
+            }catch (e: Exception){
+                Log.e(TAG, "getting hostInfo and instanceInfo $e")
+            }
         }
     }
 
