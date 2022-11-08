@@ -63,4 +63,11 @@
 
     //other
     <string name="slash">/</string>
+
+    //bottom navigation bar
+    <string name="btnHome">Home</string>
+    <string name="btnStats">Stats</string>
+    <string name="btnServer">Server</string>
+    <string name="btnOthers">Others</string>
+    <string name="btnAdvanced">Advanced</string>
 </resources>

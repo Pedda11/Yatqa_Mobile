@@ -9,13 +9,13 @@
         android:name="com.example.yatqa_mobile.ui.login.LoginFragment"
         android:label="LoginFragment" >
         <action
-            android:id="@+id/action_loginFragment_to_globalServerFragment"
-            app:destination="@id/globalServerFragment" />
-        <action
             android:id="@+id/action_loginFragment_to_favoritesFragment"
             app:destination="@id/favoritesFragment" />
         <argument android:name="loginId"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_loginFragment_to_globalServerFragment"
+            app:destination="@id/globalServerFragment" />
     </fragment>
     <fragment
         android:id="@+id/favoritesFragment"
@@ -31,5 +31,9 @@
     <fragment
         android:id="@+id/globalServerFragment"
         android:name="com.example.yatqa_mobile.ui.global.GlobalServerFragment"
-        android:label="GlobalServerFragment" />
+        android:label="GlobalServerFragment" >
+        <action
+            android:id="@+id/action_globalServerFragment_to_favoritesFragment"
+            app:destination="@id/favoritesFragment" />
+    </fragment>
 </navigation>

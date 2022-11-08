@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import com.example.yatqa_mobile.MainActivity
 import com.example.yatqa_mobile.R
 import com.example.yatqa_mobile.databinding.FragmentGlobalserverStatsConfigBinding
 import com.example.yatqa_mobile.ui.main.MainViewModel
@@ -37,6 +38,11 @@ class GlobalServerFragment : Fragment() {
         binding.lifecycleOwner = this.viewLifecycleOwner
 
         return binding.root
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        (activity as MainActivity).bottomNavBarVisible(1)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

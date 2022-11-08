@@ -19,7 +19,7 @@
     <string name="vServerTitle">Virtelle Server</string>
     <string name="vServerOnline">Server online:</string>
     <string name="useOnline">Benutzer:</string>
-    <string name="userOnlineValue">%$1s/%$2s</string>
+    <string name="userOnlineValue">%1$s/%2$s</string>
     <string name="channel">Channel:</string>
     <string name="currUploadTitle">Derzeitiger Upload</string>
     <string name="currTotalSek">Gesamt diese Sek:</string>
@@ -63,4 +63,11 @@
 
     //other
     <string name="slash">/</string>
+
+    //bottom navigation bar
+    <string name="btnHome">Home</string>
+    <string name="btnStats">Statistik</string>
+    <string name="btnServer">Server</string>
+    <string name="btnOthers">Sonstiges</string>
+    <string name="btnAdvanced">Erweitert</string>
 </resources>
