@@ -6,20 +6,19 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.cardview.widget.CardView
-import androidx.lifecycle.viewmodel.viewModelFactory
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.yatqa_mobile.R
 import com.example.yatqa_mobile.data.datamodels.Login
 import com.example.yatqa_mobile.ui.login.FavoritesFragmentDirections
-import com.github.theholywaffle.teamspeak3.TS3Config
-import com.github.theholywaffle.teamspeak3.TS3Query
 
 class FavoritesAdapter(
     private val dataset: List<Login>,
     val ts3ApiConnect: (Login) -> Unit,
     val removeLogin: (Login) -> Unit
 ) : RecyclerView.Adapter<FavoritesAdapter.ItemViewHolder>() {
+
+    lateinit var recycler:RecyclerView
 
     inner class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val card: CardView = itemView.findViewById(R.id.cv_fav_item)
@@ -38,7 +37,7 @@ class FavoritesAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
 
         val itemLayout = LayoutInflater.from(parent.context)
-            .inflate(R.layout.fav_item, parent, false)
+            .inflate(R.layout.fav_list_item, parent, false)
 
         return ItemViewHolder(itemLayout)
     }
@@ -60,6 +59,17 @@ class FavoritesAdapter(
         holder.tvUserName.text = fav.userName
 
         holder.card.setOnLongClickListener {
+
+            for (c in dataset.indices){
+                recycler.findViewHolderForAdapterPosition(c).also { holder ->
+
+                    (holder as ItemViewHolder).btnEdit.visibility = View.GONE
+                    holder.btnDel.visibility = View.GONE
+                }
+            }
+
+
+
             holder.btnEdit.visibility = View.VISIBLE
             holder.btnDel.visibility = View.VISIBLE
             true
@@ -85,5 +95,11 @@ class FavoritesAdapter(
      */
     override fun getItemCount(): Int {
         return dataset.size
+    }
+
+    override fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
+        super.onAttachedToRecyclerView(recyclerView)
+
+        recycler = recyclerView
     }
 }

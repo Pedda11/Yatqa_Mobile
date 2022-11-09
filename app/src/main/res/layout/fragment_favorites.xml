@@ -13,7 +13,7 @@
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/top_nav_bar_fav"
-            android:layout_width="409dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="?attr/colorPrimary"
             android:minHeight="?attr/actionBarSize"
@@ -41,7 +41,7 @@
                 android:layout_height="match_parent"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:itemCount="24"
-                tools:listitem="@layout/fav_item" />
+                tools:listitem="@layout/fav_list_item" />
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.button.MaterialButton

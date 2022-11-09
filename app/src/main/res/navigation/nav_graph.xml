@@ -35,5 +35,12 @@
         <action
             android:id="@+id/action_globalServerFragment_to_favoritesFragment"
             app:destination="@id/favoritesFragment" />
+        <action
+            android:id="@+id/action_globalServerFragment_to_serverListFragment"
+            app:destination="@id/serverListFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/serverListFragment"
+        android:name="com.example.yatqa_mobile.ui.global.ServerListFragment"
+        android:label="ServerListFragment" />
 </navigation>

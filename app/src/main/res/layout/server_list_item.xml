@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cv_fav_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:backgroundTint="@color/light_blue"
+        app:cardCornerRadius="24dp"
+        app:contentPadding="5dp"
+        app:contentPaddingLeft="8dp"
+        app:contentPaddingRight="8dp"
+        app:strokeColor="@color/dark_blue"
+        app:strokeWidth="3dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4">
+
+                    <TextView
+                        android:id="@+id/tv_serverName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.12"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Servername" />
+
+                    <View
+                        android:id="@+id/view3"
+                        android:layout_width="1dp"
+                        android:layout_height="0dp"
+                        android:background="#000000"
+                        app:layout_constraintBottom_toBottomOf="@+id/tv_serverName"
+                        app:layout_constraintStart_toEndOf="@+id/tv_serverName"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_port"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:layout_constraintStart_toEndOf="@+id/view3"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="9987" />
+
+                    <View
+                        android:id="@+id/view4"
+                        android:layout_width="1dp"
+                        android:layout_height="0dp"
+                        android:background="#000000"
+                        app:layout_constraintBottom_toBottomOf="@+id/tv_serverName"
+                        app:layout_constraintStart_toEndOf="@+id/tv_port"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_slots"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        app:layout_constraintStart_toEndOf="@+id/view4"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="100+100/100" />
+
+                    <View
+                        android:id="@+id/view5"
+                        android:layout_width="1dp"
+                        android:layout_height="0dp"
+                        android:background="#000000"
+                        app:layout_constraintBottom_toBottomOf="@+id/tv_serverName"
+                        app:layout_constraintStart_toEndOf="@+id/tv_slots"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_running_since"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        app:layout_constraintStart_toEndOf="@+id/view5"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="100d 23:59" />
+
+                    <View
+                        android:id="@+id/view6"
+                        android:layout_width="1dp"
+                        android:layout_height="0dp"
+                        android:background="#000000"
+                        app:layout_constraintBottom_toBottomOf="@+id/tv_serverName"
+                        app:layout_constraintStart_toEndOf="@+id/tv_running_since"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_autostart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:layout_constraintStart_toEndOf="@+id/view6"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Yes" />
+
+                    <View
+                        android:id="@+id/view7"
+                        android:layout_width="1dp"
+                        android:layout_height="0dp"
+                        android:background="#000000"
+                        app:layout_constraintBottom_toBottomOf="@+id/tv_serverName"
+                        app:layout_constraintStart_toEndOf="@+id/tv_autostart"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_serverId"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:layout_constraintStart_toEndOf="@+id/view7"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Yes" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="48dp"
+                android:text="@string/edit"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="@+id/linearLayout2"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+                tools:visibility="gone" />
+
+            <Button
+                android:id="@+id/btn_del"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="48dp"
+                android:text="@string/del"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+                tools:visibility="gone" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>
