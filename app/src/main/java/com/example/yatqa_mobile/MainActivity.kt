@@ -10,6 +10,7 @@ import android.widget.LinearLayout
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
@@ -17,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.yatqa_mobile.databinding.ActivityMainBinding
 import com.example.yatqa_mobile.ui.global.GlobalServerFragment
 import com.example.yatqa_mobile.ui.global.GlobalServerFragmentDirections
+import com.example.yatqa_mobile.ui.main.MainViewModel
 
 class MainActivity : AppCompatActivity() {
 
@@ -65,38 +67,38 @@ class MainActivity : AppCompatActivity() {
         when (activeId) {
             0 -> {
                 binding.llHome.setBackgroundColor(ContextCompat.getColor(this, R.color.light_blue))
-                binding.llStats.setBackgroundColor(resources.getColor(R.color.white))
-                binding.llServer.setBackgroundColor(resources.getColor(R.color.white))
-                binding.llOther.setBackgroundColor(resources.getColor(R.color.white))
-                binding.llAdvanced.setBackgroundColor(resources.getColor(R.color.white))
+                binding.llStats.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+                binding.llServer.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+                binding.llOther.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+                binding.llAdvanced.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
             }
             1 -> {
-                binding.llHome.setBackgroundColor(resources.getColor(R.color.white))
-                binding.llStats.setBackgroundColor(resources.getColor(R.color.light_blue))
-                binding.llServer.setBackgroundColor(resources.getColor(R.color.white))
-                binding.llOther.setBackgroundColor(resources.getColor(R.color.white))
-                binding.llAdvanced.setBackgroundColor(resources.getColor(R.color.white))
+                binding.llHome.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+                binding.llStats.setBackgroundColor(ContextCompat.getColor(this, R.color.light_blue))
+                binding.llServer.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+                binding.llOther.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+                binding.llAdvanced.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
             }
             2 -> {
-                binding.llHome.setBackgroundColor(resources.getColor(R.color.white))
-                binding.llStats.setBackgroundColor(resources.getColor(R.color.white))
-                binding.llServer.setBackgroundColor(resources.getColor(R.color.light_blue))
-                binding.llOther.setBackgroundColor(resources.getColor(R.color.white))
-                binding.llAdvanced.setBackgroundColor(resources.getColor(R.color.white))
+                binding.llHome.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+                binding.llStats.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+                binding.llServer.setBackgroundColor(ContextCompat.getColor(this, R.color.light_blue))
+                binding.llOther.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+                binding.llAdvanced.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
             }
             3 -> {
-                binding.llHome.setBackgroundColor(resources.getColor(R.color.white))
-                binding.llStats.setBackgroundColor(resources.getColor(R.color.white))
-                binding.llServer.setBackgroundColor(resources.getColor(R.color.white))
-                binding.llOther.setBackgroundColor(resources.getColor(R.color.light_blue))
-                binding.llAdvanced.setBackgroundColor(resources.getColor(R.color.white))
+                binding.llHome.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+                binding.llStats.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+                binding.llServer.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+                binding.llOther.setBackgroundColor(ContextCompat.getColor(this, R.color.light_blue))
+                binding.llAdvanced.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
             }
             4 -> {
-                binding.llHome.setBackgroundColor(resources.getColor(R.color.white))
-                binding.llStats.setBackgroundColor(resources.getColor(R.color.white))
-                binding.llServer.setBackgroundColor(resources.getColor(R.color.white))
-                binding.llOther.setBackgroundColor(resources.getColor(R.color.white))
-                binding.llAdvanced.setBackgroundColor(resources.getColor(R.color.light_blue))
+                binding.llHome.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+                binding.llStats.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+                binding.llServer.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+                binding.llOther.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+                binding.llAdvanced.setBackgroundColor(ContextCompat.getColor(this, R.color.light_blue))
             }
         }
     }

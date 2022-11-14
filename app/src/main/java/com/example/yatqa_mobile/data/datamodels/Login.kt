@@ -2,6 +2,7 @@ package com.example.yatqa_mobile.data.datamodels
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import net.schmizz.sshj.userauth.method.AuthPassword
 
 @Entity
 data class Login(
@@ -14,5 +15,5 @@ data class Login(
     val port: Int?,
     val userName: String?,
     val userPassword: String?,
-    val listName: String
+    val listName: String?
 )

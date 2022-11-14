@@ -12,6 +12,7 @@ import com.example.yatqa_mobile.data.datamodels.Login
 import com.example.yatqa_mobile.data.local.getDatabase
 import com.github.theholywaffle.teamspeak3.api.wrapper.HostInfo
 import com.github.theholywaffle.teamspeak3.api.wrapper.InstanceInfo
+import com.github.theholywaffle.teamspeak3.api.wrapper.VirtualServer
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -24,6 +25,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     val loginList = repository.loginList
     lateinit var hostInfo: HostInfo
     lateinit var instanceInfo: InstanceInfo
+    lateinit var vServerList: MutableList<VirtualServer>
 
     //to observe loading times
     private val _connectionCompleted = MutableLiveData(false)
@@ -71,22 +73,30 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         _connectionCompleted.value = false
     }
 
-    fun getHostInfo() {
+    val ts3ApiConnect: (Login) -> Unit = {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.apiConnect(it)
+            setConnectComplete()
+        }
+    }
+
+    fun getGlobalInfo() {
         viewModelScope.launch {
             try {
                 hostInfo = repository.apiGetGlobalData()!!
                 instanceInfo = repository.apiGetInstanceData()!!
                 setGetDataComplete()
-            }catch (e: Exception){
-                Log.e(TAG, "getting hostInfo and instanceInfo $e")
+            }catch (e:Exception){
+                Log.e(TAG, "Error while getting hostInfo or instanceInfo: $e")
             }
         }
     }
 
-    val ts3ApiConnect: (Login) -> Unit = {
-        viewModelScope.launch(Dispatchers.IO) {
-            repository.apiConnect(it)
-            setConnectComplete()
+    fun getVirtualServerList() {
+        try {
+            vServerList = repository.apiGetVServerList()!!
+        }catch (e:Exception) {
+            Log.e(TAG, "Error while getting vServerList: $e")
         }
     }
 }

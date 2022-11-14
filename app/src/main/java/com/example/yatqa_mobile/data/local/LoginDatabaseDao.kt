@@ -13,7 +13,7 @@ interface LoginDatabaseDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE) // in SQL INSERT
     suspend fun insert(login: Login)
 
-    @Update // in SQL UPDATE
+    @Update
     suspend fun update(login: Login)
 
     @Query("SELECT * FROM Login")

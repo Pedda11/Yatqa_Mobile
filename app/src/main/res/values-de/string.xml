@@ -61,6 +61,10 @@
     <string name="strGb">%1$s GB</string>
     <string name="strMb">%1$s MB</string>
 
+    //serverList
+    <string name="startServer">Starten</string>
+    <string name="stopServer">Stoppen</string>
+
     //other
     <string name="slash">/</string>
 

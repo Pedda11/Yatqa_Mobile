@@ -10,6 +10,8 @@ import com.github.theholywaffle.teamspeak3.TS3Config
 import com.github.theholywaffle.teamspeak3.TS3Query
 import com.github.theholywaffle.teamspeak3.api.wrapper.HostInfo
 import com.github.theholywaffle.teamspeak3.api.wrapper.InstanceInfo
+import com.github.theholywaffle.teamspeak3.api.wrapper.VirtualServer
+import kotlin.random.Random
 
 const val TAG = "Repository"
 
@@ -49,17 +51,25 @@ class Repository(private val database: LoginDatabase) {
 
     fun apiConnect(login: Login) {
         try {
-            val ts3 = TS3Config()
-            ts3.setHost(login.ip)
-            ts3.setQueryPort(login.qPort)
-            ts3.setLoginCredentials(login.userName, login.userPassword)
+            val tS3Conf = TS3Config()
+            tS3Conf.setHost(login.ip)
+            tS3Conf.setQueryPort(login.qPort)
+            tS3Conf.setCommandTimeout(10000)
 
-            val ts3Query = TS3Query(ts3)
+            if (!(login.userName.isNullOrEmpty() && login.userPassword.isNullOrEmpty())){
+                tS3Conf.setLoginCredentials(login.userName, login.userPassword)
+            }
+
+            val ts3Query = TS3Query(tS3Conf)
             ts3Query.connect()
 
             _ts3Api.postValue(ts3Query.api)
-
-            _ts3Api.value?.login(login.userName, login.userPassword)
+            if (login.port != null) {
+                _ts3Api.value?.selectVirtualServerByPort(
+                    login.port,
+                    "ApiTs3Bot${Random.nextInt(0, 1000)}"
+                )
+            }
         } catch (e: Exception) {
             Log.e(TAG, "Error while connect and login: $e")
         }
@@ -80,6 +90,15 @@ class Repository(private val database: LoginDatabase) {
         } catch (e: Exception) {
             Log.e(TAG, "Error while getting InstanceInfo from _ts3Api: $e")
             null
+        }
+    }
+
+    fun apiGetVServerList():MutableList<VirtualServer>? {
+        return try {
+            _ts3Api.value?.virtualServers
+        } catch (e: Exception) {
+            Log.e(TAG, "Error while getting vServerList from _ts3Api: $e")
+            return null
         }
     }
 }

@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -77,59 +78,32 @@ class LoginFragment : Fragment() {
 
         binding.btnLogin.setOnClickListener {
 
-
             if (loginId != 0) {
                 try {
-                    val ip = binding.editTextInputIp.text.toString()
-                    val qPort = binding.editTextInputQport.text.toString().toInt()
-                    val port = binding.editTextInputPort.text.toString().toInt()
-                    val userName = binding.editTextInputUserName.text.toString()
-                    val userPassword = binding.editTextInputUserPassword.text.toString()
-                    val listName = binding.editTextInputListName.text.toString()
-                    val loginChanged = Login(
-                        id = loginId,
-                        ip = ip,
-                        qPort = qPort,
-                        port = port,
-                        userName = userName,
-                        userPassword = userPassword,
-                        listName = listName
-                    )
 
-                    viewModel.updateLogin(loginChanged)
+                    val data = loginData(loginId) ?: return@setOnClickListener
+
+                    viewModel.updateLogin(data)
 
                     findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToFavoritesFragment())
                 } catch (e: Exception) {
                     Log.e("LoginFragment", "btnLoginClicked changing Logindata: $e")
                 }
-            }
+            } else {
+                try {
+                    val data = loginData(loginId) ?: return@setOnClickListener
 
-            try {
-                val ip = binding.editTextInputIp.text.toString()
-                val qPort = binding.editTextInputQport.text.toString().toInt()
-                val port = binding.editTextInputPort.text.toString().toInt()
-                val userName = binding.editTextInputUserName.text.toString()
-                val userPassword = binding.editTextInputUserPassword.text.toString()
-                val listName = binding.editTextInputListName.text.toString()
-                val newLogin = Login(
-                    id = 0,
-                    ip = ip,
-                    qPort = qPort,
-                    port = port,
-                    userName = userName,
-                    userPassword = userPassword,
-                    listName = listName
-                )
+                    if (binding.cbSaveToFav.isChecked) {
+                        saveNewLogin(data)
+                        findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToFavoritesFragment())
+                    } else {
+                        viewModel.ts3ApiConnect(data)
+                        findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToGlobalServerFragment())
+                    }
 
-                if (binding.cbSaveToFav.isChecked) {
-                    saveNewLogin(newLogin)
-                } else{
-                    viewModel.ts3ApiConnect(newLogin)
-                    findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToGlobalServerFragment())
+                } catch (e: Exception) {
+                    Log.e("LoginFragment", "Login credentials, connect: $e")
                 }
-
-            } catch (e: Exception) {
-                Log.e("LoginFragment", "Login credentials, connect: $e")
             }
         }
     }
@@ -142,5 +116,43 @@ class LoginFragment : Fragment() {
         } catch (e: Exception) {
             Log.e("LoginFragment", "saveNewLogin, goto favorites: $e")
         }
+    }
+
+    private fun loginData(loginId :Int): Login? {
+        val ip = binding.editTextInputIp.text.toString()
+
+        val qPort = if (!binding.editTextInputQport.text.isNullOrEmpty()) binding.editTextInputQport.text.toString().toInt()
+        else null
+
+        if (qPort == null) {
+            Toast.makeText(requireContext(), "Query port must not be empty!", Toast.LENGTH_SHORT)
+                .show()
+            return null
+        }
+
+        val port = if (!binding.editTextInputPort.text.isNullOrEmpty())
+            binding.editTextInputPort.text.toString().toInt()
+        else
+            null
+
+        val userName = binding.editTextInputUserName.text.toString()
+        val userPassword = binding.editTextInputUserPassword.text.toString()
+        val listName = binding.editTextInputListName.text.toString()
+
+        var updateLoginId: Int = 0
+
+        if (loginId != 0){
+            updateLoginId = loginId
+        }
+
+        return Login(
+            id = updateLoginId,
+            ip = ip,
+            qPort = qPort,
+            port = port,
+            userName = userName,
+            userPassword = userPassword,
+            listName = listName
+        )
     }
 }

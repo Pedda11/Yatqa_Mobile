@@ -52,7 +52,7 @@ class GlobalServerFragment : Fragment() {
             viewLifecycleOwner
         ) {
             if (it) {
-                viewModel.getHostInfo()
+                viewModel.getGlobalInfo()
                 viewModel.unsetConnectComplete()
             }
         }
@@ -275,6 +275,10 @@ class GlobalServerFragment : Fragment() {
 
                 viewModel.unsetGetDataComplete()
             }
+        }
+
+        binding.tvGuestQueryGroup.setOnClickListener {
+
         }
     }
 }

@@ -121,7 +121,8 @@
                 android:id="@+id/edit_textInputUserPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/loginPassword" />
+                android:hint="@string/loginPassword"
+                android:text="BA1990F7D9" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout

@@ -18,15 +18,21 @@ class FavoritesAdapter(
     val removeLogin: (Login) -> Unit
 ) : RecyclerView.Adapter<FavoritesAdapter.ItemViewHolder>() {
 
-    lateinit var recycler:RecyclerView
+    /**
+     * for the onAttachedToRecyclerView fun
+     */
+    lateinit var fovoritesRecycler:RecyclerView
 
+    /**
+     * All needed variables
+     */
     inner class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val card: CardView = itemView.findViewById(R.id.cv_fav_item)
-        val tvListName: TextView = itemView.findViewById(R.id.tv_listname)
+        val tvListName: TextView = itemView.findViewById(R.id.tv_fav_name)
         val tvIp: TextView = itemView.findViewById(R.id.tv_ip)
-        val tvQPort: TextView = itemView.findViewById(R.id.tv_qport)
-        val tvPort: TextView = itemView.findViewById(R.id.tv_port)
-        val tvUserName: TextView = itemView.findViewById(R.id.tv_username)
+        val tvQPort: TextView = itemView.findViewById(R.id.tv_qPort)
+        val tvPort: TextView = itemView.findViewById(R.id.tv_fav_port)
+        val tvUserName: TextView = itemView.findViewById(R.id.tv_user_name)
         val btnEdit: Button = itemView.findViewById(R.id.btn_edit)
         val btnDel: Button = itemView.findViewById(R.id.btn_del)
     }
@@ -51,39 +57,52 @@ class FavoritesAdapter(
         // Hole den Favoriten aus dem dataset
         val fav = dataset[position]
 
-        // Setze den Namen und die Telefonnummer
+        // Fill the Textviews
         holder.tvListName.text = fav.listName
         holder.tvIp.text = fav.ip
         holder.tvQPort.text = fav.qPort.toString()
         holder.tvPort.text = fav.port.toString()
         holder.tvUserName.text = fav.userName
 
+        /**
+         * change visibility from the edit and delete button in all viewholder
+         */
         holder.card.setOnLongClickListener {
 
             for (c in dataset.indices){
-                recycler.findViewHolderForAdapterPosition(c).also { holder ->
+                fovoritesRecycler.findViewHolderForAdapterPosition(c).also { holder ->
 
                     (holder as ItemViewHolder).btnEdit.visibility = View.GONE
                     holder.btnDel.visibility = View.GONE
                 }
             }
 
-
-
+            /**
+             * change visibility from the edit and delete button in current viewholder
+             */
             holder.btnEdit.visibility = View.VISIBLE
             holder.btnDel.visibility = View.VISIBLE
             true
         }
 
+        /**
+         * delete button
+         */
         holder.btnDel.setOnClickListener {
             removeLogin(fav)
             notifyDataSetChanged()
         }
 
+        /**
+         * edit button
+         */
         holder.btnEdit.setOnClickListener {
             holder.itemView.findNavController().navigate(FavoritesFragmentDirections.actionFavoritesFragmentToLoginFragment(fav.id))
         }
 
+        /**
+         * connect to server
+         */
         holder.card.setOnClickListener {
             ts3ApiConnect(fav)
             holder.itemView.findNavController().navigate(FavoritesFragmentDirections.actionFavoritesFragmentToGlobalServerFragment())
@@ -97,9 +116,12 @@ class FavoritesAdapter(
         return dataset.size
     }
 
+    /**
+     *get the recyclerview to change visibilitys in other viewholders
+     */
     override fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
         super.onAttachedToRecyclerView(recyclerView)
 
-        recycler = recyclerView
+        fovoritesRecycler = recyclerView
     }
 }
