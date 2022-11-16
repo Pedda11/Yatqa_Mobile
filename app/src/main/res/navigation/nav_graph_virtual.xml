@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph_virtual"
+    app:startDestination="@id/virtualServerFragmentStats">
+
+    <fragment
+        android:id="@+id/virtualServerFragmentStats"
+        android:name="com.example.yatqa_mobile.ui.virtual.VirtualServerFragmentStats"
+        android:label="VirtualServerFragmentStats" >
+        <argument
+            android:name="vServerPort"
+            app:argType="integer" />
+    </fragment>
+</navigation>

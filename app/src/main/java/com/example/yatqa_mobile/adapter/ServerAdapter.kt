@@ -7,9 +7,13 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.cardview.widget.CardView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.yatqa_mobile.R
 import com.example.yatqa_mobile.data.TAG
+import com.example.yatqa_mobile.ui.global.ServerListFragment
+import com.example.yatqa_mobile.ui.global.ServerListFragmentDirections
+import com.example.yatqa_mobile.ui.login.FavoritesFragmentDirections
 import com.github.theholywaffle.teamspeak3.api.wrapper.VirtualServer
 import java.util.concurrent.TimeUnit
 
@@ -74,20 +78,23 @@ class ServerAdapter(
         holder.vServerAutoStart.text = vServer.isAutoStart.toString()
         holder.vServerId.text = vServer.id.toString()
 
+        holder.btnStart.visibility = View.GONE
+        holder.btnStop.visibility = View.GONE
+        holder.btnDel.visibility = View.GONE
 
         /**
          * change visibility from the edit and delete button in all viewholder
          */
         holder.card.setOnLongClickListener {
 
-            for (c in dataset.indices){
+            for (c in dataset.indices) {
                 serverRecycler.findViewHolderForAdapterPosition(c).also { holder ->
 
                     try {
                         (holder as ItemViewHolder).btnStart.visibility = View.GONE
                         holder.btnStop.visibility = View.GONE
                         holder.btnDel.visibility = View.GONE
-                    }catch (e:Exception){
+                    } catch (e: Exception) {
                         Log.e(TAG, "Hide buttons in recyclerview")
                     }
                 }
@@ -100,6 +107,14 @@ class ServerAdapter(
             holder.btnStop.visibility = View.VISIBLE
             holder.btnDel.visibility = View.VISIBLE
             true
+        }
+
+        holder.card.setOnClickListener {
+            holder.itemView.findNavController().navigate(
+                ServerListFragmentDirections.actionServerListFragmentToVirtualServerFragmentMain(
+                    holder.vServerPort.text.toString().toInt()
+                )
+            )
         }
     }
 

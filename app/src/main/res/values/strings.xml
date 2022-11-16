@@ -74,4 +74,24 @@
     <string name="btnServer">Server</string>
     <string name="btnOthers">Others</string>
     <string name="btnAdvanced">Advanced</string>
+
+    //spinner Items
+    <string name="vServerStats">V-Server Stats</string>
+    <string name="vServerAdvanced">Advanced</string>
+    <string name="vServerBansAndCo">Bans &amp; Complaints</string>
+    <string name="vServerUserAndChannel">User &amp; Channel</string>
+    <string name="vServerDataBase">User Database</string>
+    <string name="vServerRights">Rights</string>
+    <string name="vServerOthers">Others</string>
+
+    //virtual server general
+    <string name="vServerGeneral">General</string>
+    <string name="vServerBaseConfig">Base configuration</string>
+    <string name="vServerName">Name:</string>
+    <string name="vServerPhonetic">Phonetic:</string>
+    <string name="vServerMachineId">Machine-ID:</string>
+    <string name="vServerPort">Port:</string>
+    <string name="vServerState">State:</string>
+    <string name="vServerAutostart">Autostart:</string>
+    <string name="vServerSlots">Slots:</string>
 </resources>

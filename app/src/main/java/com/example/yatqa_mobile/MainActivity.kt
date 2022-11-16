@@ -1,24 +1,15 @@
 package com.example.yatqa_mobile
 
-import android.content.res.Resources.Theme
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
-import android.widget.LinearLayout
-import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.activityViewModels
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.recyclerview.widget.RecyclerView
 import com.example.yatqa_mobile.databinding.ActivityMainBinding
-import com.example.yatqa_mobile.ui.global.GlobalServerFragment
-import com.example.yatqa_mobile.ui.global.GlobalServerFragmentDirections
-import com.example.yatqa_mobile.ui.main.MainViewModel
 
 class MainActivity : AppCompatActivity() {
 

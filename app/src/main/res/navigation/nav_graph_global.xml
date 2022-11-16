@@ -42,5 +42,17 @@
     <fragment
         android:id="@+id/serverListFragment"
         android:name="com.example.yatqa_mobile.ui.global.ServerListFragment"
-        android:label="ServerListFragment" />
+        android:label="ServerListFragment" >
+        <action
+            android:id="@+id/action_serverListFragment_to_virtualServerFragmentMain"
+            app:destination="@id/virtualServerFragmentMain" />
+    </fragment>
+    <fragment
+        android:id="@+id/virtualServerFragmentMain"
+        android:name="com.example.yatqa_mobile.ui.virtual.VirtualServerFragmentMain"
+        android:label="VirtualServerFragmentMain" >
+        <argument
+            android:name="vServerPort"
+            app:argType="integer" />
+    </fragment>
 </navigation>

@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_general"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/vServerGeneral"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_v_base_config"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_general">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/tv_v_base_config"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="@string/currUploadTitle" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="18dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tv_v_base_config">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/iv_transfer"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginTop="4dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:srcCompat="@tools:sample/avatars" />
+
+                        <TextView
+                            android:id="@+id/tv_v_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="8dp"
+                            android:text="@string/vServerName"
+                            app:layout_constraintStart_toEndOf="@+id/iv_transfer"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tv_v_phonetic"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="@string/vServerPhonetic"
+                            app:layout_constraintStart_toStartOf="@+id/tv_v_name"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_v_name" />
+
+                        <TextView
+                            android:id="@+id/tv_v_machine_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="@string/vServerMachineId"
+                            app:layout_constraintStart_toStartOf="@+id/tv_v_phonetic"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_v_phonetic" />
+
+                        <TextView
+                            android:id="@+id/tv_v_port"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="@string/vServerPort"
+                            app:layout_constraintStart_toStartOf="@+id/tv_v_phonetic"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_v_machine_id" />
+
+                        <TextView
+                            android:id="@+id/tv_v_state"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="@string/vServerState"
+                            app:layout_constraintStart_toStartOf="@+id/tv_v_phonetic"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_v_port" />
+
+                        <TextView
+                            android:id="@+id/tv_v_autostart"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="@string/vServerAutostart"
+                            app:layout_constraintStart_toStartOf="@+id/tv_v_phonetic"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_v_state" />
+
+                        <TextView
+                            android:id="@+id/tv_v_slots"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="8dp"
+                            android:text="@string/vServerSlots"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="@+id/tv_v_phonetic"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_v_autostart" />
+
+                        <TextView
+                            android:id="@+id/tv_v_name_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="16dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/tv_v_name"
+                            tools:text="Text und so" />
+
+                        <TextView
+                            android:id="@+id/tv_v_phonetic_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            app:layout_constraintEnd_toEndOf="@+id/tv_v_name_value"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_v_name_value"
+                            tools:text="Text und so" />
+
+                        <TextView
+                            android:id="@+id/tv_v_machine_id_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            app:layout_constraintEnd_toEndOf="@+id/tv_v_name_value"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_v_phonetic_value"
+                            tools:text="Text und so" />
+
+                        <TextView
+                            android:id="@+id/tv_v_port_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            app:layout_constraintEnd_toEndOf="@+id/tv_v_name_value"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_v_machine_id_value"
+                            tools:text="Text und so" />
+
+                        <TextView
+                            android:id="@+id/tv_v_state_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            app:layout_constraintEnd_toEndOf="@+id/tv_v_name_value"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_v_port_value"
+                            tools:text="Text und so" />
+
+                        <TextView
+                            android:id="@+id/tv_v_autostart_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            app:layout_constraintEnd_toEndOf="@+id/tv_v_name_value"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_v_state_value"
+                            tools:text="Text und so" />
+
+                        <TextView
+                            android:id="@+id/tv_v_slots_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            app:layout_constraintEnd_toEndOf="@+id/tv_v_name_value"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_v_autostart_value"
+                            tools:text="Text und so" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

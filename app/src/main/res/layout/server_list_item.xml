@@ -160,9 +160,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
-                android:layout_marginTop="8dp"
                 android:text="@string/startServer"
                 android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_port"
                 tools:visibility="visible" />
@@ -171,10 +171,10 @@
                 android:id="@+id/btn_server_stop"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="32dp"
                 android:text="@string/stopServer"
                 android:visibility="gone"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btn_server_del"
+                app:layout_constraintStart_toEndOf="@+id/btn_server_start"
                 app:layout_constraintTop_toTopOf="@+id/btn_server_start"
                 tools:visibility="visible" />
 
@@ -182,14 +182,11 @@
                 android:id="@+id/btn_server_del"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="32dp"
                 android:text="@string/del"
                 android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/btn_server_stop"
-                app:layout_constraintStart_toStartOf="@+id/btn_server_start"
-                app:layout_constraintTop_toBottomOf="@+id/btn_server_start"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/btn_server_stop"
                 tools:visibility="visible" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

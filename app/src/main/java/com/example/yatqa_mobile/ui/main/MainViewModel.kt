@@ -26,6 +26,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     lateinit var hostInfo: HostInfo
     lateinit var instanceInfo: InstanceInfo
     lateinit var vServerList: MutableList<VirtualServer>
+    lateinit var vServerInfo: Unit
 
     //to observe loading times
     private val _connectionCompleted = MutableLiveData(false)
@@ -75,7 +76,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     val ts3ApiConnect: (Login) -> Unit = {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.apiConnect(it)
+            repository.apiConnectTelnet(it)
             setConnectComplete()
         }
     }
@@ -86,7 +87,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 hostInfo = repository.apiGetGlobalData()!!
                 instanceInfo = repository.apiGetInstanceData()!!
                 setGetDataComplete()
-            }catch (e:Exception){
+            } catch (e: Exception) {
                 Log.e(TAG, "Error while getting hostInfo or instanceInfo: $e")
             }
         }
@@ -95,8 +96,19 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     fun getVirtualServerList() {
         try {
             vServerList = repository.apiGetVServerList()!!
-        }catch (e:Exception) {
+        } catch (e: Exception) {
             Log.e(TAG, "Error while getting vServerList: $e")
+        }
+    }
+
+    fun getVirtualServerInfo(port: Int) {
+        try {
+            val vs = vServerList.find { it.port == port }
+
+            vServerInfo = vs?.let { repository.apiConnectVirtualServer(it) }!!
+        } catch (e: Exception) {
+            Log.e(TAG, "Error while getting vServerList: $e")
+            null
         }
     }
 }

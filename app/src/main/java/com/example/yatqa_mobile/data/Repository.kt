@@ -49,14 +49,13 @@ class Repository(private val database: LoginDatabase) {
         }
     }
 
-    fun apiConnect(login: Login) {
+    fun apiConnectTelnet(login: Login) {
         try {
             val tS3Conf = TS3Config()
             tS3Conf.setHost(login.ip)
             tS3Conf.setQueryPort(login.qPort)
-            tS3Conf.setCommandTimeout(10000)
 
-            if (!(login.userName.isNullOrEmpty() && login.userPassword.isNullOrEmpty())){
+            if (!(login.userName.isNullOrEmpty() && login.userPassword.isNullOrEmpty())) {
                 tS3Conf.setLoginCredentials(login.userName, login.userPassword)
             }
 
@@ -64,15 +63,15 @@ class Repository(private val database: LoginDatabase) {
             ts3Query.connect()
 
             _ts3Api.postValue(ts3Query.api)
-            if (login.port != null) {
-                _ts3Api.value?.selectVirtualServerByPort(
-                    login.port,
-                    "ApiTs3Bot${Random.nextInt(0, 1000)}"
-                )
-            }
         } catch (e: Exception) {
             Log.e(TAG, "Error while connect and login: $e")
         }
+    }
+
+    fun apiConnectVirtualServer(vServer :VirtualServer): Unit? {
+        return _ts3Api.value?.selectVirtualServerByPort(vServer.port,
+            "ApiTs3Bot${Random.nextInt(0, 1000)}"
+        )
     }
 
     fun apiGetGlobalData(): HostInfo? {
@@ -93,7 +92,7 @@ class Repository(private val database: LoginDatabase) {
         }
     }
 
-    fun apiGetVServerList():MutableList<VirtualServer>? {
+    fun apiGetVServerList(): MutableList<VirtualServer>? {
         return try {
             _ts3Api.value?.virtualServers
         } catch (e: Exception) {
