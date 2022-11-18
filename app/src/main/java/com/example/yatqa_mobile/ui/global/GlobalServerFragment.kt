@@ -1,9 +1,11 @@
 package com.example.yatqa_mobile.ui.global
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -11,6 +13,7 @@ import com.example.yatqa_mobile.MainActivity
 import com.example.yatqa_mobile.R
 import com.example.yatqa_mobile.databinding.FragmentGlobalserverStatsConfigBinding
 import com.example.yatqa_mobile.ui.main.MainViewModel
+import com.github.theholywaffle.teamspeak3.api.ServerInstanceProperty
 
 class GlobalServerFragment : Fragment() {
 
@@ -18,8 +21,7 @@ class GlobalServerFragment : Fragment() {
     private val viewModel: MainViewModel by activityViewModels()
 
     private val giB = 1073741824
-    private val gB = 1000000000
-    private val miB = 1073741824
+    private val miB = 1048576
     private val mB = 1000000
     private val kiB = 1024
 
@@ -48,6 +50,7 @@ class GlobalServerFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //observe telnet connection
         viewModel.connectionCompleted.observe(
             viewLifecycleOwner
         ) {
@@ -57,6 +60,7 @@ class GlobalServerFragment : Fragment() {
             }
         }
 
+        // " get HostInfo and InstanceInfo
         viewModel.getGlobalDataCompleted.observe(
             viewLifecycleOwner
         ) {
@@ -72,9 +76,14 @@ class GlobalServerFragment : Fragment() {
                     viewModel.hostInfo.totalMaxClients.toString()
                 )
 
-
                 binding.ivVServerLeftIcon.setImageResource(R.drawable.server01_1)
-                binding.ivVServerRightIcon.setImageResource(R.drawable.diagram1)
+
+                /**
+                 * change from clients to total and running servers
+                 */
+                binding.progressBar.progress = viewModel.hostInfo.totalClientsOnline
+                binding.progressBar.max = viewModel.hostInfo.totalMaxClients
+
 
                 //Current upload
                 binding.tvCurUploadTotalSekValue.text = getString(
@@ -142,21 +151,21 @@ class GlobalServerFragment : Fragment() {
 
                 //Transferred packets
                 binding.tvPacketsSentValue.text = getString(
-                    R.string.strGb, String.format(
+                    R.string.strMillion, String.format(
                         "%.2f",
-                        viewModel.hostInfo.packetsSentTotal.toDouble() / gB
+                        viewModel.hostInfo.packetsSentTotal.toDouble() / mB
                     )
                 )
                 binding.tvPacketsReceivedValue.text = getString(
-                    R.string.strMb, String.format(
+                    R.string.strMillion, String.format(
                         "%.2f",
                         viewModel.hostInfo.packetsReceivedTotal.toDouble() / mB
                     )
                 )
                 binding.tvPacketsSumValue.text = getString(
-                    R.string.strGb, String.format(
+                    R.string.strMillion, String.format(
                         "%.2f", (viewModel.hostInfo.packetsSentTotal.toDouble() +
-                                viewModel.hostInfo.packetsReceivedTotal.toDouble()) / gB
+                                viewModel.hostInfo.packetsReceivedTotal.toDouble()) / mB
                     )
                 )
 
@@ -173,7 +182,7 @@ class GlobalServerFragment : Fragment() {
                 binding.tvFilesReceivedValue.text = getString(
                     R.string.strMib, String.format(
                         "%.2f",
-                        viewModel.hostInfo.fileTransferBytesReceived.toDouble() / miB
+                        viewModel.hostInfo.fileTransferBytesReceived.toDouble() / kiB
                     )
                 )
                 binding.tvFilesSumValue.text = getString(
@@ -183,14 +192,16 @@ class GlobalServerFragment : Fragment() {
                     )
                 )
 
-                //Server queries
                 binding.ivFilesLeft.setImageResource(R.drawable.transferred_files)
                 binding.ivFilesRight.setImageResource(R.drawable.diagram2)
 
+                //Server queries
                 binding.tvGuestQueryGroupValue.text =
                     viewModel.instanceInfo.guestServerQueryGroup.toString()
+
                 binding.tvCommandsTillFloodValue.text =
-                    viewModel.instanceInfo.maxFloodCommands.toString()
+                    viewModel.bigIntFormat.format(viewModel.instanceInfo.maxFloodCommands)
+
                 binding.tvPeriodFloodValue.text = viewModel.instanceInfo.maxFloodTime.toString()
                 binding.tvBanTimeFloodValue.text =
                     viewModel.instanceInfo.floodBanTime.toString()
@@ -277,8 +288,121 @@ class GlobalServerFragment : Fragment() {
             }
         }
 
+        //config setter
         binding.tvGuestQueryGroup.setOnClickListener {
+            val property = ServerInstanceProperty.SERVERINSTANCE_GUEST_SERVERQUERY_GROUP
+            showDialog(
+                property,
+                binding.tvGuestQueryGroupValue.text.toString()
+            )
+        }
 
+        binding.tvCommandsTillFlood.setOnClickListener {
+            val property = ServerInstanceProperty.SERVERINSTANCE_SERVERQUERY_FLOOD_COMMANDS
+
+            val value = binding.tvCommandsTillFloodValue.text.toString().replace(".", "")
+            showDialog(
+                property,
+                value
+            )
+        }
+
+        binding.tvPeriodFlood.setOnClickListener {
+            val property = ServerInstanceProperty.SERVERINSTANCE_SERVERQUERY_FLOOD_TIME
+            showDialog(
+                property,
+                binding.tvPeriodFloodValue.text.toString()
+            )
+        }
+
+        binding.tvBanTimeFlood.setOnClickListener {
+            val property = ServerInstanceProperty.SERVERINSTANCE_SERVERQUERY_BAN_TIME
+            showDialog(
+                property,
+                binding.tvBanTimeFloodValue.text.toString()
+            )
+        }
+
+        binding.tvServeradminGroupTemplate.setOnClickListener {
+            val property = ServerInstanceProperty.SERVERINSTANCE_TEMPLATE_SERVERADMIN_GROUP
+            showDialog(
+                property,
+                binding.tvServeradminGroupTemplateId.text.toString()
+            )
+        }
+
+        binding.tvServerguestGroupTemplate.setOnClickListener {
+            val property = ServerInstanceProperty.SERVERINSTANCE_TEMPLATE_SERVERDEFAULT_GROUP
+            showDialog(
+                property,
+                binding.tvServerguestGroupTemplateId.text.toString()
+            )
+        }
+
+        binding.tvChanneladminGroupTemplate.setOnClickListener {
+            val property = ServerInstanceProperty.SERVERINSTANCE_TEMPLATE_CHANNELADMIN_GROUP
+            showDialog(
+                property,
+                binding.tvChanneladminGroupTemplateId.text.toString()
+            )
+        }
+
+        binding.tvChannelguestGroupTemplate.setOnClickListener {
+            val property = ServerInstanceProperty.SERVERINSTANCE_TEMPLATE_CHANNELDEFAULT_GROUP
+            showDialog(
+                property,
+                binding.tvChannelguestGroupTemplateId.text.toString()
+            )
+        }
+
+        binding.tvTransferMaxUpload.setOnClickListener {
+            val property = ServerInstanceProperty.SERVERINSTANCE_MAX_UPLOAD_TOTAL_BANDWIDTH
+            showDialog(
+                property,
+                viewModel.instanceInfo["serverinstance_max_upload_total_bandwidth"]
+            )
+        }
+
+        binding.tvTransferMaxDownload.setOnClickListener {
+            val property = ServerInstanceProperty.SERVERINSTANCE_MAX_DOWNLOAD_TOTAL_BANDWIDTH
+            showDialog(
+                property,
+                viewModel.instanceInfo["serverinstance_max_download_total_bandwidth"]
+            )
+        }
+
+        binding.tvTransferPort.setOnClickListener {
+            val property = ServerInstanceProperty.SERVERINSTANCE_FILETRANSFER_PORT
+            showDialog(
+                property,
+                binding.tvTransferPortValue.text.toString()
+            )
+        }
+    }
+
+    //AlertDialog with editText
+    private fun showDialog(
+        prop: ServerInstanceProperty,
+        propertyCurrentValue: String
+    ) {
+        val builder = AlertDialog.Builder(requireContext())
+        val inflater: LayoutInflater = layoutInflater
+        val dialogLayout = inflater.inflate(R.layout.alert_dialog_textbox, null)
+        val textBox: EditText = dialogLayout.findViewById(R.id.edit_text_new_value)
+
+        textBox.setText(propertyCurrentValue)
+
+        with(builder) {
+            setTitle(prop.toString())
+            setPositiveButton("OK") { _, _ ->
+                val newValue = textBox.text.toString()
+
+                viewModel.setServerInstanceProperty(prop, newValue)
+
+                viewModel.getGlobalInfo()
+            }
+            setView(dialogLayout)
+            show()
         }
     }
 }

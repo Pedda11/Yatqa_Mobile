@@ -8,11 +8,14 @@ import com.example.yatqa_mobile.data.local.LoginDatabase
 import com.github.theholywaffle.teamspeak3.TS3Api
 import com.github.theholywaffle.teamspeak3.TS3Config
 import com.github.theholywaffle.teamspeak3.TS3Query
+import com.github.theholywaffle.teamspeak3.api.ServerInstanceProperty
 import com.github.theholywaffle.teamspeak3.api.wrapper.HostInfo
 import com.github.theholywaffle.teamspeak3.api.wrapper.InstanceInfo
 import com.github.theholywaffle.teamspeak3.api.wrapper.VirtualServer
+import com.github.theholywaffle.teamspeak3.api.wrapper.VirtualServerInfo
 import kotlin.random.Random
 
+//tag for logging
 const val TAG = "Repository"
 
 class Repository(private val database: LoginDatabase) {
@@ -20,11 +23,14 @@ class Repository(private val database: LoginDatabase) {
     //Get all data from Database
     val loginList: LiveData<List<Login>> = database.loginDatabaseDao.getAll()
 
+    /**
+     * ts3api as livedata
+     */
     private val _ts3Api = MutableLiveData<TS3Api>()
     val ts3Api: LiveData<TS3Api>
         get() = _ts3Api
 
-    //Insert a new login to database
+    //Insert call to database
     suspend fun insert(login: Login) {
         try {
             database.loginDatabaseDao.insert(login)
@@ -33,6 +39,7 @@ class Repository(private val database: LoginDatabase) {
         }
     }
 
+    //update call to database
     suspend fun update(login: Login) {
         try {
             database.loginDatabaseDao.update(login)
@@ -41,6 +48,7 @@ class Repository(private val database: LoginDatabase) {
         }
     }
 
+    //delete by id call to database
     suspend fun deleteLogin(login: Login) {
         try {
             database.loginDatabaseDao.deleteById(login.id)
@@ -49,6 +57,7 @@ class Repository(private val database: LoginDatabase) {
         }
     }
 
+    //telnet connect
     fun apiConnectTelnet(login: Login) {
         try {
             val tS3Conf = TS3Config()
@@ -68,12 +77,14 @@ class Repository(private val database: LoginDatabase) {
         }
     }
 
-    fun apiConnectVirtualServer(vServer :VirtualServer): Unit? {
-        return _ts3Api.value?.selectVirtualServerByPort(vServer.port,
+    //connect to a singe virtual server
+    fun apiConnectVirtualServer(vServer :VirtualServer) {
+        _ts3Api.value?.selectVirtualServerByPort(vServer.port,
             "ApiTs3Bot${Random.nextInt(0, 1000)}"
         )
     }
 
+    //get hostInfo
     fun apiGetGlobalData(): HostInfo? {
         return try {
             _ts3Api.value?.hostInfo
@@ -83,6 +94,7 @@ class Repository(private val database: LoginDatabase) {
         }
     }
 
+    //get instanceInfo
     fun apiGetInstanceData(): InstanceInfo? {
         return try {
             _ts3Api.value?.instanceInfo
@@ -92,6 +104,7 @@ class Repository(private val database: LoginDatabase) {
         }
     }
 
+    //get all virtual servers
     fun apiGetVServerList(): MutableList<VirtualServer>? {
         return try {
             _ts3Api.value?.virtualServers
@@ -99,5 +112,14 @@ class Repository(private val database: LoginDatabase) {
             Log.e(TAG, "Error while getting vServerList from _ts3Api: $e")
             return null
         }
+    }
+
+    //get virtualServerInfo
+    fun apiGetVirtualServerInfo():VirtualServerInfo? {
+        return _ts3Api.value?.serverInfo
+    }
+
+    fun setServerInstanceProperties(prop: ServerInstanceProperty, value: String) {
+        _ts3Api.value?.editInstance(prop, value)
     }
 }

@@ -11,9 +11,7 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.yatqa_mobile.R
 import com.example.yatqa_mobile.data.TAG
-import com.example.yatqa_mobile.ui.global.ServerListFragment
 import com.example.yatqa_mobile.ui.global.ServerListFragmentDirections
-import com.example.yatqa_mobile.ui.login.FavoritesFragmentDirections
 import com.github.theholywaffle.teamspeak3.api.wrapper.VirtualServer
 import java.util.concurrent.TimeUnit
 
@@ -68,7 +66,7 @@ class ServerAdapter(
             "${vServer.clientsOnline - vServer.queryClientsOnline}+${vServer.queryClientsOnline}/${vServer.maxClients}"
 
         val seconds = vServer.uptime
-        val days: Long = TimeUnit.SECONDS.toDays(seconds);
+        val days: Long = TimeUnit.SECONDS.toDays(seconds)
         val hours: Long =
             TimeUnit.SECONDS.toHours(seconds) - TimeUnit.SECONDS.toDays(seconds) * 24
         val minute: Long =
@@ -109,6 +107,9 @@ class ServerAdapter(
             true
         }
 
+        /**
+         * connect to telnet
+         */
         holder.card.setOnClickListener {
             holder.itemView.findNavController().navigate(
                 ServerListFragmentDirections.actionServerListFragmentToVirtualServerFragmentMain(

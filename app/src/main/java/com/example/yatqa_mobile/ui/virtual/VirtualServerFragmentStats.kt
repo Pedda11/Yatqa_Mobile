@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -37,7 +36,26 @@ class VirtualServerFragmentStats : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        var vsPort = requireArguments().getInt("vServerPort", 0)
-        binding.tvVNameValue.text = viewModel.getVirtualServerInfo(vsPort).toString()
+        viewModel.vServerInfo.observe(
+            viewLifecycleOwner
+        ) {
+            if (it != null){
+
+                var vServerName = it.name
+                if (it.name.length > 25) {
+                    vServerName = it.name.substring(0, 22) + "..."
+                }
+                binding.tvVNameValue.text = vServerName
+
+                binding.tvVSlotsValue.text =
+                    "${it.clientsOnline - it.queryClientsOnline}+${it.queryClientsOnline}/${it.maxClients}"
+
+                binding.tvVPhoneticValue.text = it.phoneticName
+                binding.tvVMachineIdValue.text = it.machineId
+                binding.tvVPortValue.text = it.port.toString()
+                binding.tvVStateValue.text = it.status.name
+                binding.tvVAutostartValue.text = it.isAutoStart.toString()
+            }
+        }
     }
 }

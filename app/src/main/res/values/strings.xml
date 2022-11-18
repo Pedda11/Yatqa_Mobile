@@ -38,8 +38,8 @@
     <string name="serverQueriesTitle">Server queries</string>
     <string name="queryGuestGroup">Query-guest-group:</string>
     <string name="queryCommandsTillFlood">Commands till flood:</string>
-    <string name="queryPeriodTillFlood">Period till flood:</string>
-    <string name="queryBanTimeFlood">Ban time for flood:</string>
+    <string name="queryPeriodTillFlood">Period till flood(sec):</string>
+    <string name="queryBanTimeFlood">Ban time for flood(sec):</string>
     <string name="queryConnectionPerIp">Query-connections per IP:</string>
     <string name="standardGroupsTitle">Standardgroups</string>
     <string name="serverAdminTemplate">Serveradmin-Template:</string>
@@ -60,6 +60,7 @@
     <string name="strMib">%1$s MiB</string>
     <string name="strGb">%1$s GB</string>
     <string name="strMb">%1$s MB</string>
+    <string name="strMillion">%1$s M</string>
 
     //serverList
     <string name="startServer">Start</string>

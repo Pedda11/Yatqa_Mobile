@@ -16,9 +16,7 @@
         app:cardCornerRadius="24dp"
         app:contentPadding="5dp"
         app:contentPaddingLeft="8dp"
-        app:contentPaddingRight="8dp"
-        app:strokeColor="@color/dark_blue"
-        app:strokeWidth="3dp">
+        app:contentPaddingRight="8dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

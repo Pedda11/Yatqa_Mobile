@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import com.example.yatqa_mobile.MainActivity
 import com.example.yatqa_mobile.R
 import com.example.yatqa_mobile.adapter.ServerAdapter
 import com.example.yatqa_mobile.databinding.FragmentServerlistBinding
@@ -15,6 +14,7 @@ import com.example.yatqa_mobile.ui.main.MainViewModel
 
 class ServerListFragment : Fragment() {
 
+    //DataBinding & ViewModel
     private lateinit var binding: FragmentServerlistBinding
     private val viewModel: MainViewModel by activityViewModels()
 
@@ -38,8 +38,10 @@ class ServerListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //get VirtualServerList
         viewModel.getVirtualServerList()
 
+        //generate adapter
         val recycler = binding.rvServerList
 
         viewModel.getGlobalDataCompleted.observe(

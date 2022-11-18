@@ -45,6 +45,7 @@ class FavoritesFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //generate adapter
         val recycler = binding.rvFavorites
 
         viewModel.loginList.observe(
@@ -56,6 +57,7 @@ class FavoritesFragment: Fragment() {
             }
         }
 
+        //move to manual login
         binding.btnToLogin.setOnClickListener {
             findNavController().navigate(FavoritesFragmentDirections.actionFavoritesFragmentToLoginFragment(0))
         }

@@ -51,6 +51,9 @@ class LoginFragment : Fragment() {
 
         val loginId = requireArguments().getInt("loginId")
 
+        /**
+         * fill editText when edit login
+         */
         if (loginId != 0) {
             val login = viewModel.loginList.value!!.find { it.id == loginId }
             if (login != null) {
@@ -79,17 +82,18 @@ class LoginFragment : Fragment() {
         binding.btnLogin.setOnClickListener {
 
             if (loginId != 0) {
+                //edit login
                 try {
-
                     val data = loginData(loginId) ?: return@setOnClickListener
 
                     viewModel.updateLogin(data)
 
                     findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToFavoritesFragment())
                 } catch (e: Exception) {
-                    Log.e("LoginFragment", "btnLoginClicked changing Logindata: $e")
+                    Log.e("LoginFragment", "btnLoginClicked changing loginData: $e")
                 }
             } else {
+                //new login
                 try {
                     val data = loginData(loginId) ?: return@setOnClickListener
 
@@ -108,6 +112,7 @@ class LoginFragment : Fragment() {
         }
     }
 
+    //insert new login
     private fun saveNewLogin(newLogin: Login) {
         try {
             viewModel.insert(newLogin)
@@ -118,13 +123,14 @@ class LoginFragment : Fragment() {
         }
     }
 
+    //set login data
     private fun loginData(loginId :Int): Login? {
         val ip = binding.editTextInputIp.text.toString()
 
         val qPort = if (!binding.editTextInputQport.text.isNullOrEmpty()) binding.editTextInputQport.text.toString().toInt()
         else null
 
-        if (qPort == null) {
+        if (qPort == null || ip.isEmpty()) {
             Toast.makeText(requireContext(), "Query port must not be empty!", Toast.LENGTH_SHORT)
                 .show()
             return null
@@ -139,7 +145,7 @@ class LoginFragment : Fragment() {
         val userPassword = binding.editTextInputUserPassword.text.toString()
         val listName = binding.editTextInputListName.text.toString()
 
-        var updateLoginId: Int = 0
+        var updateLoginId = 0
 
         if (loginId != 0){
             updateLoginId = loginId

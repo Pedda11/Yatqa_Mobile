@@ -67,7 +67,7 @@
                             android:layout_marginTop="4dp"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            tools:srcCompat="@tools:sample/avatars" />
+                            app:srcCompat="@drawable/baseconfig" />
 
                         <TextView
                             android:id="@+id/tv_v_name"

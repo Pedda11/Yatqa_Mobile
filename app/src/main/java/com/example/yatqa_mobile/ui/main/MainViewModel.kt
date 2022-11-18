@@ -10,13 +10,20 @@ import com.example.yatqa_mobile.data.Repository
 import com.example.yatqa_mobile.data.TAG
 import com.example.yatqa_mobile.data.datamodels.Login
 import com.example.yatqa_mobile.data.local.getDatabase
+import com.github.theholywaffle.teamspeak3.api.ServerInstanceProperty
 import com.github.theholywaffle.teamspeak3.api.wrapper.HostInfo
 import com.github.theholywaffle.teamspeak3.api.wrapper.InstanceInfo
 import com.github.theholywaffle.teamspeak3.api.wrapper.VirtualServer
+import com.github.theholywaffle.teamspeak3.api.wrapper.VirtualServerInfo
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.text.NumberFormat
+import java.util.*
 
 class MainViewModel(application: Application) : AndroidViewModel(application) {
+
+    //Formats
+    val bigIntFormat = NumberFormat.getInstance(Locale.GERMAN)
 
     //set the variables for database and repository
     private val database = getDatabase(application)
@@ -26,7 +33,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     lateinit var hostInfo: HostInfo
     lateinit var instanceInfo: InstanceInfo
     lateinit var vServerList: MutableList<VirtualServer>
-    lateinit var vServerInfo: Unit
 
     //to observe loading times
     private val _connectionCompleted = MutableLiveData(false)
@@ -36,6 +42,14 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private val _getGlobalDataCompleted = MutableLiveData(false)
     val getGlobalDataCompleted: LiveData<Boolean>
         get() = _getGlobalDataCompleted
+
+    private val _vServerDetails = MutableLiveData<VirtualServer>()
+    val vServerDetails: LiveData<VirtualServer>
+        get() = _vServerDetails
+
+    private val _vServerInfo = MutableLiveData<VirtualServerInfo?>()
+    val vServerInfo: LiveData<VirtualServerInfo?>
+        get() = _vServerInfo
 
     fun insert(login: Login) {
         viewModelScope.launch {
@@ -94,21 +108,42 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun getVirtualServerList() {
-        try {
-            vServerList = repository.apiGetVServerList()!!
-        } catch (e: Exception) {
-            Log.e(TAG, "Error while getting vServerList: $e")
+        viewModelScope.launch {
+            try {
+                vServerList = repository.apiGetVServerList()!!
+            } catch (e: Exception) {
+                Log.e(TAG, "Error while getting vServerList: $e")
+            }
         }
     }
 
-    fun getVirtualServerInfo(port: Int) {
-        try {
-            val vs = vServerList.find { it.port == port }
-
-            vServerInfo = vs?.let { repository.apiConnectVirtualServer(it) }!!
-        } catch (e: Exception) {
-            Log.e(TAG, "Error while getting vServerList: $e")
-            null
+    fun getCurrentVirtualServerDetails(port: Int) {
+        viewModelScope.launch {
+            try {
+                _vServerDetails.value = vServerList.find { it.port == port }
+            } catch (e: Exception) {
+                Log.e(TAG, "Error while getting vServerList: $e")
+            }
         }
     }
+
+    fun connectToVirtualServer() {
+        viewModelScope.launch {
+            try {
+                repository.apiConnectVirtualServer(_vServerDetails.value!!)
+            } catch (e: Exception) {
+                Log.e(TAG, "Error while connecting to vServer: $e")
+            }
+        }
+    }
+
+    fun getVirtualServerInfo() {
+        _vServerInfo.value = repository.apiGetVirtualServerInfo()
+    }
+
+    fun setServerInstanceProperty(property: ServerInstanceProperty, value: String) {
+        repository.setServerInstanceProperties(property, value)
+    }
+
+
 }

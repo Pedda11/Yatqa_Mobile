@@ -12,7 +12,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.yatqa_mobile.R
 import com.example.yatqa_mobile.databinding.FragmentVirtualserverMainBinding
-import com.example.yatqa_mobile.databinding.FragmentVirtualserverStatsBinding
 import com.example.yatqa_mobile.ui.main.MainViewModel
 
 class VirtualServerFragmentMain : Fragment() {
@@ -40,10 +39,12 @@ class VirtualServerFragmentMain : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val vServerName = requireArguments().getInt("vServerPort", 0)
+        val vServerPort = requireArguments().getInt("vServerPort", 0)
+        viewModel.getCurrentVirtualServerDetails(vServerPort)
+        viewModel.connectToVirtualServer()
+        viewModel.getVirtualServerInfo()
 
-
-        val spinnerItemList = listOf<String>(
+        val spinnerItemList = listOf(
             getString(R.string.vServerStats),
             getString(R.string.vServerAdvanced),
             getString(R.string.vServerBansAndCo),

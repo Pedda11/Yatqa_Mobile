@@ -2,11 +2,14 @@ package com.example.yatqa_mobile.data.datamodels
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import net.schmizz.sshj.userauth.method.AuthPassword
 
+/**
+ * Database-class
+ */
 @Entity
 data class Login(
 
+    //Unique-ID
     @PrimaryKey(autoGenerate = true)
     val id: Int,
 
