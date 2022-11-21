@@ -1,11 +1,13 @@
 package com.example.yatqa_mobile.ui.global
 
 import android.app.AlertDialog
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import androidx.annotation.RequiresApi
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -47,8 +49,18 @@ class GlobalServerFragment : Fragment() {
         (activity as MainActivity).bottomNavBarVisible(1)
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.scrollView.setOnScrollChangeListener { v: View, scrollX: Int, scrollY: Int, _: Int, _: Int ->
+            binding.swiperefresh.isEnabled = scrollY == 0
+        }
+
+        binding.swiperefresh.setOnRefreshListener {
+            viewModel.getGlobalInfo()
+            binding.swiperefresh.isRefreshing = false
+        }
 
         //observe telnet connection
         viewModel.connectionCompleted.observe(

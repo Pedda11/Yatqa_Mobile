@@ -80,4 +80,7 @@ dependencies {
 
     //ts3api errorlogging
     implementation "org.slf4j:slf4j-simple:1.7.25"
+
+    //swipe
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
 }

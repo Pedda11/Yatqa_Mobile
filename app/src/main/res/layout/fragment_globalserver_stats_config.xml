@@ -7,1212 +7,1220 @@
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swiperefresh"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/top_nav_bar_globalServer"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarTheme"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:title="@string/app_name"
-            app:titleCentered="true" />
 
-        <ScrollView
-            android:id="@+id/scrollView"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:fillViewport="true"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/top_nav_bar_globalServer">
+            android:layout_height="match_parent">
 
-            <LinearLayout
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/top_nav_bar_globalServer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorPrimary"
+                android:minHeight="?attr/actionBarSize"
+                android:theme="?attr/actionBarTheme"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:title="@string/app_name"
+                app:titleCentered="true" />
+
+            <ScrollView
+                android:id="@+id/scrollView"
                 android:layout_width="match_parent"
-                android:layout_height="600dp"
-                android:orientation="vertical">
+                android:layout_height="0dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:fillViewport="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/top_nav_bar_globalServer">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="600dp"
+                    android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/tv_Stats"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:text="@string/Stats"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/cv_virtual_server"
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_Stats"
-                        app:layout_constraintVertical_bias="0.0">
+                        android:layout_height="match_parent">
 
-                        <androidx.constraintlayout.widget.ConstraintLayout
+                        <TextView
+                            android:id="@+id/tv_Stats"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="@string/Stats"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/cv_virtual_server"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent">
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_Stats"
+                            app:layout_constraintVertical_bias="0.0">
 
-                            <TextView
-                                android:id="@+id/tv_v_server_titel"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="16dp"
-                                android:text="@string/vServerTitle"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                tools:text="@string/vServerTitle" />
-
-                            <com.google.android.material.card.MaterialCardView
+                            <androidx.constraintlayout.widget.ConstraintLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="16dp"
-                                android:layout_marginTop="18dp"
-                                android:layout_marginEnd="16dp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="@+id/tv_v_server_titel">
+                                android:layout_height="match_parent">
 
-                                <androidx.constraintlayout.widget.ConstraintLayout
+                                <TextView
+                                    android:id="@+id/tv_v_server_titel"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="16dp"
+                                    android:text="@string/vServerTitle"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    tools:text="@string/vServerTitle" />
+
+                                <com.google.android.material.card.MaterialCardView
                                     android:layout_width="match_parent"
-                                    android:layout_height="match_parent">
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="16dp"
+                                    android:layout_marginTop="18dp"
+                                    android:layout_marginEnd="16dp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="@+id/tv_v_server_titel">
 
-                                    <ImageView
-                                        android:id="@+id/iv_v_server_left_icon"
-                                        android:layout_width="48dp"
-                                        android:layout_height="48dp"
-                                        android:layout_marginStart="4dp"
-                                        app:layout_constraintBottom_toBottomOf="@+id/tv_channel"
-                                        app:layout_constraintStart_toStartOf="parent"
-                                        app:layout_constraintTop_toTopOf="@+id/tv_server"
-                                        tools:srcCompat="@tools:sample/avatars" />
+                                    <androidx.constraintlayout.widget.ConstraintLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent">
 
-                                    <TextView
-                                        android:id="@+id/tv_server"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginStart="16dp"
-                                        android:layout_marginTop="8dp"
-                                        android:text="@string/vServerOnline"
-                                        app:layout_constraintStart_toEndOf="@+id/iv_v_server_left_icon"
-                                        app:layout_constraintTop_toTopOf="parent" />
+                                        <ImageView
+                                            android:id="@+id/iv_v_server_left_icon"
+                                            android:layout_width="48dp"
+                                            android:layout_height="48dp"
+                                            android:layout_marginStart="4dp"
+                                            app:layout_constraintBottom_toBottomOf="@+id/tv_channel"
+                                            app:layout_constraintStart_toStartOf="parent"
+                                            app:layout_constraintTop_toTopOf="@+id/tv_server"
+                                            tools:srcCompat="@tools:sample/avatars" />
 
-                                    <TextView
-                                        android:id="@+id/tv_user"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="8dp"
-                                        android:text="@string/useOnline"
-                                        app:layout_constraintStart_toStartOf="@+id/tv_server"
-                                        app:layout_constraintTop_toBottomOf="@+id/tv_server" />
+                                        <TextView
+                                            android:id="@+id/tv_server"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginStart="16dp"
+                                            android:layout_marginTop="8dp"
+                                            android:text="@string/vServerOnline"
+                                            app:layout_constraintStart_toEndOf="@+id/iv_v_server_left_icon"
+                                            app:layout_constraintTop_toTopOf="parent" />
 
-                                    <TextView
-                                        android:id="@+id/tv_channel"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="8dp"
-                                        android:text="@string/channel"
-                                        app:layout_constraintStart_toStartOf="@+id/tv_user"
-                                        app:layout_constraintTop_toBottomOf="@+id/tv_user" />
+                                        <TextView
+                                            android:id="@+id/tv_user"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="8dp"
+                                            android:text="@string/useOnline"
+                                            app:layout_constraintStart_toStartOf="@+id/tv_server"
+                                            app:layout_constraintTop_toBottomOf="@+id/tv_server" />
 
-                                    <TextView
-                                        android:id="@+id/tv_server_value"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginEnd="16dp"
-                                        app:layout_constraintEnd_toStartOf="@+id/iv_v_server_right_icon"
-                                        app:layout_constraintTop_toTopOf="@+id/tv_server"
-                                        tools:text="Text und so" />
+                                        <TextView
+                                            android:id="@+id/tv_channel"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="8dp"
+                                            android:text="@string/channel"
+                                            app:layout_constraintStart_toStartOf="@+id/tv_user"
+                                            app:layout_constraintTop_toBottomOf="@+id/tv_user" />
 
-                                    <TextView
-                                        android:id="@+id/tv_user_value"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="8dp"
-                                        app:layout_constraintEnd_toEndOf="@+id/tv_server_value"
-                                        app:layout_constraintTop_toBottomOf="@+id/tv_server_value"
-                                        tools:text="Text und so" />
+                                        <TextView
+                                            android:id="@+id/tv_server_value"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginEnd="16dp"
+                                            app:layout_constraintEnd_toStartOf="@+id/iv_v_server_right_icon"
+                                            app:layout_constraintTop_toTopOf="@+id/tv_server"
+                                            tools:text="Text und so" />
 
-                                    <TextView
-                                        android:id="@+id/tv_channel_value"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="8dp"
-                                        app:layout_constraintEnd_toEndOf="@+id/tv_user_value"
-                                        app:layout_constraintTop_toBottomOf="@+id/tv_user_value"
-                                        tools:text="Text und so" />
+                                        <TextView
+                                            android:id="@+id/tv_user_value"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="8dp"
+                                            app:layout_constraintEnd_toEndOf="@+id/tv_server_value"
+                                            app:layout_constraintTop_toBottomOf="@+id/tv_server_value"
+                                            tools:text="Text und so" />
 
-                                    <ImageView
-                                        android:id="@+id/iv_v_server_right_icon"
-                                        android:layout_width="48dp"
-                                        android:layout_height="48dp"
-                                        android:layout_marginEnd="4dp"
-                                        app:layout_constraintBottom_toBottomOf="@+id/tv_channel_value"
-                                        app:layout_constraintEnd_toEndOf="parent"
-                                        app:layout_constraintTop_toTopOf="@+id/tv_server_value"
-                                        tools:srcCompat="@tools:sample/avatars" />
+                                        <TextView
+                                            android:id="@+id/tv_channel_value"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="8dp"
+                                            app:layout_constraintEnd_toEndOf="@+id/tv_user_value"
+                                            app:layout_constraintTop_toBottomOf="@+id/tv_user_value"
+                                            tools:text="Text und so" />
 
-                                    <ProgressBar
-                                        android:id="@+id/progressBar"
-                                        style="?android:attr/progressBarStyleHorizontal"
-                                        android:layout_width="0dp"
-                                        android:layout_height="wrap_content"
-                                        android:progress="50"
-                                        android:progressBackgroundTint="#0037DA"
-                                        android:progressBackgroundTintMode="src_over"
-                                        android:progressTint="#91E800"
-                                        android:progressTintMode="src_over"
-                                        android:scaleY="2"
-                                        app:layout_constraintBottom_toBottomOf="parent"
-                                        app:layout_constraintEnd_toEndOf="@+id/tv_channel_value"
-                                        app:layout_constraintStart_toStartOf="@+id/tv_channel"
-                                        app:layout_constraintTop_toBottomOf="@+id/tv_channel" />
+                                        <ImageView
+                                            android:id="@+id/iv_v_server_right_icon"
+                                            android:layout_width="48dp"
+                                            android:layout_height="48dp"
+                                            android:layout_marginEnd="4dp"
+                                            app:layout_constraintBottom_toBottomOf="@+id/tv_channel_value"
+                                            app:layout_constraintEnd_toEndOf="parent"
+                                            app:layout_constraintTop_toTopOf="@+id/tv_server_value"
+                                            tools:srcCompat="@tools:sample/avatars" />
 
-                                </androidx.constraintlayout.widget.ConstraintLayout>
-                            </com.google.android.material.card.MaterialCardView>
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-                    </com.google.android.material.card.MaterialCardView>
+                                        <ProgressBar
+                                            android:id="@+id/progressBar"
+                                            style="?android:attr/progressBarStyleHorizontal"
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:progress="50"
+                                            android:progressBackgroundTint="#0037DA"
+                                            android:progressBackgroundTintMode="src_over"
+                                            android:progressTint="#91E800"
+                                            android:progressTintMode="src_over"
+                                            android:scaleY="2"
+                                            app:layout_constraintBottom_toBottomOf="parent"
+                                            app:layout_constraintEnd_toEndOf="@+id/tv_channel_value"
+                                            app:layout_constraintStart_toStartOf="@+id/tv_channel"
+                                            app:layout_constraintTop_toBottomOf="@+id/tv_channel" />
 
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/cv_current_upload"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/cv_virtual_server">
+                                    </androidx.constraintlayout.widget.ConstraintLayout>
+                                </com.google.android.material.card.MaterialCardView>
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                        </com.google.android.material.card.MaterialCardView>
 
-                        <androidx.constraintlayout.widget.ConstraintLayout
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/cv_current_upload"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent">
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/cv_virtual_server">
 
-                            <TextView
-                                android:id="@+id/tv_current_upload"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="16dp"
-                                android:text="@string/currUploadTitle"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                tools:text="@string/currUploadTitle" />
-
-                            <com.google.android.material.card.MaterialCardView
+                            <androidx.constraintlayout.widget.ConstraintLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="16dp"
-                                android:layout_marginTop="18dp"
-                                android:layout_marginEnd="16dp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="@+id/tv_current_upload">
+                                android:layout_height="match_parent">
 
-                                <androidx.constraintlayout.widget.ConstraintLayout
+                                <TextView
+                                    android:id="@+id/tv_current_upload"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="16dp"
+                                    android:text="@string/currUploadTitle"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    tools:text="@string/currUploadTitle" />
+
+                                <com.google.android.material.card.MaterialCardView
                                     android:layout_width="match_parent"
-                                    android:layout_height="match_parent">
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="16dp"
+                                    android:layout_marginTop="18dp"
+                                    android:layout_marginEnd="16dp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="@+id/tv_current_upload">
 
-                                    <ImageView
-                                        android:id="@+id/iv_curr_upload_left_icon"
-                                        android:layout_width="48dp"
-                                        android:layout_height="48dp"
-                                        android:layout_marginStart="4dp"
-                                        app:layout_constraintBottom_toBottomOf="parent"
-                                        app:layout_constraintStart_toStartOf="parent"
-                                        app:layout_constraintTop_toTopOf="parent"
-                                        tools:srcCompat="@tools:sample/avatars" />
+                                    <androidx.constraintlayout.widget.ConstraintLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent">
 
-                                    <TextView
-                                        android:id="@+id/tv_cur_upload_total_sek"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginStart="16dp"
-                                        android:layout_marginTop="8dp"
-                                        android:text="@string/currTotalSek"
-                                        app:layout_constraintStart_toEndOf="@+id/iv_curr_upload_left_icon"
-                                        app:layout_constraintTop_toTopOf="parent" />
+                                        <ImageView
+                                            android:id="@+id/iv_curr_upload_left_icon"
+                                            android:layout_width="48dp"
+                                            android:layout_height="48dp"
+                                            android:layout_marginStart="4dp"
+                                            app:layout_constraintBottom_toBottomOf="parent"
+                                            app:layout_constraintStart_toStartOf="parent"
+                                            app:layout_constraintTop_toTopOf="parent"
+                                            tools:srcCompat="@tools:sample/avatars" />
 
-                                    <TextView
-                                        android:id="@+id/tv_cur_upload_total_min"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="8dp"
-                                        android:text="@string/currTotalMin"
-                                        app:layout_constraintStart_toStartOf="@+id/tv_cur_upload_total_sek"
-                                        app:layout_constraintTop_toBottomOf="@+id/tv_cur_upload_total_sek" />
+                                        <TextView
+                                            android:id="@+id/tv_cur_upload_total_sek"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginStart="16dp"
+                                            android:layout_marginTop="8dp"
+                                            android:text="@string/currTotalSek"
+                                            app:layout_constraintStart_toEndOf="@+id/iv_curr_upload_left_icon"
+                                            app:layout_constraintTop_toTopOf="parent" />
 
-                                    <TextView
-                                        android:id="@+id/tv_cur_upload_data_sek"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="8dp"
-                                        android:layout_marginBottom="8dp"
-                                        android:text="@string/currFileSek"
-                                        app:layout_constraintBottom_toBottomOf="parent"
-                                        app:layout_constraintStart_toStartOf="@+id/tv_cur_upload_total_min"
-                                        app:layout_constraintTop_toBottomOf="@+id/tv_cur_upload_total_min" />
+                                        <TextView
+                                            android:id="@+id/tv_cur_upload_total_min"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="8dp"
+                                            android:text="@string/currTotalMin"
+                                            app:layout_constraintStart_toStartOf="@+id/tv_cur_upload_total_sek"
+                                            app:layout_constraintTop_toBottomOf="@+id/tv_cur_upload_total_sek" />
 
-                                    <TextView
-                                        android:id="@+id/tv_cur_upload_total_sek_value"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginEnd="16dp"
-                                        app:layout_constraintEnd_toStartOf="@+id/iv_curr_upload_right_icon"
-                                        app:layout_constraintTop_toTopOf="@+id/tv_cur_upload_total_sek"
-                                        tools:text="Text und so" />
+                                        <TextView
+                                            android:id="@+id/tv_cur_upload_data_sek"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="8dp"
+                                            android:layout_marginBottom="8dp"
+                                            android:text="@string/currFileSek"
+                                            app:layout_constraintBottom_toBottomOf="parent"
+                                            app:layout_constraintStart_toStartOf="@+id/tv_cur_upload_total_min"
+                                            app:layout_constraintTop_toBottomOf="@+id/tv_cur_upload_total_min" />
 
-                                    <TextView
-                                        android:id="@+id/tv_cur_upload_total_min_value"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="8dp"
-                                        app:layout_constraintEnd_toEndOf="@+id/tv_cur_upload_total_sek_value"
-                                        app:layout_constraintTop_toBottomOf="@+id/tv_cur_upload_total_sek_value"
-                                        tools:text="Text und so" />
+                                        <TextView
+                                            android:id="@+id/tv_cur_upload_total_sek_value"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginEnd="16dp"
+                                            app:layout_constraintEnd_toStartOf="@+id/iv_curr_upload_right_icon"
+                                            app:layout_constraintTop_toTopOf="@+id/tv_cur_upload_total_sek"
+                                            tools:text="Text und so" />
 
-                                    <TextView
-                                        android:id="@+id/tv_cur_upload_data_sek_value"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="8dp"
-                                        app:layout_constraintEnd_toEndOf="@+id/tv_cur_upload_total_min_value"
-                                        app:layout_constraintTop_toBottomOf="@+id/tv_cur_upload_total_min_value"
-                                        tools:text="Text und so" />
+                                        <TextView
+                                            android:id="@+id/tv_cur_upload_total_min_value"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="8dp"
+                                            app:layout_constraintEnd_toEndOf="@+id/tv_cur_upload_total_sek_value"
+                                            app:layout_constraintTop_toBottomOf="@+id/tv_cur_upload_total_sek_value"
+                                            tools:text="Text und so" />
 
-                                    <ImageView
-                                        android:id="@+id/iv_curr_upload_right_icon"
-                                        android:layout_width="48dp"
-                                        android:layout_height="48dp"
-                                        android:layout_marginEnd="4dp"
-                                        android:visibility="gone"
-                                        app:layout_constraintBottom_toBottomOf="parent"
-                                        app:layout_constraintEnd_toEndOf="parent"
-                                        app:layout_constraintTop_toTopOf="parent"
-                                        tools:srcCompat="@tools:sample/avatars"
-                                        tools:visibility="visible" />
+                                        <TextView
+                                            android:id="@+id/tv_cur_upload_data_sek_value"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="8dp"
+                                            app:layout_constraintEnd_toEndOf="@+id/tv_cur_upload_total_min_value"
+                                            app:layout_constraintTop_toBottomOf="@+id/tv_cur_upload_total_min_value"
+                                            tools:text="Text und so" />
 
-                                </androidx.constraintlayout.widget.ConstraintLayout>
-                            </com.google.android.material.card.MaterialCardView>
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-                    </com.google.android.material.card.MaterialCardView>
+                                        <ImageView
+                                            android:id="@+id/iv_curr_upload_right_icon"
+                                            android:layout_width="48dp"
+                                            android:layout_height="48dp"
+                                            android:layout_marginEnd="4dp"
+                                            android:visibility="gone"
+                                            app:layout_constraintBottom_toBottomOf="parent"
+                                            app:layout_constraintEnd_toEndOf="parent"
+                                            app:layout_constraintTop_toTopOf="parent"
+                                            tools:srcCompat="@tools:sample/avatars"
+                                            tools:visibility="visible" />
 
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/cv_current_download"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/cv_current_upload">
+                                    </androidx.constraintlayout.widget.ConstraintLayout>
+                                </com.google.android.material.card.MaterialCardView>
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                        </com.google.android.material.card.MaterialCardView>
 
-                        <androidx.constraintlayout.widget.ConstraintLayout
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/cv_current_download"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent">
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/cv_current_upload">
 
-                            <TextView
-                                android:id="@+id/tv_current_download"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="16dp"
-                                android:text="@string/currDownloadTitle"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                            <com.google.android.material.card.MaterialCardView
+                            <androidx.constraintlayout.widget.ConstraintLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="16dp"
-                                android:layout_marginTop="18dp"
-                                android:layout_marginEnd="16dp"
-                                android:layout_marginBottom="18dp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="@+id/tv_current_download">
+                                android:layout_height="match_parent">
 
-                                <androidx.constraintlayout.widget.ConstraintLayout
+                                <TextView
+                                    android:id="@+id/tv_current_download"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="16dp"
+                                    android:text="@string/currDownloadTitle"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <com.google.android.material.card.MaterialCardView
                                     android:layout_width="match_parent"
-                                    android:layout_height="match_parent">
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="16dp"
+                                    android:layout_marginTop="18dp"
+                                    android:layout_marginEnd="16dp"
+                                    android:layout_marginBottom="18dp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="@+id/tv_current_download">
 
-                                    <ImageView
-                                        android:id="@+id/iv_curr_download_left_icon"
-                                        android:layout_width="48dp"
-                                        android:layout_height="48dp"
-                                        android:layout_marginStart="4dp"
-                                        app:layout_constraintBottom_toBottomOf="parent"
-                                        app:layout_constraintStart_toStartOf="parent"
-                                        app:layout_constraintTop_toTopOf="parent"
-                                        tools:srcCompat="@tools:sample/avatars" />
+                                    <androidx.constraintlayout.widget.ConstraintLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent">
 
-                                    <TextView
-                                        android:id="@+id/tv_cur_download_total_sek"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginStart="16dp"
-                                        android:layout_marginTop="8dp"
-                                        android:text="@string/currTotalSek"
-                                        app:layout_constraintStart_toEndOf="@+id/iv_curr_download_left_icon"
-                                        app:layout_constraintTop_toTopOf="parent" />
+                                        <ImageView
+                                            android:id="@+id/iv_curr_download_left_icon"
+                                            android:layout_width="48dp"
+                                            android:layout_height="48dp"
+                                            android:layout_marginStart="4dp"
+                                            app:layout_constraintBottom_toBottomOf="parent"
+                                            app:layout_constraintStart_toStartOf="parent"
+                                            app:layout_constraintTop_toTopOf="parent"
+                                            tools:srcCompat="@tools:sample/avatars" />
 
-                                    <TextView
-                                        android:id="@+id/tv_cur_download_total_min"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="8dp"
-                                        android:text="@string/currTotalMin"
-                                        app:layout_constraintStart_toStartOf="@+id/tv_cur_download_total_sek"
-                                        app:layout_constraintTop_toBottomOf="@+id/tv_cur_download_total_sek" />
+                                        <TextView
+                                            android:id="@+id/tv_cur_download_total_sek"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginStart="16dp"
+                                            android:layout_marginTop="8dp"
+                                            android:text="@string/currTotalSek"
+                                            app:layout_constraintStart_toEndOf="@+id/iv_curr_download_left_icon"
+                                            app:layout_constraintTop_toTopOf="parent" />
 
-                                    <TextView
-                                        android:id="@+id/tv_cur_download_data_sek"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="8dp"
-                                        android:layout_marginBottom="8dp"
-                                        android:text="@string/currFileSek"
-                                        app:layout_constraintBottom_toBottomOf="parent"
-                                        app:layout_constraintStart_toStartOf="@+id/tv_cur_download_total_min"
-                                        app:layout_constraintTop_toBottomOf="@+id/tv_cur_download_total_min" />
+                                        <TextView
+                                            android:id="@+id/tv_cur_download_total_min"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="8dp"
+                                            android:text="@string/currTotalMin"
+                                            app:layout_constraintStart_toStartOf="@+id/tv_cur_download_total_sek"
+                                            app:layout_constraintTop_toBottomOf="@+id/tv_cur_download_total_sek" />
 
-                                    <TextView
-                                        android:id="@+id/tv_cur_download_total_sek_value"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginEnd="16dp"
-                                        app:layout_constraintEnd_toStartOf="@+id/iv_curr_download_right_icon"
-                                        app:layout_constraintTop_toTopOf="@+id/tv_cur_download_total_sek"
-                                        tools:text="Text und so" />
+                                        <TextView
+                                            android:id="@+id/tv_cur_download_data_sek"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="8dp"
+                                            android:layout_marginBottom="8dp"
+                                            android:text="@string/currFileSek"
+                                            app:layout_constraintBottom_toBottomOf="parent"
+                                            app:layout_constraintStart_toStartOf="@+id/tv_cur_download_total_min"
+                                            app:layout_constraintTop_toBottomOf="@+id/tv_cur_download_total_min" />
 
-                                    <TextView
-                                        android:id="@+id/tv_cur_download_total_min_value"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="8dp"
-                                        app:layout_constraintEnd_toEndOf="@+id/tv_cur_download_total_sek_value"
-                                        app:layout_constraintTop_toBottomOf="@+id/tv_cur_download_total_sek_value"
-                                        tools:text="Text und so" />
+                                        <TextView
+                                            android:id="@+id/tv_cur_download_total_sek_value"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginEnd="16dp"
+                                            app:layout_constraintEnd_toStartOf="@+id/iv_curr_download_right_icon"
+                                            app:layout_constraintTop_toTopOf="@+id/tv_cur_download_total_sek"
+                                            tools:text="Text und so" />
 
-                                    <TextView
-                                        android:id="@+id/tv_cur_download_data_sek_value"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="8dp"
-                                        app:layout_constraintEnd_toEndOf="@+id/tv_cur_download_total_min_value"
-                                        app:layout_constraintTop_toBottomOf="@+id/tv_cur_download_total_min_value"
-                                        tools:text="Text und so" />
+                                        <TextView
+                                            android:id="@+id/tv_cur_download_total_min_value"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="8dp"
+                                            app:layout_constraintEnd_toEndOf="@+id/tv_cur_download_total_sek_value"
+                                            app:layout_constraintTop_toBottomOf="@+id/tv_cur_download_total_sek_value"
+                                            tools:text="Text und so" />
 
-                                    <ImageView
-                                        android:id="@+id/iv_curr_download_right_icon"
-                                        android:layout_width="48dp"
-                                        android:layout_height="48dp"
-                                        android:visibility="gone"
-                                        app:layout_constraintBottom_toBottomOf="parent"
-                                        app:layout_constraintEnd_toEndOf="parent"
-                                        app:layout_constraintTop_toTopOf="parent"
-                                        tools:srcCompat="@tools:sample/avatars"
-                                        tools:visibility="visible" />
+                                        <TextView
+                                            android:id="@+id/tv_cur_download_data_sek_value"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="8dp"
+                                            app:layout_constraintEnd_toEndOf="@+id/tv_cur_download_total_min_value"
+                                            app:layout_constraintTop_toBottomOf="@+id/tv_cur_download_total_min_value"
+                                            tools:text="Text und so" />
 
-                                </androidx.constraintlayout.widget.ConstraintLayout>
-                            </com.google.android.material.card.MaterialCardView>
-                        </androidx.constraintlayout.widget.ConstraintLayout>
+                                        <ImageView
+                                            android:id="@+id/iv_curr_download_right_icon"
+                                            android:layout_width="48dp"
+                                            android:layout_height="48dp"
+                                            android:visibility="gone"
+                                            app:layout_constraintBottom_toBottomOf="parent"
+                                            app:layout_constraintEnd_toEndOf="parent"
+                                            app:layout_constraintTop_toTopOf="parent"
+                                            tools:srcCompat="@tools:sample/avatars"
+                                            tools:visibility="visible" />
 
-                    </com.google.android.material.card.MaterialCardView>
+                                    </androidx.constraintlayout.widget.ConstraintLayout>
+                                </com.google.android.material.card.MaterialCardView>
+                            </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/cv_transfered_data"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/cv_current_download">
+                        </com.google.android.material.card.MaterialCardView>
 
-                        <androidx.constraintlayout.widget.ConstraintLayout
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/cv_transfered_data"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent">
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/cv_current_download">
 
-                            <TextView
-                                android:id="@+id/tv_transfered_data"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="16dp"
-                                android:text="@string/transferredDataTitle"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                            <com.google.android.material.card.MaterialCardView
+                            <androidx.constraintlayout.widget.ConstraintLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="16dp"
-                                android:layout_marginTop="18dp"
-                                android:layout_marginEnd="16dp"
-                                android:layout_marginBottom="18dp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="@+id/tv_transfered_data">
+                                android:layout_height="match_parent">
 
-                                <androidx.constraintlayout.widget.ConstraintLayout
+                                <TextView
+                                    android:id="@+id/tv_transfered_data"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="16dp"
+                                    android:text="@string/transferredDataTitle"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <com.google.android.material.card.MaterialCardView
                                     android:layout_width="match_parent"
-                                    android:layout_height="match_parent">
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="16dp"
+                                    android:layout_marginTop="18dp"
+                                    android:layout_marginEnd="16dp"
+                                    android:layout_marginBottom="18dp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="@+id/tv_transfered_data">
 
-                                    <ImageView
-                                        android:id="@+id/iv_transfered_data_left"
-                                        android:layout_width="48dp"
-                                        android:layout_height="48dp"
-                                        android:layout_marginStart="4dp"
-                                        app:layout_constraintBottom_toBottomOf="parent"
-                                        app:layout_constraintStart_toStartOf="parent"
-                                        app:layout_constraintTop_toTopOf="parent"
-                                        tools:srcCompat="@tools:sample/avatars" />
+                                    <androidx.constraintlayout.widget.ConstraintLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent">
 
-                                    <TextView
-                                        android:id="@+id/tv_transfered_sent"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginStart="16dp"
-                                        android:layout_marginTop="8dp"
-                                        android:text="@string/transferredSent"
-                                        app:layout_constraintStart_toEndOf="@+id/iv_transfered_data_left"
-                                        app:layout_constraintTop_toTopOf="parent" />
+                                        <ImageView
+                                            android:id="@+id/iv_transfered_data_left"
+                                            android:layout_width="48dp"
+                                            android:layout_height="48dp"
+                                            android:layout_marginStart="4dp"
+                                            app:layout_constraintBottom_toBottomOf="parent"
+                                            app:layout_constraintStart_toStartOf="parent"
+                                            app:layout_constraintTop_toTopOf="parent"
+                                            tools:srcCompat="@tools:sample/avatars" />
 
-                                    <TextView
-                                        android:id="@+id/tv_transfered_received"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="8dp"
-                                        android:text="@string/transferredReceived"
-                                        app:layout_constraintStart_toStartOf="@+id/tv_transfered_sent"
-                                        app:layout_constraintTop_toBottomOf="@+id/tv_transfered_sent" />
+                                        <TextView
+                                            android:id="@+id/tv_transfered_sent"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginStart="16dp"
+                                            android:layout_marginTop="8dp"
+                                            android:text="@string/transferredSent"
+                                            app:layout_constraintStart_toEndOf="@+id/iv_transfered_data_left"
+                                            app:layout_constraintTop_toTopOf="parent" />
 
-                                    <TextView
-                                        android:id="@+id/tv_transfered_sum"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="8dp"
-                                        android:layout_marginBottom="8dp"
-                                        android:text="@string/transferredSum"
-                                        app:layout_constraintBottom_toBottomOf="parent"
-                                        app:layout_constraintStart_toStartOf="@+id/tv_transfered_received"
-                                        app:layout_constraintTop_toBottomOf="@+id/tv_transfered_received" />
+                                        <TextView
+                                            android:id="@+id/tv_transfered_received"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="8dp"
+                                            android:text="@string/transferredReceived"
+                                            app:layout_constraintStart_toStartOf="@+id/tv_transfered_sent"
+                                            app:layout_constraintTop_toBottomOf="@+id/tv_transfered_sent" />
 
-                                    <TextView
-                                        android:id="@+id/tv_transfered_sent_value"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginEnd="16dp"
-                                        app:layout_constraintEnd_toStartOf="@+id/iv_transfered_data_right"
-                                        app:layout_constraintTop_toTopOf="@+id/tv_transfered_sent"
-                                        tools:text="Text und so" />
+                                        <TextView
+                                            android:id="@+id/tv_transfered_sum"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="8dp"
+                                            android:layout_marginBottom="8dp"
+                                            android:text="@string/transferredSum"
+                                            app:layout_constraintBottom_toBottomOf="parent"
+                                            app:layout_constraintStart_toStartOf="@+id/tv_transfered_received"
+                                            app:layout_constraintTop_toBottomOf="@+id/tv_transfered_received" />
 
-                                    <TextView
-                                        android:id="@+id/tv_transfered_received_value"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="8dp"
-                                        app:layout_constraintEnd_toEndOf="@+id/tv_transfered_sent_value"
-                                        app:layout_constraintTop_toBottomOf="@+id/tv_transfered_sent_value"
-                                        tools:text="Text und so" />
+                                        <TextView
+                                            android:id="@+id/tv_transfered_sent_value"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginEnd="16dp"
+                                            app:layout_constraintEnd_toStartOf="@+id/iv_transfered_data_right"
+                                            app:layout_constraintTop_toTopOf="@+id/tv_transfered_sent"
+                                            tools:text="Text und so" />
 
-                                    <TextView
-                                        android:id="@+id/tv_transfered_sum_value"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="8dp"
-                                        app:layout_constraintEnd_toEndOf="@+id/tv_transfered_received_value"
-                                        app:layout_constraintTop_toBottomOf="@+id/tv_transfered_received_value"
-                                        tools:text="Text und so" />
+                                        <TextView
+                                            android:id="@+id/tv_transfered_received_value"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="8dp"
+                                            app:layout_constraintEnd_toEndOf="@+id/tv_transfered_sent_value"
+                                            app:layout_constraintTop_toBottomOf="@+id/tv_transfered_sent_value"
+                                            tools:text="Text und so" />
 
-                                    <ImageView
-                                        android:id="@+id/iv_transfered_data_right"
-                                        android:layout_width="48dp"
-                                        android:layout_height="48dp"
-                                        android:visibility="visible"
-                                        app:layout_constraintBottom_toBottomOf="parent"
-                                        app:layout_constraintEnd_toEndOf="parent"
-                                        app:layout_constraintTop_toTopOf="parent"
-                                        tools:srcCompat="@tools:sample/avatars"
-                                        tools:visibility="visible" />
+                                        <TextView
+                                            android:id="@+id/tv_transfered_sum_value"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="8dp"
+                                            app:layout_constraintEnd_toEndOf="@+id/tv_transfered_received_value"
+                                            app:layout_constraintTop_toBottomOf="@+id/tv_transfered_received_value"
+                                            tools:text="Text und so" />
 
-                                </androidx.constraintlayout.widget.ConstraintLayout>
-                            </com.google.android.material.card.MaterialCardView>
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-                    </com.google.android.material.card.MaterialCardView>
+                                        <ImageView
+                                            android:id="@+id/iv_transfered_data_right"
+                                            android:layout_width="48dp"
+                                            android:layout_height="48dp"
+                                            android:visibility="visible"
+                                            app:layout_constraintBottom_toBottomOf="parent"
+                                            app:layout_constraintEnd_toEndOf="parent"
+                                            app:layout_constraintTop_toTopOf="parent"
+                                            tools:srcCompat="@tools:sample/avatars"
+                                            tools:visibility="visible" />
 
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/cv_transfered_packets"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/cv_transfered_data">
+                                    </androidx.constraintlayout.widget.ConstraintLayout>
+                                </com.google.android.material.card.MaterialCardView>
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                        </com.google.android.material.card.MaterialCardView>
 
-                        <androidx.constraintlayout.widget.ConstraintLayout
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/cv_transfered_packets"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent">
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/cv_transfered_data">
 
-                            <TextView
-                                android:id="@+id/tv_transfered_packets"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="16dp"
-                                android:text="@string/transferredPacketsTitle"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                            <com.google.android.material.card.MaterialCardView
+                            <androidx.constraintlayout.widget.ConstraintLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="16dp"
-                                android:layout_marginTop="18dp"
-                                android:layout_marginEnd="16dp"
-                                android:layout_marginBottom="18dp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="@+id/tv_transfered_packets">
+                                android:layout_height="match_parent">
 
-                                <androidx.constraintlayout.widget.ConstraintLayout
+                                <TextView
+                                    android:id="@+id/tv_transfered_packets"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="16dp"
+                                    android:text="@string/transferredPacketsTitle"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <com.google.android.material.card.MaterialCardView
                                     android:layout_width="match_parent"
-                                    android:layout_height="match_parent">
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="16dp"
+                                    android:layout_marginTop="18dp"
+                                    android:layout_marginEnd="16dp"
+                                    android:layout_marginBottom="18dp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="@+id/tv_transfered_packets">
 
-                                    <ImageView
-                                        android:id="@+id/iv_packets_left"
-                                        android:layout_width="48dp"
-                                        android:layout_height="48dp"
-                                        android:layout_marginStart="4dp"
-                                        app:layout_constraintBottom_toBottomOf="parent"
-                                        app:layout_constraintStart_toStartOf="parent"
-                                        app:layout_constraintTop_toTopOf="parent"
-                                        tools:srcCompat="@tools:sample/avatars" />
+                                    <androidx.constraintlayout.widget.ConstraintLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent">
 
-                                    <TextView
-                                        android:id="@+id/tv_packets_sent"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginStart="16dp"
-                                        android:layout_marginTop="8dp"
-                                        android:text="@string/transferredSent"
-                                        app:layout_constraintStart_toEndOf="@+id/iv_packets_left"
-                                        app:layout_constraintTop_toTopOf="parent" />
+                                        <ImageView
+                                            android:id="@+id/iv_packets_left"
+                                            android:layout_width="48dp"
+                                            android:layout_height="48dp"
+                                            android:layout_marginStart="4dp"
+                                            app:layout_constraintBottom_toBottomOf="parent"
+                                            app:layout_constraintStart_toStartOf="parent"
+                                            app:layout_constraintTop_toTopOf="parent"
+                                            tools:srcCompat="@tools:sample/avatars" />
 
-                                    <TextView
-                                        android:id="@+id/tv_packets_received"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="8dp"
-                                        android:text="@string/transferredReceived"
-                                        app:layout_constraintStart_toStartOf="@+id/tv_packets_sent"
-                                        app:layout_constraintTop_toBottomOf="@+id/tv_packets_sent" />
+                                        <TextView
+                                            android:id="@+id/tv_packets_sent"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginStart="16dp"
+                                            android:layout_marginTop="8dp"
+                                            android:text="@string/transferredSent"
+                                            app:layout_constraintStart_toEndOf="@+id/iv_packets_left"
+                                            app:layout_constraintTop_toTopOf="parent" />
 
-                                    <TextView
-                                        android:id="@+id/tv_packets_sum"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="8dp"
-                                        android:layout_marginBottom="8dp"
-                                        android:text="@string/transferredSum"
-                                        app:layout_constraintBottom_toBottomOf="parent"
-                                        app:layout_constraintStart_toStartOf="@+id/tv_packets_received"
-                                        app:layout_constraintTop_toBottomOf="@+id/tv_packets_received" />
+                                        <TextView
+                                            android:id="@+id/tv_packets_received"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="8dp"
+                                            android:text="@string/transferredReceived"
+                                            app:layout_constraintStart_toStartOf="@+id/tv_packets_sent"
+                                            app:layout_constraintTop_toBottomOf="@+id/tv_packets_sent" />
 
-                                    <TextView
-                                        android:id="@+id/tv_packets_sent_value"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginEnd="16dp"
-                                        app:layout_constraintEnd_toStartOf="@+id/iv_packets_right"
-                                        app:layout_constraintTop_toTopOf="@+id/tv_packets_sent"
-                                        tools:text="Text und so" />
+                                        <TextView
+                                            android:id="@+id/tv_packets_sum"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="8dp"
+                                            android:layout_marginBottom="8dp"
+                                            android:text="@string/transferredSum"
+                                            app:layout_constraintBottom_toBottomOf="parent"
+                                            app:layout_constraintStart_toStartOf="@+id/tv_packets_received"
+                                            app:layout_constraintTop_toBottomOf="@+id/tv_packets_received" />
 
-                                    <TextView
-                                        android:id="@+id/tv_packets_received_value"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="8dp"
-                                        app:layout_constraintEnd_toEndOf="@+id/tv_packets_sent_value"
-                                        app:layout_constraintTop_toBottomOf="@+id/tv_packets_sent_value"
-                                        tools:text="Text und so" />
+                                        <TextView
+                                            android:id="@+id/tv_packets_sent_value"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginEnd="16dp"
+                                            app:layout_constraintEnd_toStartOf="@+id/iv_packets_right"
+                                            app:layout_constraintTop_toTopOf="@+id/tv_packets_sent"
+                                            tools:text="Text und so" />
 
-                                    <TextView
-                                        android:id="@+id/tv_packets_sum_value"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="8dp"
-                                        app:layout_constraintEnd_toEndOf="@+id/tv_packets_received_value"
-                                        app:layout_constraintTop_toBottomOf="@+id/tv_packets_received_value"
-                                        tools:text="Text und so" />
+                                        <TextView
+                                            android:id="@+id/tv_packets_received_value"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="8dp"
+                                            app:layout_constraintEnd_toEndOf="@+id/tv_packets_sent_value"
+                                            app:layout_constraintTop_toBottomOf="@+id/tv_packets_sent_value"
+                                            tools:text="Text und so" />
 
-                                    <ImageView
-                                        android:id="@+id/iv_packets_right"
-                                        android:layout_width="48dp"
-                                        android:layout_height="48dp"
-                                        android:visibility="visible"
-                                        app:layout_constraintBottom_toBottomOf="parent"
-                                        app:layout_constraintEnd_toEndOf="parent"
-                                        app:layout_constraintTop_toTopOf="parent"
-                                        tools:srcCompat="@tools:sample/avatars"
-                                        tools:visibility="visible" />
+                                        <TextView
+                                            android:id="@+id/tv_packets_sum_value"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="8dp"
+                                            app:layout_constraintEnd_toEndOf="@+id/tv_packets_received_value"
+                                            app:layout_constraintTop_toBottomOf="@+id/tv_packets_received_value"
+                                            tools:text="Text und so" />
 
-                                </androidx.constraintlayout.widget.ConstraintLayout>
-                            </com.google.android.material.card.MaterialCardView>
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-                    </com.google.android.material.card.MaterialCardView>
+                                        <ImageView
+                                            android:id="@+id/iv_packets_right"
+                                            android:layout_width="48dp"
+                                            android:layout_height="48dp"
+                                            android:visibility="visible"
+                                            app:layout_constraintBottom_toBottomOf="parent"
+                                            app:layout_constraintEnd_toEndOf="parent"
+                                            app:layout_constraintTop_toTopOf="parent"
+                                            tools:srcCompat="@tools:sample/avatars"
+                                            tools:visibility="visible" />
 
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/cv_transfered_files"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/cv_transfered_packets">
+                                    </androidx.constraintlayout.widget.ConstraintLayout>
+                                </com.google.android.material.card.MaterialCardView>
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                        </com.google.android.material.card.MaterialCardView>
 
-                        <androidx.constraintlayout.widget.ConstraintLayout
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/cv_transfered_files"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent">
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/cv_transfered_packets">
 
-                            <TextView
-                                android:id="@+id/tv_transfered_files"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="16dp"
-                                android:text="@string/transferredFilesTitle"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                            <com.google.android.material.card.MaterialCardView
+                            <androidx.constraintlayout.widget.ConstraintLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="16dp"
-                                android:layout_marginTop="18dp"
-                                android:layout_marginEnd="16dp"
-                                android:layout_marginBottom="18dp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="@+id/tv_transfered_files">
+                                android:layout_height="match_parent">
 
-                                <androidx.constraintlayout.widget.ConstraintLayout
+                                <TextView
+                                    android:id="@+id/tv_transfered_files"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="16dp"
+                                    android:text="@string/transferredFilesTitle"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <com.google.android.material.card.MaterialCardView
                                     android:layout_width="match_parent"
-                                    android:layout_height="match_parent">
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="16dp"
+                                    android:layout_marginTop="18dp"
+                                    android:layout_marginEnd="16dp"
+                                    android:layout_marginBottom="18dp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="@+id/tv_transfered_files">
 
-                                    <ImageView
-                                        android:id="@+id/iv_files_left"
-                                        android:layout_width="48dp"
-                                        android:layout_height="48dp"
-                                        android:layout_marginStart="4dp"
-                                        app:layout_constraintBottom_toBottomOf="parent"
-                                        app:layout_constraintStart_toStartOf="parent"
-                                        app:layout_constraintTop_toTopOf="parent"
-                                        tools:srcCompat="@tools:sample/avatars" />
+                                    <androidx.constraintlayout.widget.ConstraintLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent">
 
-                                    <TextView
-                                        android:id="@+id/tv_files_sent"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginStart="16dp"
-                                        android:layout_marginTop="8dp"
-                                        android:text="@string/transferredSent"
-                                        app:layout_constraintStart_toEndOf="@+id/iv_files_left"
-                                        app:layout_constraintTop_toTopOf="parent" />
+                                        <ImageView
+                                            android:id="@+id/iv_files_left"
+                                            android:layout_width="48dp"
+                                            android:layout_height="48dp"
+                                            android:layout_marginStart="4dp"
+                                            app:layout_constraintBottom_toBottomOf="parent"
+                                            app:layout_constraintStart_toStartOf="parent"
+                                            app:layout_constraintTop_toTopOf="parent"
+                                            tools:srcCompat="@tools:sample/avatars" />
 
-                                    <TextView
-                                        android:id="@+id/tv_files_received"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="8dp"
-                                        android:text="@string/transferredReceived"
-                                        app:layout_constraintStart_toStartOf="@+id/tv_files_sent"
-                                        app:layout_constraintTop_toBottomOf="@+id/tv_files_sent" />
+                                        <TextView
+                                            android:id="@+id/tv_files_sent"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginStart="16dp"
+                                            android:layout_marginTop="8dp"
+                                            android:text="@string/transferredSent"
+                                            app:layout_constraintStart_toEndOf="@+id/iv_files_left"
+                                            app:layout_constraintTop_toTopOf="parent" />
 
-                                    <TextView
-                                        android:id="@+id/tv_files_sum"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="8dp"
-                                        android:layout_marginBottom="8dp"
-                                        android:text="@string/transferredSum"
-                                        app:layout_constraintBottom_toBottomOf="parent"
-                                        app:layout_constraintStart_toStartOf="@+id/tv_files_received"
-                                        app:layout_constraintTop_toBottomOf="@+id/tv_files_received" />
+                                        <TextView
+                                            android:id="@+id/tv_files_received"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="8dp"
+                                            android:text="@string/transferredReceived"
+                                            app:layout_constraintStart_toStartOf="@+id/tv_files_sent"
+                                            app:layout_constraintTop_toBottomOf="@+id/tv_files_sent" />
 
-                                    <TextView
-                                        android:id="@+id/tv_files_sent_value"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginEnd="16dp"
-                                        app:layout_constraintEnd_toStartOf="@+id/iv_files_right"
-                                        app:layout_constraintTop_toTopOf="@+id/tv_files_sent"
-                                        tools:text="Text und so" />
+                                        <TextView
+                                            android:id="@+id/tv_files_sum"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="8dp"
+                                            android:layout_marginBottom="8dp"
+                                            android:text="@string/transferredSum"
+                                            app:layout_constraintBottom_toBottomOf="parent"
+                                            app:layout_constraintStart_toStartOf="@+id/tv_files_received"
+                                            app:layout_constraintTop_toBottomOf="@+id/tv_files_received" />
 
-                                    <TextView
-                                        android:id="@+id/tv_files_received_value"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="8dp"
-                                        app:layout_constraintEnd_toEndOf="@+id/tv_files_sent_value"
-                                        app:layout_constraintTop_toBottomOf="@+id/tv_files_sent_value"
-                                        tools:text="Text und so" />
+                                        <TextView
+                                            android:id="@+id/tv_files_sent_value"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginEnd="16dp"
+                                            app:layout_constraintEnd_toStartOf="@+id/iv_files_right"
+                                            app:layout_constraintTop_toTopOf="@+id/tv_files_sent"
+                                            tools:text="Text und so" />
 
-                                    <TextView
-                                        android:id="@+id/tv_files_sum_value"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="8dp"
-                                        app:layout_constraintEnd_toEndOf="@+id/tv_files_received_value"
-                                        app:layout_constraintTop_toBottomOf="@+id/tv_files_received_value"
-                                        tools:text="Text und so" />
+                                        <TextView
+                                            android:id="@+id/tv_files_received_value"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="8dp"
+                                            app:layout_constraintEnd_toEndOf="@+id/tv_files_sent_value"
+                                            app:layout_constraintTop_toBottomOf="@+id/tv_files_sent_value"
+                                            tools:text="Text und so" />
 
-                                    <ImageView
-                                        android:id="@+id/iv_files_right"
-                                        android:layout_width="48dp"
-                                        android:layout_height="48dp"
-                                        android:visibility="visible"
-                                        app:layout_constraintBottom_toBottomOf="parent"
-                                        app:layout_constraintEnd_toEndOf="parent"
-                                        app:layout_constraintTop_toTopOf="parent"
-                                        tools:srcCompat="@tools:sample/avatars"
-                                        tools:visibility="visible" />
+                                        <TextView
+                                            android:id="@+id/tv_files_sum_value"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="8dp"
+                                            app:layout_constraintEnd_toEndOf="@+id/tv_files_received_value"
+                                            app:layout_constraintTop_toBottomOf="@+id/tv_files_received_value"
+                                            tools:text="Text und so" />
 
-                                </androidx.constraintlayout.widget.ConstraintLayout>
-                            </com.google.android.material.card.MaterialCardView>
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-                    </com.google.android.material.card.MaterialCardView>
+                                        <ImageView
+                                            android:id="@+id/iv_files_right"
+                                            android:layout_width="48dp"
+                                            android:layout_height="48dp"
+                                            android:visibility="visible"
+                                            app:layout_constraintBottom_toBottomOf="parent"
+                                            app:layout_constraintEnd_toEndOf="parent"
+                                            app:layout_constraintTop_toTopOf="parent"
+                                            tools:srcCompat="@tools:sample/avatars"
+                                            tools:visibility="visible" />
 
-                    <TextView
-                        android:id="@+id/tv_config"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="24dp"
-                        android:text="@string/config"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/cv_transfered_files" />
+                                    </androidx.constraintlayout.widget.ConstraintLayout>
+                                </com.google.android.material.card.MaterialCardView>
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                        </com.google.android.material.card.MaterialCardView>
 
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/cv_config_server_querys"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_config">
+                        <TextView
+                            android:id="@+id/tv_config"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="24dp"
+                            android:text="@string/config"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/cv_transfered_files" />
 
-                        <androidx.constraintlayout.widget.ConstraintLayout
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/cv_config_server_querys"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent">
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_config">
 
-                            <TextView
-                                android:id="@+id/tv_server_querys"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="16dp"
-                                android:text="@string/serverQueriesTitle"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                            <com.google.android.material.card.MaterialCardView
+                            <androidx.constraintlayout.widget.ConstraintLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="16dp"
-                                android:layout_marginTop="18dp"
-                                android:layout_marginEnd="16dp"
-                                android:layout_marginBottom="18dp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="@+id/tv_server_querys">
+                                android:layout_height="match_parent">
 
-                                <androidx.constraintlayout.widget.ConstraintLayout
+                                <TextView
+                                    android:id="@+id/tv_server_querys"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="16dp"
+                                    android:text="@string/serverQueriesTitle"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <com.google.android.material.card.MaterialCardView
                                     android:layout_width="match_parent"
-                                    android:layout_height="match_parent">
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="16dp"
+                                    android:layout_marginTop="18dp"
+                                    android:layout_marginEnd="16dp"
+                                    android:layout_marginBottom="18dp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="@+id/tv_server_querys">
 
-                                    <ImageView
-                                        android:id="@+id/iv_server_querys"
-                                        android:layout_width="48dp"
-                                        android:layout_height="48dp"
-                                        android:layout_marginStart="4dp"
-                                        android:layout_marginTop="4dp"
-                                        app:layout_constraintStart_toStartOf="parent"
-                                        app:layout_constraintTop_toTopOf="parent"
-                                        tools:srcCompat="@tools:sample/avatars" />
+                                    <androidx.constraintlayout.widget.ConstraintLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent">
 
-                                    <TextView
-                                        android:id="@+id/tv_guest_query_group"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginStart="16dp"
-                                        android:layout_marginTop="8dp"
-                                        android:text="@string/queryGuestGroup"
-                                        android:textColor="#005EFF"
-                                        app:layout_constraintStart_toEndOf="@+id/iv_server_querys"
-                                        app:layout_constraintTop_toTopOf="parent" />
+                                        <ImageView
+                                            android:id="@+id/iv_server_querys"
+                                            android:layout_width="48dp"
+                                            android:layout_height="48dp"
+                                            android:layout_marginStart="4dp"
+                                            android:layout_marginTop="4dp"
+                                            app:layout_constraintStart_toStartOf="parent"
+                                            app:layout_constraintTop_toTopOf="parent"
+                                            tools:srcCompat="@tools:sample/avatars" />
 
-                                    <TextView
-                                        android:id="@+id/tv_commands_till_flood"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="8dp"
-                                        android:text="@string/queryCommandsTillFlood"
-                                        android:textColor="#005EFF"
-                                        app:layout_constraintStart_toStartOf="@+id/tv_guest_query_group"
-                                        app:layout_constraintTop_toBottomOf="@+id/tv_guest_query_group" />
+                                        <TextView
+                                            android:id="@+id/tv_guest_query_group"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginStart="16dp"
+                                            android:layout_marginTop="8dp"
+                                            android:text="@string/queryGuestGroup"
+                                            android:textColor="#005EFF"
+                                            app:layout_constraintStart_toEndOf="@+id/iv_server_querys"
+                                            app:layout_constraintTop_toTopOf="parent" />
 
-                                    <TextView
-                                        android:id="@+id/tv_period_flood"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="8dp"
-                                        android:text="@string/queryPeriodTillFlood"
-                                        android:textColor="#005EFF"
-                                        app:layout_constraintStart_toStartOf="@+id/tv_commands_till_flood"
-                                        app:layout_constraintTop_toBottomOf="@+id/tv_commands_till_flood" />
+                                        <TextView
+                                            android:id="@+id/tv_commands_till_flood"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="8dp"
+                                            android:text="@string/queryCommandsTillFlood"
+                                            android:textColor="#005EFF"
+                                            app:layout_constraintStart_toStartOf="@+id/tv_guest_query_group"
+                                            app:layout_constraintTop_toBottomOf="@+id/tv_guest_query_group" />
 
-                                    <TextView
-                                        android:id="@+id/tv_ban_time_flood"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="8dp"
-                                        android:text="@string/queryBanTimeFlood"
-                                        android:textColor="#005EFF"
-                                        app:layout_constraintStart_toStartOf="@+id/tv_commands_till_flood"
-                                        app:layout_constraintTop_toBottomOf="@+id/tv_period_flood" />
+                                        <TextView
+                                            android:id="@+id/tv_period_flood"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="8dp"
+                                            android:text="@string/queryPeriodTillFlood"
+                                            android:textColor="#005EFF"
+                                            app:layout_constraintStart_toStartOf="@+id/tv_commands_till_flood"
+                                            app:layout_constraintTop_toBottomOf="@+id/tv_commands_till_flood" />
 
-                                    <TextView
-                                        android:id="@+id/tv_query_connections_per_ip"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="8dp"
-                                        android:layout_marginBottom="8dp"
-                                        android:text="@string/queryConnectionPerIp"
-                                        android:textColor="#005EFF"
-                                        app:layout_constraintBottom_toBottomOf="parent"
-                                        app:layout_constraintStart_toStartOf="@+id/tv_commands_till_flood"
-                                        app:layout_constraintTop_toBottomOf="@+id/tv_ban_time_flood" />
+                                        <TextView
+                                            android:id="@+id/tv_ban_time_flood"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="8dp"
+                                            android:text="@string/queryBanTimeFlood"
+                                            android:textColor="#005EFF"
+                                            app:layout_constraintStart_toStartOf="@+id/tv_commands_till_flood"
+                                            app:layout_constraintTop_toBottomOf="@+id/tv_period_flood" />
 
-                                    <TextView
-                                        android:id="@+id/tv_guest_query_group_value"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginEnd="8dp"
-                                        app:layout_constraintEnd_toEndOf="parent"
-                                        app:layout_constraintTop_toTopOf="@+id/tv_guest_query_group"
-                                        tools:text="Text und so" />
+                                        <TextView
+                                            android:id="@+id/tv_query_connections_per_ip"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="8dp"
+                                            android:layout_marginBottom="8dp"
+                                            android:text="@string/queryConnectionPerIp"
+                                            android:textColor="#005EFF"
+                                            app:layout_constraintBottom_toBottomOf="parent"
+                                            app:layout_constraintStart_toStartOf="@+id/tv_commands_till_flood"
+                                            app:layout_constraintTop_toBottomOf="@+id/tv_ban_time_flood" />
 
-                                    <TextView
-                                        android:id="@+id/tv_commands_till_flood_value"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="8dp"
-                                        app:layout_constraintEnd_toEndOf="@+id/tv_guest_query_group_value"
-                                        app:layout_constraintTop_toBottomOf="@+id/tv_guest_query_group_value"
-                                        tools:text="Text und so" />
+                                        <TextView
+                                            android:id="@+id/tv_guest_query_group_value"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginEnd="8dp"
+                                            app:layout_constraintEnd_toEndOf="parent"
+                                            app:layout_constraintTop_toTopOf="@+id/tv_guest_query_group"
+                                            tools:text="Text und so" />
 
-                                    <TextView
-                                        android:id="@+id/tv_period_flood_value"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="8dp"
-                                        app:layout_constraintEnd_toEndOf="@+id/tv_guest_query_group_value"
-                                        app:layout_constraintTop_toBottomOf="@+id/tv_commands_till_flood_value"
-                                        tools:text="Text und so" />
+                                        <TextView
+                                            android:id="@+id/tv_commands_till_flood_value"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="8dp"
+                                            app:layout_constraintEnd_toEndOf="@+id/tv_guest_query_group_value"
+                                            app:layout_constraintTop_toBottomOf="@+id/tv_guest_query_group_value"
+                                            tools:text="Text und so" />
 
-                                    <TextView
-                                        android:id="@+id/tv_ban_time_flood_value"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="8dp"
-                                        app:layout_constraintEnd_toEndOf="@+id/tv_guest_query_group_value"
-                                        app:layout_constraintTop_toBottomOf="@+id/tv_period_flood_value"
-                                        tools:text="Text und so" />
+                                        <TextView
+                                            android:id="@+id/tv_period_flood_value"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="8dp"
+                                            app:layout_constraintEnd_toEndOf="@+id/tv_guest_query_group_value"
+                                            app:layout_constraintTop_toBottomOf="@+id/tv_commands_till_flood_value"
+                                            tools:text="Text und so" />
 
-                                    <TextView
-                                        android:id="@+id/tv_query_connections_per_ip_value"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="8dp"
-                                        app:layout_constraintEnd_toEndOf="@+id/tv_guest_query_group_value"
-                                        app:layout_constraintTop_toBottomOf="@+id/tv_ban_time_flood_value"
-                                        tools:text="Text und so" />
+                                        <TextView
+                                            android:id="@+id/tv_ban_time_flood_value"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="8dp"
+                                            app:layout_constraintEnd_toEndOf="@+id/tv_guest_query_group_value"
+                                            app:layout_constraintTop_toBottomOf="@+id/tv_period_flood_value"
+                                            tools:text="Text und so" />
 
-                                </androidx.constraintlayout.widget.ConstraintLayout>
-                            </com.google.android.material.card.MaterialCardView>
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-                    </com.google.android.material.card.MaterialCardView>
+                                        <TextView
+                                            android:id="@+id/tv_query_connections_per_ip_value"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="8dp"
+                                            app:layout_constraintEnd_toEndOf="@+id/tv_guest_query_group_value"
+                                            app:layout_constraintTop_toBottomOf="@+id/tv_ban_time_flood_value"
+                                            tools:text="Text und so" />
 
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/cv_config_standard_groups"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/cv_config_server_querys">
+                                    </androidx.constraintlayout.widget.ConstraintLayout>
+                                </com.google.android.material.card.MaterialCardView>
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                        </com.google.android.material.card.MaterialCardView>
 
-                        <androidx.constraintlayout.widget.ConstraintLayout
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/cv_config_standard_groups"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent">
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/cv_config_server_querys">
 
-                            <TextView
-                                android:id="@+id/tv_standard_groups"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="16dp"
-                                android:text="@string/standardGroupsTitle"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                            <com.google.android.material.card.MaterialCardView
+                            <androidx.constraintlayout.widget.ConstraintLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="16dp"
-                                android:layout_marginTop="18dp"
-                                android:layout_marginEnd="16dp"
-                                android:layout_marginBottom="18dp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="@+id/tv_standard_groups">
+                                android:layout_height="match_parent">
 
-                                <androidx.constraintlayout.widget.ConstraintLayout
+                                <TextView
+                                    android:id="@+id/tv_standard_groups"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="16dp"
+                                    android:text="@string/standardGroupsTitle"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <com.google.android.material.card.MaterialCardView
                                     android:layout_width="match_parent"
-                                    android:layout_height="match_parent">
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="16dp"
+                                    android:layout_marginTop="18dp"
+                                    android:layout_marginEnd="16dp"
+                                    android:layout_marginBottom="18dp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="@+id/tv_standard_groups">
 
-                                    <ImageView
-                                        android:id="@+id/iv_standrad_groups"
-                                        android:layout_width="48dp"
-                                        android:layout_height="48dp"
-                                        android:layout_marginStart="4dp"
-                                        android:layout_marginTop="4dp"
-                                        app:layout_constraintStart_toStartOf="parent"
-                                        app:layout_constraintTop_toTopOf="parent"
-                                        tools:srcCompat="@tools:sample/avatars" />
+                                    <androidx.constraintlayout.widget.ConstraintLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent">
 
-                                    <TextView
-                                        android:id="@+id/tv_serveradmin_group_template"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginStart="16dp"
-                                        android:layout_marginTop="8dp"
-                                        android:text="@string/serverAdminTemplate"
-                                        android:textColor="#005EFF"
-                                        app:layout_constraintStart_toEndOf="@+id/iv_standrad_groups"
-                                        app:layout_constraintTop_toTopOf="parent" />
+                                        <ImageView
+                                            android:id="@+id/iv_standrad_groups"
+                                            android:layout_width="48dp"
+                                            android:layout_height="48dp"
+                                            android:layout_marginStart="4dp"
+                                            android:layout_marginTop="4dp"
+                                            app:layout_constraintStart_toStartOf="parent"
+                                            app:layout_constraintTop_toTopOf="parent"
+                                            tools:srcCompat="@tools:sample/avatars" />
 
-                                    <TextView
-                                        android:id="@+id/tv_serverguest_group_template"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="8dp"
-                                        android:text="@string/ServerGuestTemplate"
-                                        android:textColor="#005EFF"
-                                        app:layout_constraintStart_toStartOf="@+id/tv_serveradmin_group_template"
-                                        app:layout_constraintTop_toBottomOf="@+id/tv_serveradmin_group_template" />
+                                        <TextView
+                                            android:id="@+id/tv_serveradmin_group_template"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginStart="16dp"
+                                            android:layout_marginTop="8dp"
+                                            android:text="@string/serverAdminTemplate"
+                                            android:textColor="#005EFF"
+                                            app:layout_constraintStart_toEndOf="@+id/iv_standrad_groups"
+                                            app:layout_constraintTop_toTopOf="parent" />
 
-                                    <TextView
-                                        android:id="@+id/tv_channeladmin_group_template"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="8dp"
-                                        android:text="@string/channelAdminTemplate"
-                                        android:textColor="#005EFF"
-                                        app:layout_constraintStart_toStartOf="@+id/tv_serverguest_group_template"
-                                        app:layout_constraintTop_toBottomOf="@+id/tv_serverguest_group_template" />
+                                        <TextView
+                                            android:id="@+id/tv_serverguest_group_template"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="8dp"
+                                            android:text="@string/ServerGuestTemplate"
+                                            android:textColor="#005EFF"
+                                            app:layout_constraintStart_toStartOf="@+id/tv_serveradmin_group_template"
+                                            app:layout_constraintTop_toBottomOf="@+id/tv_serveradmin_group_template" />
 
-                                    <TextView
-                                        android:id="@+id/tv_channelguest_group_template"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="8dp"
-                                        android:layout_marginBottom="8dp"
-                                        android:text="@string/channelGuestTemplate"
-                                        android:textColor="#005EFF"
-                                        app:layout_constraintBottom_toBottomOf="parent"
-                                        app:layout_constraintStart_toStartOf="@+id/tv_serverguest_group_template"
-                                        app:layout_constraintTop_toBottomOf="@+id/tv_channeladmin_group_template" />
+                                        <TextView
+                                            android:id="@+id/tv_channeladmin_group_template"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="8dp"
+                                            android:text="@string/channelAdminTemplate"
+                                            android:textColor="#005EFF"
+                                            app:layout_constraintStart_toStartOf="@+id/tv_serverguest_group_template"
+                                            app:layout_constraintTop_toBottomOf="@+id/tv_serverguest_group_template" />
 
-                                    <TextView
-                                        android:id="@+id/tv_serveradmin_group_template_id"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginEnd="8dp"
-                                        app:layout_constraintEnd_toEndOf="parent"
-                                        app:layout_constraintTop_toTopOf="@+id/tv_serveradmin_group_template"
-                                        tools:text="Text und so" />
+                                        <TextView
+                                            android:id="@+id/tv_channelguest_group_template"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="8dp"
+                                            android:layout_marginBottom="8dp"
+                                            android:text="@string/channelGuestTemplate"
+                                            android:textColor="#005EFF"
+                                            app:layout_constraintBottom_toBottomOf="parent"
+                                            app:layout_constraintStart_toStartOf="@+id/tv_serverguest_group_template"
+                                            app:layout_constraintTop_toBottomOf="@+id/tv_channeladmin_group_template" />
 
-                                    <TextView
-                                        android:id="@+id/tv_serverguest_group_template_id"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="8dp"
-                                        app:layout_constraintEnd_toEndOf="@+id/tv_serveradmin_group_template_id"
-                                        app:layout_constraintTop_toBottomOf="@+id/tv_serveradmin_group_template_id"
-                                        tools:text="Text und so" />
+                                        <TextView
+                                            android:id="@+id/tv_serveradmin_group_template_id"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginEnd="8dp"
+                                            app:layout_constraintEnd_toEndOf="parent"
+                                            app:layout_constraintTop_toTopOf="@+id/tv_serveradmin_group_template"
+                                            tools:text="Text und so" />
 
-                                    <TextView
-                                        android:id="@+id/tv_channeladmin_group_template_id"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="8dp"
-                                        app:layout_constraintEnd_toEndOf="@+id/tv_serveradmin_group_template_id"
-                                        app:layout_constraintTop_toBottomOf="@+id/tv_serverguest_group_template_id"
-                                        tools:text="Text und so" />
+                                        <TextView
+                                            android:id="@+id/tv_serverguest_group_template_id"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="8dp"
+                                            app:layout_constraintEnd_toEndOf="@+id/tv_serveradmin_group_template_id"
+                                            app:layout_constraintTop_toBottomOf="@+id/tv_serveradmin_group_template_id"
+                                            tools:text="Text und so" />
 
-                                    <TextView
-                                        android:id="@+id/tv_channelguest_group_template_id"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="8dp"
-                                        app:layout_constraintEnd_toEndOf="@+id/tv_serveradmin_group_template_id"
-                                        app:layout_constraintTop_toBottomOf="@+id/tv_channeladmin_group_template_id"
-                                        tools:text="Text und so" />
+                                        <TextView
+                                            android:id="@+id/tv_channeladmin_group_template_id"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="8dp"
+                                            app:layout_constraintEnd_toEndOf="@+id/tv_serveradmin_group_template_id"
+                                            app:layout_constraintTop_toBottomOf="@+id/tv_serverguest_group_template_id"
+                                            tools:text="Text und so" />
 
-                                </androidx.constraintlayout.widget.ConstraintLayout>
-                            </com.google.android.material.card.MaterialCardView>
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-                    </com.google.android.material.card.MaterialCardView>
+                                        <TextView
+                                            android:id="@+id/tv_channelguest_group_template_id"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="8dp"
+                                            app:layout_constraintEnd_toEndOf="@+id/tv_serveradmin_group_template_id"
+                                            app:layout_constraintTop_toBottomOf="@+id/tv_channeladmin_group_template_id"
+                                            tools:text="Text und so" />
 
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/cv_config_transfer_user_view"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginBottom="8dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/cv_config_standard_groups">
+                                    </androidx.constraintlayout.widget.ConstraintLayout>
+                                </com.google.android.material.card.MaterialCardView>
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                        </com.google.android.material.card.MaterialCardView>
 
-                        <androidx.constraintlayout.widget.ConstraintLayout
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/cv_config_transfer_user_view"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent">
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="8dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/cv_config_standard_groups">
 
-                            <TextView
-                                android:id="@+id/tv_transfer_user_view"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="16dp"
-                                android:text="@string/transferClientView"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                            <com.google.android.material.card.MaterialCardView
+                            <androidx.constraintlayout.widget.ConstraintLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="16dp"
-                                android:layout_marginTop="18dp"
-                                android:layout_marginEnd="16dp"
-                                android:layout_marginBottom="18dp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="@+id/tv_transfer_user_view">
+                                android:layout_height="match_parent">
 
-                                <androidx.constraintlayout.widget.ConstraintLayout
+                                <TextView
+                                    android:id="@+id/tv_transfer_user_view"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="16dp"
+                                    android:text="@string/transferClientView"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <com.google.android.material.card.MaterialCardView
                                     android:layout_width="match_parent"
-                                    android:layout_height="match_parent">
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="16dp"
+                                    android:layout_marginTop="18dp"
+                                    android:layout_marginEnd="16dp"
+                                    android:layout_marginBottom="18dp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="@+id/tv_transfer_user_view">
 
-                                    <ImageView
-                                        android:id="@+id/iv_transfer"
-                                        android:layout_width="48dp"
-                                        android:layout_height="48dp"
-                                        android:layout_marginStart="4dp"
-                                        android:layout_marginTop="4dp"
-                                        app:layout_constraintStart_toStartOf="parent"
-                                        app:layout_constraintTop_toTopOf="parent"
-                                        tools:srcCompat="@tools:sample/avatars" />
+                                    <androidx.constraintlayout.widget.ConstraintLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent">
 
-                                    <TextView
-                                        android:id="@+id/tv_transfer_max_upload"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginStart="16dp"
-                                        android:layout_marginTop="8dp"
-                                        android:text="@string/transferMaxUpload"
-                                        android:textColor="#005EFF"
-                                        app:layout_constraintStart_toEndOf="@+id/iv_transfer"
-                                        app:layout_constraintTop_toTopOf="parent" />
+                                        <ImageView
+                                            android:id="@+id/iv_transfer"
+                                            android:layout_width="48dp"
+                                            android:layout_height="48dp"
+                                            android:layout_marginStart="4dp"
+                                            android:layout_marginTop="4dp"
+                                            app:layout_constraintStart_toStartOf="parent"
+                                            app:layout_constraintTop_toTopOf="parent"
+                                            tools:srcCompat="@tools:sample/avatars" />
 
-                                    <TextView
-                                        android:id="@+id/tv_transfer_max_download"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="8dp"
-                                        android:text="@string/transferMaxDownload"
-                                        android:textColor="#005EFF"
-                                        app:layout_constraintStart_toStartOf="@+id/tv_transfer_max_upload"
-                                        app:layout_constraintTop_toBottomOf="@+id/tv_transfer_max_upload" />
+                                        <TextView
+                                            android:id="@+id/tv_transfer_max_upload"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginStart="16dp"
+                                            android:layout_marginTop="8dp"
+                                            android:text="@string/transferMaxUpload"
+                                            android:textColor="#005EFF"
+                                            app:layout_constraintStart_toEndOf="@+id/iv_transfer"
+                                            app:layout_constraintTop_toTopOf="parent" />
 
-                                    <TextView
-                                        android:id="@+id/tv_transfer_port"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="8dp"
-                                        android:layout_marginBottom="8dp"
-                                        android:text="@string/transferPort"
-                                        android:textColor="#005EFF"
-                                        app:layout_constraintBottom_toBottomOf="parent"
-                                        app:layout_constraintStart_toStartOf="@+id/tv_transfer_max_download"
-                                        app:layout_constraintTop_toBottomOf="@+id/tv_transfer_max_download" />
+                                        <TextView
+                                            android:id="@+id/tv_transfer_max_download"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="8dp"
+                                            android:text="@string/transferMaxDownload"
+                                            android:textColor="#005EFF"
+                                            app:layout_constraintStart_toStartOf="@+id/tv_transfer_max_upload"
+                                            app:layout_constraintTop_toBottomOf="@+id/tv_transfer_max_upload" />
 
-                                    <TextView
-                                        android:id="@+id/tv_transfer_max_upload_value"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginEnd="8dp"
-                                        app:layout_constraintEnd_toEndOf="parent"
-                                        app:layout_constraintTop_toTopOf="@+id/tv_transfer_max_upload"
-                                        tools:text="Text und so" />
+                                        <TextView
+                                            android:id="@+id/tv_transfer_port"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="8dp"
+                                            android:layout_marginBottom="8dp"
+                                            android:text="@string/transferPort"
+                                            android:textColor="#005EFF"
+                                            app:layout_constraintBottom_toBottomOf="parent"
+                                            app:layout_constraintStart_toStartOf="@+id/tv_transfer_max_download"
+                                            app:layout_constraintTop_toBottomOf="@+id/tv_transfer_max_download" />
 
-                                    <TextView
-                                        android:id="@+id/tv_transfer_max_download_value"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="8dp"
-                                        app:layout_constraintEnd_toEndOf="@+id/tv_transfer_max_upload_value"
-                                        app:layout_constraintTop_toBottomOf="@+id/tv_transfer_max_upload_value"
-                                        tools:text="Text und so" />
+                                        <TextView
+                                            android:id="@+id/tv_transfer_max_upload_value"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginEnd="8dp"
+                                            app:layout_constraintEnd_toEndOf="parent"
+                                            app:layout_constraintTop_toTopOf="@+id/tv_transfer_max_upload"
+                                            tools:text="Text und so" />
 
-                                    <TextView
-                                        android:id="@+id/tv_transfer_port_value"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="8dp"
-                                        app:layout_constraintEnd_toEndOf="@+id/tv_transfer_max_upload_value"
-                                        app:layout_constraintTop_toBottomOf="@+id/tv_transfer_max_download_value"
-                                        tools:text="Text und so" />
+                                        <TextView
+                                            android:id="@+id/tv_transfer_max_download_value"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="8dp"
+                                            app:layout_constraintEnd_toEndOf="@+id/tv_transfer_max_upload_value"
+                                            app:layout_constraintTop_toBottomOf="@+id/tv_transfer_max_upload_value"
+                                            tools:text="Text und so" />
 
-                                </androidx.constraintlayout.widget.ConstraintLayout>
-                            </com.google.android.material.card.MaterialCardView>
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-                    </com.google.android.material.card.MaterialCardView>
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                                        <TextView
+                                            android:id="@+id/tv_transfer_port_value"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="8dp"
+                                            app:layout_constraintEnd_toEndOf="@+id/tv_transfer_max_upload_value"
+                                            app:layout_constraintTop_toBottomOf="@+id/tv_transfer_max_download_value"
+                                            tools:text="Text und so" />
 
-            </LinearLayout>
-        </ScrollView>
+                                    </androidx.constraintlayout.widget.ConstraintLayout>
+                                </com.google.android.material.card.MaterialCardView>
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                        </com.google.android.material.card.MaterialCardView>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
+            </ScrollView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </layout>

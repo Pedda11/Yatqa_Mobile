@@ -144,6 +144,4 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     fun setServerInstanceProperty(property: ServerInstanceProperty, value: String) {
         repository.setServerInstanceProperties(property, value)
     }
-
-
 }

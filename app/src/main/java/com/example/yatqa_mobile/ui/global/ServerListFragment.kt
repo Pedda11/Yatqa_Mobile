@@ -1,9 +1,11 @@
 package com.example.yatqa_mobile.ui.global
 
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -35,6 +37,7 @@ class ServerListFragment : Fragment() {
         return binding.root
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -49,6 +52,16 @@ class ServerListFragment : Fragment() {
             if (it){
                 recycler.adapter = ServerAdapter(viewModel.vServerList)
             }
+        }
+
+        binding.rvServerList.setOnScrollChangeListener { v: View, scrollX: Int, scrollY: Int, _: Int, _: Int ->
+            binding.swiperefresh.isEnabled = scrollY == 0
+        }
+
+        binding.swiperefresh.setOnRefreshListener {
+            viewModel.getVirtualServerList()
+            recycler.adapter = ServerAdapter(viewModel.vServerList)
+            binding.swiperefresh.isRefreshing = false
         }
     }
 }

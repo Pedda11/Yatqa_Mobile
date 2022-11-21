@@ -51,10 +51,11 @@ class VirtualServerFragmentStats : Fragment() {
                     "${it.clientsOnline - it.queryClientsOnline}+${it.queryClientsOnline}/${it.maxClients}"
 
                 binding.tvVPhoneticValue.text = it.phoneticName
-                binding.tvVMachineIdValue.text = it.machineId
+                binding.tvVMachineIdValue.text = if (it.machineId.isNullOrEmpty()) "---" else it.machineId.toString()
                 binding.tvVPortValue.text = it.port.toString()
                 binding.tvVStateValue.text = it.status.name
                 binding.tvVAutostartValue.text = it.isAutoStart.toString()
+
             }
         }
     }
