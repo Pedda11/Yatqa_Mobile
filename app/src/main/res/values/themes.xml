@@ -5,6 +5,7 @@
         <item name="colorPrimary">@color/light_blue</item>
         <item name="colorPrimaryVariant">@color/dark_blue</item>
         <item name="colorOnPrimary">@color/white</item>
+        <item name="android:fontFamily">@font/consola</item>
 
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="lollipop">@android:color/transparent</item>
@@ -12,8 +13,7 @@
         <!-- Customize your theme here. -->
     </style>
 
+
     <style name="Titles" parent="Theme.Yatqa_Mobile">
-
-
     </style>
 </resources>

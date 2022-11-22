@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="TitleStyle">
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">@font/consolab</item>
+    </style>
+
+    <style name="SubTitleStyle">
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">@font/consolab</item>
+    </style>
+</resources>

@@ -14,6 +14,7 @@ import com.example.yatqa_mobile.R
 import com.example.yatqa_mobile.data.datamodels.Login
 import com.example.yatqa_mobile.databinding.FragmentLoginBinding
 import com.example.yatqa_mobile.ui.main.MainViewModel
+import kotlinx.coroutines.delay
 
 class LoginFragment : Fragment() {
 
@@ -55,7 +56,7 @@ class LoginFragment : Fragment() {
          * fill editText when edit login
          */
         if (loginId != 0) {
-            val login = viewModel.loginList.value!!.find { it.id == loginId }
+            val login = viewModel.loginList.value!!.find { it?.id == loginId }
             if (login != null) {
                 binding.editTextInputIp.setText(login.ip)
                 binding.editTextInputQport.setText(login.qPort.toString())
@@ -74,8 +75,10 @@ class LoginFragment : Fragment() {
         binding.cbSaveToFav.setOnClickListener {
             if (binding.cbSaveToFav.isChecked) {
                 binding.editTilListName.visibility = View.VISIBLE
+                binding.btnLogin.text = getString(R.string.saveToFav)
             } else {
                 binding.editTilListName.visibility = View.GONE
+                binding.btnLogin.text = getString(R.string.connect)
             }
         }
 
@@ -99,7 +102,7 @@ class LoginFragment : Fragment() {
 
                     if (binding.cbSaveToFav.isChecked) {
                         saveNewLogin(data)
-                        findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToFavoritesFragment())
+                        findNavController().navigate(R.id.favoritesFragment)
                     } else {
                         viewModel.ts3ApiConnect(data)
                         findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToGlobalServerFragment())
@@ -116,8 +119,6 @@ class LoginFragment : Fragment() {
     private fun saveNewLogin(newLogin: Login) {
         try {
             viewModel.insert(newLogin)
-
-            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToFavoritesFragment())
         } catch (e: Exception) {
             Log.e("LoginFragment", "saveNewLogin, goto favorites: $e")
         }

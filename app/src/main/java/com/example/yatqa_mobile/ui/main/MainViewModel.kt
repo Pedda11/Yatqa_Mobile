@@ -11,11 +11,13 @@ import com.example.yatqa_mobile.data.TAG
 import com.example.yatqa_mobile.data.datamodels.Login
 import com.example.yatqa_mobile.data.local.getDatabase
 import com.github.theholywaffle.teamspeak3.api.ServerInstanceProperty
+import com.github.theholywaffle.teamspeak3.api.VirtualServerProperty
 import com.github.theholywaffle.teamspeak3.api.wrapper.HostInfo
 import com.github.theholywaffle.teamspeak3.api.wrapper.InstanceInfo
 import com.github.theholywaffle.teamspeak3.api.wrapper.VirtualServer
 import com.github.theholywaffle.teamspeak3.api.wrapper.VirtualServerInfo
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.text.NumberFormat
 import java.util.*
@@ -143,5 +145,13 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     fun setServerInstanceProperty(property: ServerInstanceProperty, value: String) {
         repository.setServerInstanceProperties(property, value)
+    }
+
+    fun setVirtualServerProperty(property: MutableMap<VirtualServerProperty, String>) {
+        repository.setVirtualServerProperties(property)
+    }
+
+    fun checkLoginList(): Boolean {
+        return loginList.value?.isEmpty() == true
     }
 }

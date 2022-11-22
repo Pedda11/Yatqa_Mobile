@@ -9,6 +9,7 @@ import com.github.theholywaffle.teamspeak3.TS3Api
 import com.github.theholywaffle.teamspeak3.TS3Config
 import com.github.theholywaffle.teamspeak3.TS3Query
 import com.github.theholywaffle.teamspeak3.api.ServerInstanceProperty
+import com.github.theholywaffle.teamspeak3.api.VirtualServerProperty
 import com.github.theholywaffle.teamspeak3.api.wrapper.HostInfo
 import com.github.theholywaffle.teamspeak3.api.wrapper.InstanceInfo
 import com.github.theholywaffle.teamspeak3.api.wrapper.VirtualServer
@@ -21,7 +22,7 @@ const val TAG = "Repository"
 class Repository(private val database: LoginDatabase) {
 
     //Get all data from Database
-    val loginList: LiveData<List<Login>> = database.loginDatabaseDao.getAll()
+    var loginList: LiveData<List<Login>> = database.loginDatabaseDao.getAll()
 
     /**
      * ts3api as livedata
@@ -121,5 +122,9 @@ class Repository(private val database: LoginDatabase) {
 
     fun setServerInstanceProperties(prop: ServerInstanceProperty, value: String) {
         _ts3Api.value?.editInstance(prop, value)
+    }
+
+    fun setVirtualServerProperties(prop: MutableMap<VirtualServerProperty,String>) {
+        _ts3Api.value?.editServer(prop)
     }
 }

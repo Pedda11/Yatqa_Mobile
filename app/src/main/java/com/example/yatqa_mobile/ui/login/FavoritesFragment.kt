@@ -13,7 +13,7 @@ import com.example.yatqa_mobile.adapter.FavoritesAdapter
 import com.example.yatqa_mobile.databinding.FragmentFavoritesBinding
 import com.example.yatqa_mobile.ui.main.MainViewModel
 
-class FavoritesFragment: Fragment() {
+class FavoritesFragment : Fragment() {
     private lateinit var binding: FragmentFavoritesBinding
     private val viewModel: MainViewModel by activityViewModels()
 
@@ -42,24 +42,25 @@ class FavoritesFragment: Fragment() {
      * Lifecycle Funktion onViewCreated
      * Hier werden die Elemente eingerichtet und z.B. onClickListener gesetzt
      */
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        //generate adapter
-        val recycler = binding.rvFavorites
 
         viewModel.loginList.observe(
             viewLifecycleOwner
         ) {
-            recycler.adapter = FavoritesAdapter(it, viewModel.ts3ApiConnect,viewModel.removeLogin)
-            if (it.isEmpty()){
-                findNavController().navigate(FavoritesFragmentDirections.actionFavoritesFragmentToLoginFragment(0))
-            }
+            //generate adapter
+            val recycler = binding.rvFavorites
+            recycler.adapter = FavoritesAdapter(it, viewModel.ts3ApiConnect, viewModel.removeLogin)
         }
 
         //move to manual login
         binding.btnToLogin.setOnClickListener {
-            findNavController().navigate(FavoritesFragmentDirections.actionFavoritesFragmentToLoginFragment(0))
+            findNavController().navigate(
+                FavoritesFragmentDirections.actionFavoritesFragmentToLoginFragment(
+                    0
+                )
+            )
         }
     }
 }

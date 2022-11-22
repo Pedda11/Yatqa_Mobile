@@ -12,7 +12,7 @@
     <string name="edit">edit</string>
     <string name="del">delete</string>
     <string name="saveChanges">save changes</string>
-    <string name="toLogin">go to manuel login</string>
+    <string name="toLogin">go to manual login</string>
 
     //global stats
     <string name="Stats">Statistics(From the server\'s point of view)</string>
@@ -22,9 +22,9 @@
     <string name="userOnlineValue">%1$s/%2$s</string>
     <string name="channel">Channel:</string>
     <string name="currUploadTitle">Current upload</string>
-    <string name="currTotalSek">Total this sek:</string>
+    <string name="currTotalSec">Total this sec:</string>
     <string name="currTotalMin">Total this min:</string>
-    <string name="currFileSek">Files this sek:</string>
+    <string name="currFileSec">Files this sec:</string>
     <string name="currDownloadTitle">Current download</string>
     <string name="transferredDataTitle">Transferred data since start</string>
     <string name="transferredSent">Sent:</string>
@@ -95,4 +95,7 @@
     <string name="vServerState">State:</string>
     <string name="vServerAutostart">Autostart:</string>
     <string name="vServerSlots">Slots:</string>
+
+    //Alert dialogs
+    <string name="AlertNotEmpty">The input field must not be empty!</string>
 </resources>

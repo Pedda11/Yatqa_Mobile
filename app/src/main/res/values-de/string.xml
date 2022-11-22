@@ -22,9 +22,9 @@
     <string name="userOnlineValue">%1$s/%2$s</string>
     <string name="channel">Channel:</string>
     <string name="currUploadTitle">Derzeitiger Upload</string>
-    <string name="currTotalSek">Gesamt diese Sek:</string>
+    <string name="currTotalSec">Gesamt diese Sek:</string>
     <string name="currTotalMin">Gesamt diese Min:</string>
-    <string name="currFileSek">Dateien diese Sek:</string>
+    <string name="currFileSec">Dateien diese Sek:</string>
     <string name="currDownloadTitle">Derzeitiger Download</string>
     <string name="transferredDataTitle">Übertragene Daten seit Start</string>
     <string name="transferredSent">Gesendet:</string>
@@ -95,4 +95,7 @@
     <string name="vServerState">Status:</string>
     <string name="vServerAutostart">Autostart:</string>
     <string name="vServerSlots">Slots:</string>
+
+    //Alert dialogs
+    <string name="AlertNotEmpty">Das Eingabefeld darf nicht leer sein!</string>
 </resources>

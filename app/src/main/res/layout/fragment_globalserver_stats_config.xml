@@ -55,12 +55,12 @@
 
                         <TextView
                             android:id="@+id/tv_Stats"
+                            style="@style/TitleStyle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
                             android:text="@string/Stats"
                             android:textSize="16sp"
-                            android:textStyle="bold"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
@@ -81,6 +81,7 @@
 
                                 <TextView
                                     android:id="@+id/tv_v_server_titel"
+                                    style="@style/SubTitleStyle"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="16dp"
@@ -215,6 +216,7 @@
 
                                 <TextView
                                     android:id="@+id/tv_current_upload"
+                                    style="@style/SubTitleStyle"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="16dp"
@@ -254,7 +256,7 @@
                                             android:layout_height="wrap_content"
                                             android:layout_marginStart="16dp"
                                             android:layout_marginTop="8dp"
-                                            android:text="@string/currTotalSek"
+                                            android:text="@string/currTotalSec"
                                             app:layout_constraintStart_toEndOf="@+id/iv_curr_upload_left_icon"
                                             app:layout_constraintTop_toTopOf="parent" />
 
@@ -273,7 +275,7 @@
                                             android:layout_height="wrap_content"
                                             android:layout_marginTop="8dp"
                                             android:layout_marginBottom="8dp"
-                                            android:text="@string/currFileSek"
+                                            android:text="@string/currFileSec"
                                             app:layout_constraintBottom_toBottomOf="parent"
                                             app:layout_constraintStart_toStartOf="@+id/tv_cur_upload_total_min"
                                             app:layout_constraintTop_toBottomOf="@+id/tv_cur_upload_total_min" />
@@ -337,6 +339,7 @@
 
                                 <TextView
                                     android:id="@+id/tv_current_download"
+                                    style="@style/SubTitleStyle"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="16dp"
@@ -376,7 +379,7 @@
                                             android:layout_height="wrap_content"
                                             android:layout_marginStart="16dp"
                                             android:layout_marginTop="8dp"
-                                            android:text="@string/currTotalSek"
+                                            android:text="@string/currTotalSec"
                                             app:layout_constraintStart_toEndOf="@+id/iv_curr_download_left_icon"
                                             app:layout_constraintTop_toTopOf="parent" />
 
@@ -395,7 +398,7 @@
                                             android:layout_height="wrap_content"
                                             android:layout_marginTop="8dp"
                                             android:layout_marginBottom="8dp"
-                                            android:text="@string/currFileSek"
+                                            android:text="@string/currFileSec"
                                             app:layout_constraintBottom_toBottomOf="parent"
                                             app:layout_constraintStart_toStartOf="@+id/tv_cur_download_total_min"
                                             app:layout_constraintTop_toBottomOf="@+id/tv_cur_download_total_min" />
@@ -459,6 +462,7 @@
 
                                 <TextView
                                     android:id="@+id/tv_transfered_data"
+                                    style="@style/SubTitleStyle"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="16dp"
@@ -580,6 +584,7 @@
 
                                 <TextView
                                     android:id="@+id/tv_transfered_packets"
+                                    style="@style/SubTitleStyle"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="16dp"
@@ -701,6 +706,7 @@
 
                                 <TextView
                                     android:id="@+id/tv_transfered_files"
+                                    style="@style/SubTitleStyle"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="16dp"
@@ -809,6 +815,7 @@
 
                         <TextView
                             android:id="@+id/tv_config"
+                            style="@style/TitleStyle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="24dp"
@@ -833,6 +840,7 @@
 
                                 <TextView
                                     android:id="@+id/tv_server_querys"
+                                    style="@style/SubTitleStyle"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="16dp"
@@ -984,6 +992,7 @@
 
                                 <TextView
                                     android:id="@+id/tv_standard_groups"
+                                    style="@style/SubTitleStyle"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="16dp"
@@ -1118,6 +1127,7 @@
 
                                 <TextView
                                     android:id="@+id/tv_transfer_user_view"
+                                    style="@style/SubTitleStyle"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="16dp"
