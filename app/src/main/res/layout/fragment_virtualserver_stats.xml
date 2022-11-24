@@ -134,10 +134,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            android:layout_marginBottom="8dp"
                             android:text="@string/vServerSlots"
                             android:textColor="#005EFF"
-                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintBottom_toTopOf="@+id/progressBar_vserver_user"
                             app:layout_constraintStart_toStartOf="@+id/tv_v_phonetic"
                             app:layout_constraintTop_toBottomOf="@+id/tv_v_autostart" />
 
@@ -203,6 +202,22 @@
                             app:layout_constraintEnd_toEndOf="@+id/tv_v_name_value"
                             app:layout_constraintTop_toBottomOf="@+id/tv_v_autostart_value"
                             tools:text="Text und so" />
+
+                        <ProgressBar
+                            android:id="@+id/progressBar_vserver_user"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:progress="50"
+                            android:progressBackgroundTint="#0037DA"
+                            android:progressBackgroundTintMode="src_over"
+                            android:progressTint="#91E800"
+                            android:progressTintMode="src_over"
+                            android:scaleY="2"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="@+id/tv_v_slots_value"
+                            app:layout_constraintStart_toStartOf="@+id/tv_v_slots"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_channel" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </com.google.android.material.card.MaterialCardView>

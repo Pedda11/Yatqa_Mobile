@@ -11,14 +11,12 @@
         android:id="@+id/cv_fav_item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:backgroundTint="@color/light_blue"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="@color/soft_white"
         app:cardCornerRadius="24dp"
-        app:contentPadding="5dp"
-        app:contentPaddingLeft="8dp"
-        app:contentPaddingRight="8dp"
-        app:strokeColor="@color/dark_blue"
-        app:strokeWidth="3dp">
+        app:strokeColor="@color/light_blue"
+        app:strokeWidth="0dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -118,7 +116,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
+                android:layout_marginEnd="24dp"
                 android:layout_weight="1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/view3"

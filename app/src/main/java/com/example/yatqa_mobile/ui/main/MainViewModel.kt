@@ -17,7 +17,6 @@ import com.github.theholywaffle.teamspeak3.api.wrapper.InstanceInfo
 import com.github.theholywaffle.teamspeak3.api.wrapper.VirtualServer
 import com.github.theholywaffle.teamspeak3.api.wrapper.VirtualServerInfo
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.text.NumberFormat
 import java.util.*
@@ -149,9 +148,5 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     fun setVirtualServerProperty(property: MutableMap<VirtualServerProperty, String>) {
         repository.setVirtualServerProperties(property)
-    }
-
-    fun checkLoginList(): Boolean {
-        return loginList.value?.isEmpty() == true
     }
 }

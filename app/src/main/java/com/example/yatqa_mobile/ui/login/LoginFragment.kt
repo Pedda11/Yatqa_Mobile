@@ -113,6 +113,10 @@ class LoginFragment : Fragment() {
                 }
             }
         }
+//weitermachen
+        binding.editTextInputListName.setOnClickListener {
+            binding.scrollViewLogin.scrollTo(150,0)
+        }
     }
 
     //insert new login

@@ -91,11 +91,8 @@ class GlobalServerFragment : Fragment() {
 
                 binding.ivVServerLeftIcon.setImageResource(R.drawable.server01_1)
 
-                /**
-                 * change from clients to total and running servers
-                 */
-                binding.progressBar.progress = viewModel.hostInfo.totalClientsOnline
-                binding.progressBar.max = viewModel.hostInfo.totalMaxClients
+                binding.progressBarUser.progress = viewModel.hostInfo.totalClientsOnline
+                binding.progressBarUser.max = viewModel.hostInfo.totalMaxClients
 
 
                 //Current upload
@@ -160,7 +157,13 @@ class GlobalServerFragment : Fragment() {
                     )
                 )
                 binding.ivTransferedDataLeft.setImageResource(R.drawable.tranferred_data)
-                binding.ivTransferedDataRight.setImageResource(R.drawable.diagram2)
+
+                val c = ((viewModel.hostInfo.bytesSentTotal +
+                        viewModel.hostInfo.bytesReceivedTotal) / giB
+                        ).toInt()
+
+                binding.progressBarDataTransfer.progress = c
+                binding.progressBarDataTransfer.max = 100
 
                 //Transferred packets
                 binding.tvPacketsSentValue.text = getString(
@@ -183,7 +186,11 @@ class GlobalServerFragment : Fragment() {
                 )
 
                 binding.ivPacketsLeft.setImageResource(R.drawable.transferred_packages)
-                binding.ivPacketsRight.setImageResource(R.drawable.diagram2)
+
+                binding.progressBarPackets.progress = ((viewModel.hostInfo.packetsSentTotal +
+                        viewModel.hostInfo.packetsReceivedTotal) / mB
+                        ).toInt()
+                binding.progressBarPackets.max = 1000
 
                 //Transferred files
                 binding.tvFilesSentValue.text = getString(
@@ -206,7 +213,11 @@ class GlobalServerFragment : Fragment() {
                 )
 
                 binding.ivFilesLeft.setImageResource(R.drawable.transferred_files)
-                binding.ivFilesRight.setImageResource(R.drawable.diagram2)
+
+                binding.progressBarFiles.progress = ((viewModel.hostInfo.fileTransferBytesSent +
+                        viewModel.hostInfo.fileTransferBytesReceived) / miB
+                        ).toInt()
+                binding.progressBarFiles.max = 100
 
                 //Server queries
                 binding.tvGuestQueryGroupValue.text =
@@ -411,9 +422,24 @@ class GlobalServerFragment : Fragment() {
 
                 val newValue = textBox.text.toString()
 
-                if (newValue.isEmpty()){
-                    Toast.makeText(requireContext(),getString(R.string.AlertNotEmpty),Toast.LENGTH_SHORT).show()
+                if (newValue.isEmpty()) {
+                    Toast.makeText(
+                        requireContext(),
+                        getString(R.string.AlertNotEmpty),
+                        Toast.LENGTH_SHORT
+                    ).show()
                     showDialog(prop, propertyCurrentValue)
+                    return@setPositiveButton
+                }
+
+                try {
+                    val parseToInt: Int = newValue.toInt()
+                } catch (e: Exception) {
+                    Toast.makeText(
+                        requireContext(),
+                        getString(R.string.AlertNotOnlyNumeric),
+                        Toast.LENGTH_SHORT
+                    ).show()
                     return@setPositiveButton
                 }
 

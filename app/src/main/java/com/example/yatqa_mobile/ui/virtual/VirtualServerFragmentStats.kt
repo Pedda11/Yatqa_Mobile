@@ -13,7 +13,6 @@ import androidx.fragment.app.activityViewModels
 import com.example.yatqa_mobile.R
 import com.example.yatqa_mobile.databinding.FragmentVirtualserverStatsBinding
 import com.example.yatqa_mobile.ui.main.MainViewModel
-import com.github.theholywaffle.teamspeak3.api.ServerInstanceProperty
 import com.github.theholywaffle.teamspeak3.api.VirtualServerProperty
 
 class VirtualServerFragmentStats : Fragment() {
@@ -52,22 +51,45 @@ class VirtualServerFragmentStats : Fragment() {
                 }
                 binding.tvVNameValue.text = vServerName
 
+                var vServerPhonetic = it.phoneticName
+                if (it.phoneticName.length > 25) {
+                    vServerPhonetic = it.phoneticName.substring(0, 22) + "..."
+                }
+                binding.tvVPhoneticValue.text = vServerPhonetic
+
                 binding.tvVSlotsValue.text =
                     "${it.clientsOnline - it.queryClientsOnline}+${it.queryClientsOnline}/${it.maxClients}"
 
-                binding.tvVPhoneticValue.text = it.phoneticName
                 binding.tvVMachineIdValue.text =
                     if (it.machineId.isNullOrEmpty()) "---" else it.machineId.toString()
                 binding.tvVPortValue.text = it.port.toString()
                 binding.tvVStateValue.text = it.status.name
                 binding.tvVAutostartValue.text = it.isAutoStart.toString()
 
+                binding.progressBarVserverUser.progress = it.clientsOnline
+                binding.progressBarVserverUser.max = it.maxClients
             }
         }
 
         binding.tvVName.setOnClickListener {
             var propertyKey: VirtualServerProperty = VirtualServerProperty.VIRTUALSERVER_NAME
-            showDialog(propertyKey,viewModel.vServerInfo.value!!.name)
+            showDialog(propertyKey, viewModel.vServerInfo.value!!.name)
+        }
+
+        binding.tvVPhonetic.setOnClickListener {
+            var propertyKey: VirtualServerProperty =
+                VirtualServerProperty.VIRTUALSERVER_NAME_PHONETIC
+            showDialog(propertyKey, viewModel.vServerInfo.value!!.phoneticName)
+        }
+
+        binding.tvVPort.setOnClickListener {
+            var propertyKey: VirtualServerProperty = VirtualServerProperty.VIRTUALSERVER_PORT
+            showDialog(propertyKey, viewModel.vServerInfo.value!!.port.toString())
+        }
+
+        binding.tvVAutostart.setOnClickListener {
+            var propertyKey: VirtualServerProperty = VirtualServerProperty.VIRTUALSERVER_AUTOSTART
+            showDialog(propertyKey, viewModel.vServerInfo.value!!.isAutoStart.toString())
         }
     }
 
@@ -86,17 +108,67 @@ class VirtualServerFragmentStats : Fragment() {
         with(builder) {
             setTitle(propKey.toString())
             setPositiveButton("OK") { _, _ ->
-                val newValue = textBox.text.toString()
+                var newValue = textBox.text.toString()
+
+                if (newValue.isEmpty() && propKey != VirtualServerProperty.VIRTUALSERVER_NAME_PHONETIC) {
+                    Toast.makeText(
+                        requireContext(),
+                        getString(R.string.AlertNotEmpty),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    showDialog(propKey, propertyCurrentValue)
+                    return@setPositiveButton
+                }
+
+                when (propKey) {
+                    VirtualServerProperty.VIRTUALSERVER_MAXCLIENTS -> {
+                        try {
+                            val parseToInt: Int = newValue.toInt()
+                        } catch (e: Exception) {
+                            Toast.makeText(
+                                requireContext(),
+                                getString(R.string.AlertNotOnlyNumeric),
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            return@setPositiveButton
+                        }
+                    }
+                    VirtualServerProperty.VIRTUALSERVER_PORT -> {
+                        try {
+                            val parseToInt: Int = newValue.toInt()
+                        } catch (e: Exception) {
+                            Toast.makeText(
+                                requireContext(),
+                                getString(R.string.AlertNotOnlyNumeric),
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            return@setPositiveButton
+                        }
+                    }
+                    VirtualServerProperty.VIRTUALSERVER_AUTOSTART -> {
+
+                        if (!(newValue == "true" || newValue == "false")) {
+                            Toast.makeText(
+                                requireContext(),
+                                getString(R.string.AlertNotOnlyBool),
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            return@setPositiveButton
+                        }else{
+                            if (newValue == "true"){
+                                newValue = "1"
+                            }else{
+                                newValue = "0"
+                            }
+                        }
+                    }
+                    else -> {
+                    }
+                }
 
                 val property: MutableMap<VirtualServerProperty, String> = mutableMapOf(
                     propKey to newValue
                 )
-
-                if (newValue.isEmpty()){
-                    Toast.makeText(requireContext(),getString(R.string.AlertNotEmpty), Toast.LENGTH_SHORT).show()
-                    showDialog(propKey, propertyCurrentValue)
-                    return@setPositiveButton
-                }
 
                 viewModel.setVirtualServerProperty(property)
 

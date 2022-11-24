@@ -3,6 +3,7 @@
     <string name="app_name">Yatqa</string>
 
     /login and favorite fragment
+    <string name="ip">IP</string>
     <string name="connect">connect</string>
     <string name="saveToFav">save to favorites</string>
     <string name="toFav">go to favorites</string>
@@ -98,4 +99,6 @@
 
     //Alert dialogs
     <string name="AlertNotEmpty">The input field must not be empty!</string>
+    <string name="AlertNotOnlyNumeric">The input field must contain numbers only!</string>
+    <string name="AlertNotOnlyBool">Permissible inputs are: true or false only!</string>
 </resources>

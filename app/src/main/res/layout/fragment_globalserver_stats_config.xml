@@ -10,7 +10,8 @@
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swiperefresh"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/bg">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -73,7 +74,9 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/tv_Stats"
-                            app:layout_constraintVertical_bias="0.0">
+                            app:layout_constraintVertical_bias="0.0"
+                            app:strokeColor="@color/light_blue"
+                            app:strokeWidth="0dp">
 
                             <androidx.constraintlayout.widget.ConstraintLayout
                                 android:layout_width="match_parent"
@@ -85,21 +88,24 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="16dp"
+                                    android:layout_marginTop="2dp"
+                                    android:layout_marginBottom="2dp"
                                     android:text="@string/vServerTitle"
+                                    app:layout_constraintBottom_toTopOf="@+id/materialCardView2"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toTopOf="parent"
                                     tools:text="@string/vServerTitle" />
 
                                 <com.google.android.material.card.MaterialCardView
+                                    android:id="@+id/materialCardView2"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="16dp"
-                                    android:layout_marginTop="18dp"
                                     android:layout_marginEnd="16dp"
+                                    android:layout_marginBottom="18dp"
                                     app:layout_constraintBottom_toBottomOf="parent"
                                     app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="@+id/tv_v_server_titel">
+                                    app:layout_constraintStart_toStartOf="parent">
 
                                     <androidx.constraintlayout.widget.ConstraintLayout
                                         android:layout_width="match_parent"
@@ -109,7 +115,7 @@
                                             android:id="@+id/iv_v_server_left_icon"
                                             android:layout_width="48dp"
                                             android:layout_height="48dp"
-                                            android:layout_marginStart="4dp"
+                                            android:layout_marginStart="12dp"
                                             app:layout_constraintBottom_toBottomOf="@+id/tv_channel"
                                             app:layout_constraintStart_toStartOf="parent"
                                             app:layout_constraintTop_toTopOf="@+id/tv_server"
@@ -148,7 +154,7 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_marginEnd="16dp"
-                                            app:layout_constraintEnd_toStartOf="@+id/iv_v_server_right_icon"
+                                            app:layout_constraintEnd_toEndOf="parent"
                                             app:layout_constraintTop_toTopOf="@+id/tv_server"
                                             tools:text="Text und so" />
 
@@ -170,21 +176,13 @@
                                             app:layout_constraintTop_toBottomOf="@+id/tv_user_value"
                                             tools:text="Text und so" />
 
-                                        <ImageView
-                                            android:id="@+id/iv_v_server_right_icon"
-                                            android:layout_width="48dp"
-                                            android:layout_height="48dp"
-                                            android:layout_marginEnd="4dp"
-                                            app:layout_constraintBottom_toBottomOf="@+id/tv_channel_value"
-                                            app:layout_constraintEnd_toEndOf="parent"
-                                            app:layout_constraintTop_toTopOf="@+id/tv_server_value"
-                                            tools:srcCompat="@tools:sample/avatars" />
-
                                         <ProgressBar
-                                            android:id="@+id/progressBar"
+                                            android:id="@+id/progressBar_user"
                                             style="?android:attr/progressBarStyleHorizontal"
                                             android:layout_width="0dp"
                                             android:layout_height="wrap_content"
+                                            android:layout_marginTop="4dp"
+                                            android:layout_marginBottom="4dp"
                                             android:progress="50"
                                             android:progressBackgroundTint="#0037DA"
                                             android:progressBackgroundTintMode="src_over"
@@ -208,7 +206,9 @@
                             android:layout_marginTop="8dp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/cv_virtual_server">
+                            app:layout_constraintTop_toBottomOf="@+id/cv_virtual_server"
+                            app:strokeColor="@color/light_blue"
+                            app:strokeWidth="0dp">
 
                             <androidx.constraintlayout.widget.ConstraintLayout
                                 android:layout_width="match_parent"
@@ -220,21 +220,24 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="16dp"
+                                    android:layout_marginTop="2dp"
+                                    android:layout_marginBottom="2dp"
                                     android:text="@string/currUploadTitle"
+                                    app:layout_constraintBottom_toTopOf="@+id/materialCardView3"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toTopOf="parent"
                                     tools:text="@string/currUploadTitle" />
 
                                 <com.google.android.material.card.MaterialCardView
+                                    android:id="@+id/materialCardView3"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="16dp"
-                                    android:layout_marginTop="18dp"
                                     android:layout_marginEnd="16dp"
+                                    android:layout_marginBottom="18dp"
                                     app:layout_constraintBottom_toBottomOf="parent"
                                     app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="@+id/tv_current_upload">
+                                    app:layout_constraintStart_toStartOf="parent">
 
                                     <androidx.constraintlayout.widget.ConstraintLayout
                                         android:layout_width="match_parent"
@@ -244,7 +247,7 @@
                                             android:id="@+id/iv_curr_upload_left_icon"
                                             android:layout_width="48dp"
                                             android:layout_height="48dp"
-                                            android:layout_marginStart="4dp"
+                                            android:layout_marginStart="12dp"
                                             app:layout_constraintBottom_toBottomOf="parent"
                                             app:layout_constraintStart_toStartOf="parent"
                                             app:layout_constraintTop_toTopOf="parent"
@@ -285,7 +288,7 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_marginEnd="16dp"
-                                            app:layout_constraintEnd_toStartOf="@+id/iv_curr_upload_right_icon"
+                                            app:layout_constraintEnd_toEndOf="parent"
                                             app:layout_constraintTop_toTopOf="@+id/tv_cur_upload_total_sek"
                                             tools:text="Text und so" />
 
@@ -307,18 +310,6 @@
                                             app:layout_constraintTop_toBottomOf="@+id/tv_cur_upload_total_min_value"
                                             tools:text="Text und so" />
 
-                                        <ImageView
-                                            android:id="@+id/iv_curr_upload_right_icon"
-                                            android:layout_width="48dp"
-                                            android:layout_height="48dp"
-                                            android:layout_marginEnd="4dp"
-                                            android:visibility="gone"
-                                            app:layout_constraintBottom_toBottomOf="parent"
-                                            app:layout_constraintEnd_toEndOf="parent"
-                                            app:layout_constraintTop_toTopOf="parent"
-                                            tools:srcCompat="@tools:sample/avatars"
-                                            tools:visibility="visible" />
-
                                     </androidx.constraintlayout.widget.ConstraintLayout>
                                 </com.google.android.material.card.MaterialCardView>
                             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -331,7 +322,9 @@
                             android:layout_marginTop="8dp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/cv_current_upload">
+                            app:layout_constraintTop_toBottomOf="@+id/cv_current_upload"
+                            app:strokeColor="@color/light_blue"
+                            app:strokeWidth="0dp">
 
                             <androidx.constraintlayout.widget.ConstraintLayout
                                 android:layout_width="match_parent"
@@ -343,21 +336,23 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="16dp"
+                                    android:layout_marginTop="2dp"
+                                    android:layout_marginBottom="2dp"
                                     android:text="@string/currDownloadTitle"
+                                    app:layout_constraintBottom_toTopOf="@+id/materialCardView"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toTopOf="parent" />
 
                                 <com.google.android.material.card.MaterialCardView
+                                    android:id="@+id/materialCardView"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="16dp"
-                                    android:layout_marginTop="18dp"
                                     android:layout_marginEnd="16dp"
                                     android:layout_marginBottom="18dp"
                                     app:layout_constraintBottom_toBottomOf="parent"
                                     app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="@+id/tv_current_download">
+                                    app:layout_constraintStart_toStartOf="parent">
 
                                     <androidx.constraintlayout.widget.ConstraintLayout
                                         android:layout_width="match_parent"
@@ -367,7 +362,7 @@
                                             android:id="@+id/iv_curr_download_left_icon"
                                             android:layout_width="48dp"
                                             android:layout_height="48dp"
-                                            android:layout_marginStart="4dp"
+                                            android:layout_marginStart="12dp"
                                             app:layout_constraintBottom_toBottomOf="parent"
                                             app:layout_constraintStart_toStartOf="parent"
                                             app:layout_constraintTop_toTopOf="parent"
@@ -408,7 +403,7 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_marginEnd="16dp"
-                                            app:layout_constraintEnd_toStartOf="@+id/iv_curr_download_right_icon"
+                                            app:layout_constraintEnd_toEndOf="parent"
                                             app:layout_constraintTop_toTopOf="@+id/tv_cur_download_total_sek"
                                             tools:text="Text und so" />
 
@@ -430,17 +425,6 @@
                                             app:layout_constraintTop_toBottomOf="@+id/tv_cur_download_total_min_value"
                                             tools:text="Text und so" />
 
-                                        <ImageView
-                                            android:id="@+id/iv_curr_download_right_icon"
-                                            android:layout_width="48dp"
-                                            android:layout_height="48dp"
-                                            android:visibility="gone"
-                                            app:layout_constraintBottom_toBottomOf="parent"
-                                            app:layout_constraintEnd_toEndOf="parent"
-                                            app:layout_constraintTop_toTopOf="parent"
-                                            tools:srcCompat="@tools:sample/avatars"
-                                            tools:visibility="visible" />
-
                                     </androidx.constraintlayout.widget.ConstraintLayout>
                                 </com.google.android.material.card.MaterialCardView>
                             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -454,7 +438,9 @@
                             android:layout_marginTop="8dp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/cv_current_download">
+                            app:layout_constraintTop_toBottomOf="@+id/cv_current_download"
+                            app:strokeColor="@color/light_blue"
+                            app:strokeWidth="0dp">
 
                             <androidx.constraintlayout.widget.ConstraintLayout
                                 android:layout_width="match_parent"
@@ -466,21 +452,23 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="16dp"
+                                    android:layout_marginTop="2dp"
+                                    android:layout_marginBottom="2dp"
                                     android:text="@string/transferredDataTitle"
+                                    app:layout_constraintBottom_toTopOf="@+id/materialCardView4"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toTopOf="parent" />
 
                                 <com.google.android.material.card.MaterialCardView
+                                    android:id="@+id/materialCardView4"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="16dp"
-                                    android:layout_marginTop="18dp"
                                     android:layout_marginEnd="16dp"
                                     android:layout_marginBottom="18dp"
                                     app:layout_constraintBottom_toBottomOf="parent"
                                     app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="@+id/tv_transfered_data">
+                                    app:layout_constraintStart_toStartOf="parent">
 
                                     <androidx.constraintlayout.widget.ConstraintLayout
                                         android:layout_width="match_parent"
@@ -490,7 +478,7 @@
                                             android:id="@+id/iv_transfered_data_left"
                                             android:layout_width="48dp"
                                             android:layout_height="48dp"
-                                            android:layout_marginStart="4dp"
+                                            android:layout_marginStart="12dp"
                                             app:layout_constraintBottom_toBottomOf="parent"
                                             app:layout_constraintStart_toStartOf="parent"
                                             app:layout_constraintTop_toTopOf="parent"
@@ -520,9 +508,7 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_marginTop="8dp"
-                                            android:layout_marginBottom="8dp"
                                             android:text="@string/transferredSum"
-                                            app:layout_constraintBottom_toBottomOf="parent"
                                             app:layout_constraintStart_toStartOf="@+id/tv_transfered_received"
                                             app:layout_constraintTop_toBottomOf="@+id/tv_transfered_received" />
 
@@ -531,7 +517,7 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_marginEnd="16dp"
-                                            app:layout_constraintEnd_toStartOf="@+id/iv_transfered_data_right"
+                                            app:layout_constraintEnd_toEndOf="parent"
                                             app:layout_constraintTop_toTopOf="@+id/tv_transfered_sent"
                                             tools:text="Text und so" />
 
@@ -553,16 +539,23 @@
                                             app:layout_constraintTop_toBottomOf="@+id/tv_transfered_received_value"
                                             tools:text="Text und so" />
 
-                                        <ImageView
-                                            android:id="@+id/iv_transfered_data_right"
-                                            android:layout_width="48dp"
-                                            android:layout_height="48dp"
-                                            android:visibility="visible"
+                                        <ProgressBar
+                                            android:id="@+id/progressBar_data_transfer"
+                                            style="?android:attr/progressBarStyleHorizontal"
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="4dp"
+                                            android:layout_marginBottom="4dp"
+                                            android:progress="50"
+                                            android:progressBackgroundTint="#0037DA"
+                                            android:progressBackgroundTintMode="src_over"
+                                            android:progressTint="#91E800"
+                                            android:progressTintMode="src_over"
+                                            android:scaleY="2"
                                             app:layout_constraintBottom_toBottomOf="parent"
-                                            app:layout_constraintEnd_toEndOf="parent"
-                                            app:layout_constraintTop_toTopOf="parent"
-                                            tools:srcCompat="@tools:sample/avatars"
-                                            tools:visibility="visible" />
+                                            app:layout_constraintEnd_toEndOf="@+id/tv_transfered_sum_value"
+                                            app:layout_constraintStart_toStartOf="@+id/tv_transfered_sum"
+                                            app:layout_constraintTop_toBottomOf="@+id/tv_transfered_sum" />
 
                                     </androidx.constraintlayout.widget.ConstraintLayout>
                                 </com.google.android.material.card.MaterialCardView>
@@ -576,7 +569,9 @@
                             android:layout_marginTop="8dp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/cv_transfered_data">
+                            app:layout_constraintTop_toBottomOf="@+id/cv_transfered_data"
+                            app:strokeColor="@color/light_blue"
+                            app:strokeWidth="0dp">
 
                             <androidx.constraintlayout.widget.ConstraintLayout
                                 android:layout_width="match_parent"
@@ -588,21 +583,23 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="16dp"
+                                    android:layout_marginTop="2dp"
+                                    android:layout_marginBottom="2dp"
                                     android:text="@string/transferredPacketsTitle"
+                                    app:layout_constraintBottom_toTopOf="@+id/materialCardView5"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toTopOf="parent" />
 
                                 <com.google.android.material.card.MaterialCardView
+                                    android:id="@+id/materialCardView5"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="16dp"
-                                    android:layout_marginTop="18dp"
                                     android:layout_marginEnd="16dp"
                                     android:layout_marginBottom="18dp"
                                     app:layout_constraintBottom_toBottomOf="parent"
                                     app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="@+id/tv_transfered_packets">
+                                    app:layout_constraintStart_toStartOf="parent">
 
                                     <androidx.constraintlayout.widget.ConstraintLayout
                                         android:layout_width="match_parent"
@@ -612,7 +609,7 @@
                                             android:id="@+id/iv_packets_left"
                                             android:layout_width="48dp"
                                             android:layout_height="48dp"
-                                            android:layout_marginStart="4dp"
+                                            android:layout_marginStart="12dp"
                                             app:layout_constraintBottom_toBottomOf="parent"
                                             app:layout_constraintStart_toStartOf="parent"
                                             app:layout_constraintTop_toTopOf="parent"
@@ -642,9 +639,7 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_marginTop="8dp"
-                                            android:layout_marginBottom="8dp"
                                             android:text="@string/transferredSum"
-                                            app:layout_constraintBottom_toBottomOf="parent"
                                             app:layout_constraintStart_toStartOf="@+id/tv_packets_received"
                                             app:layout_constraintTop_toBottomOf="@+id/tv_packets_received" />
 
@@ -653,7 +648,7 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_marginEnd="16dp"
-                                            app:layout_constraintEnd_toStartOf="@+id/iv_packets_right"
+                                            app:layout_constraintEnd_toEndOf="parent"
                                             app:layout_constraintTop_toTopOf="@+id/tv_packets_sent"
                                             tools:text="Text und so" />
 
@@ -675,16 +670,23 @@
                                             app:layout_constraintTop_toBottomOf="@+id/tv_packets_received_value"
                                             tools:text="Text und so" />
 
-                                        <ImageView
-                                            android:id="@+id/iv_packets_right"
-                                            android:layout_width="48dp"
-                                            android:layout_height="48dp"
-                                            android:visibility="visible"
+                                        <ProgressBar
+                                            android:id="@+id/progressBar_packets"
+                                            style="?android:attr/progressBarStyleHorizontal"
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="4dp"
+                                            android:layout_marginBottom="4dp"
+                                            android:progress="50"
+                                            android:progressBackgroundTint="#0037DA"
+                                            android:progressBackgroundTintMode="src_over"
+                                            android:progressTint="#91E800"
+                                            android:progressTintMode="src_over"
+                                            android:scaleY="2"
                                             app:layout_constraintBottom_toBottomOf="parent"
-                                            app:layout_constraintEnd_toEndOf="parent"
-                                            app:layout_constraintTop_toTopOf="parent"
-                                            tools:srcCompat="@tools:sample/avatars"
-                                            tools:visibility="visible" />
+                                            app:layout_constraintEnd_toEndOf="@+id/tv_packets_sum_value"
+                                            app:layout_constraintStart_toStartOf="@+id/tv_packets_sum"
+                                            app:layout_constraintTop_toBottomOf="@+id/tv_packets_sum_value" />
 
                                     </androidx.constraintlayout.widget.ConstraintLayout>
                                 </com.google.android.material.card.MaterialCardView>
@@ -698,7 +700,9 @@
                             android:layout_marginTop="8dp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/cv_transfered_packets">
+                            app:layout_constraintTop_toBottomOf="@+id/cv_transfered_packets"
+                            app:strokeColor="@color/light_blue"
+                            app:strokeWidth="0dp">
 
                             <androidx.constraintlayout.widget.ConstraintLayout
                                 android:layout_width="match_parent"
@@ -710,21 +714,23 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="16dp"
+                                    android:layout_marginTop="2dp"
+                                    android:layout_marginBottom="2dp"
                                     android:text="@string/transferredFilesTitle"
+                                    app:layout_constraintBottom_toTopOf="@+id/materialCardView6"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toTopOf="parent" />
 
                                 <com.google.android.material.card.MaterialCardView
+                                    android:id="@+id/materialCardView6"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="16dp"
-                                    android:layout_marginTop="18dp"
                                     android:layout_marginEnd="16dp"
                                     android:layout_marginBottom="18dp"
                                     app:layout_constraintBottom_toBottomOf="parent"
                                     app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="@+id/tv_transfered_files">
+                                    app:layout_constraintStart_toStartOf="parent">
 
                                     <androidx.constraintlayout.widget.ConstraintLayout
                                         android:layout_width="match_parent"
@@ -734,7 +740,7 @@
                                             android:id="@+id/iv_files_left"
                                             android:layout_width="48dp"
                                             android:layout_height="48dp"
-                                            android:layout_marginStart="4dp"
+                                            android:layout_marginStart="12dp"
                                             app:layout_constraintBottom_toBottomOf="parent"
                                             app:layout_constraintStart_toStartOf="parent"
                                             app:layout_constraintTop_toTopOf="parent"
@@ -764,9 +770,7 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_marginTop="8dp"
-                                            android:layout_marginBottom="8dp"
                                             android:text="@string/transferredSum"
-                                            app:layout_constraintBottom_toBottomOf="parent"
                                             app:layout_constraintStart_toStartOf="@+id/tv_files_received"
                                             app:layout_constraintTop_toBottomOf="@+id/tv_files_received" />
 
@@ -775,7 +779,7 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_marginEnd="16dp"
-                                            app:layout_constraintEnd_toStartOf="@+id/iv_files_right"
+                                            app:layout_constraintEnd_toEndOf="parent"
                                             app:layout_constraintTop_toTopOf="@+id/tv_files_sent"
                                             tools:text="Text und so" />
 
@@ -797,16 +801,23 @@
                                             app:layout_constraintTop_toBottomOf="@+id/tv_files_received_value"
                                             tools:text="Text und so" />
 
-                                        <ImageView
-                                            android:id="@+id/iv_files_right"
-                                            android:layout_width="48dp"
-                                            android:layout_height="48dp"
-                                            android:visibility="visible"
+                                        <ProgressBar
+                                            android:id="@+id/progressBar_files"
+                                            style="?android:attr/progressBarStyleHorizontal"
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="4dp"
+                                            android:layout_marginBottom="4dp"
+                                            android:progress="50"
+                                            android:progressBackgroundTint="#0037DA"
+                                            android:progressBackgroundTintMode="src_over"
+                                            android:progressTint="#91E800"
+                                            android:progressTintMode="src_over"
+                                            android:scaleY="2"
                                             app:layout_constraintBottom_toBottomOf="parent"
-                                            app:layout_constraintEnd_toEndOf="parent"
-                                            app:layout_constraintTop_toTopOf="parent"
-                                            tools:srcCompat="@tools:sample/avatars"
-                                            tools:visibility="visible" />
+                                            app:layout_constraintEnd_toEndOf="@+id/tv_files_sum_value"
+                                            app:layout_constraintStart_toStartOf="@+id/tv_files_sum"
+                                            app:layout_constraintTop_toBottomOf="@+id/tv_files_sum_value" />
 
                                     </androidx.constraintlayout.widget.ConstraintLayout>
                                 </com.google.android.material.card.MaterialCardView>
@@ -820,6 +831,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="24dp"
                             android:text="@string/config"
+                            android:textColor="#FFFFFF"
                             android:textSize="16sp"
                             android:textStyle="bold"
                             app:layout_constraintStart_toStartOf="parent"
@@ -829,10 +841,12 @@
                             android:id="@+id/cv_config_server_querys"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
+                            android:layout_marginTop="4dp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/tv_config">
+                            app:layout_constraintTop_toBottomOf="@+id/tv_config"
+                            app:strokeColor="@color/light_blue"
+                            app:strokeWidth="0dp">
 
                             <androidx.constraintlayout.widget.ConstraintLayout
                                 android:layout_width="match_parent"
@@ -844,21 +858,23 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="16dp"
+                                    android:layout_marginTop="2dp"
+                                    android:layout_marginBottom="2dp"
                                     android:text="@string/serverQueriesTitle"
+                                    app:layout_constraintBottom_toTopOf="@+id/materialCardView7"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toTopOf="parent" />
 
                                 <com.google.android.material.card.MaterialCardView
+                                    android:id="@+id/materialCardView7"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="16dp"
-                                    android:layout_marginTop="18dp"
                                     android:layout_marginEnd="16dp"
                                     android:layout_marginBottom="18dp"
                                     app:layout_constraintBottom_toBottomOf="parent"
                                     app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="@+id/tv_server_querys">
+                                    app:layout_constraintStart_toStartOf="parent">
 
                                     <androidx.constraintlayout.widget.ConstraintLayout
                                         android:layout_width="match_parent"
@@ -868,7 +884,7 @@
                                             android:id="@+id/iv_server_querys"
                                             android:layout_width="48dp"
                                             android:layout_height="48dp"
-                                            android:layout_marginStart="4dp"
+                                            android:layout_marginStart="12dp"
                                             android:layout_marginTop="4dp"
                                             app:layout_constraintStart_toStartOf="parent"
                                             app:layout_constraintTop_toTopOf="parent"
@@ -984,7 +1000,9 @@
                             android:layout_marginTop="8dp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/cv_config_server_querys">
+                            app:layout_constraintTop_toBottomOf="@+id/cv_config_server_querys"
+                            app:strokeColor="@color/light_blue"
+                            app:strokeWidth="0dp">
 
                             <androidx.constraintlayout.widget.ConstraintLayout
                                 android:layout_width="match_parent"
@@ -996,21 +1014,23 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="16dp"
+                                    android:layout_marginTop="2dp"
+                                    android:layout_marginBottom="2dp"
                                     android:text="@string/standardGroupsTitle"
+                                    app:layout_constraintBottom_toTopOf="@+id/materialCardView8"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toTopOf="parent" />
 
                                 <com.google.android.material.card.MaterialCardView
+                                    android:id="@+id/materialCardView8"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="16dp"
-                                    android:layout_marginTop="18dp"
                                     android:layout_marginEnd="16dp"
                                     android:layout_marginBottom="18dp"
                                     app:layout_constraintBottom_toBottomOf="parent"
                                     app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="@+id/tv_standard_groups">
+                                    app:layout_constraintStart_toStartOf="parent">
 
                                     <androidx.constraintlayout.widget.ConstraintLayout
                                         android:layout_width="match_parent"
@@ -1020,7 +1040,7 @@
                                             android:id="@+id/iv_standrad_groups"
                                             android:layout_width="48dp"
                                             android:layout_height="48dp"
-                                            android:layout_marginStart="4dp"
+                                            android:layout_marginStart="12dp"
                                             android:layout_marginTop="4dp"
                                             app:layout_constraintStart_toStartOf="parent"
                                             app:layout_constraintTop_toTopOf="parent"
@@ -1119,7 +1139,9 @@
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/cv_config_standard_groups">
+                            app:layout_constraintTop_toBottomOf="@+id/cv_config_standard_groups"
+                            app:strokeColor="@color/light_blue"
+                            app:strokeWidth="0dp">
 
                             <androidx.constraintlayout.widget.ConstraintLayout
                                 android:layout_width="match_parent"
@@ -1155,7 +1177,7 @@
                                             android:id="@+id/iv_transfer"
                                             android:layout_width="48dp"
                                             android:layout_height="48dp"
-                                            android:layout_marginStart="4dp"
+                                            android:layout_marginStart="12dp"
                                             android:layout_marginTop="4dp"
                                             app:layout_constraintStart_toStartOf="parent"
                                             app:layout_constraintTop_toTopOf="parent"
