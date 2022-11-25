@@ -61,35 +61,30 @@ class MainActivity : AppCompatActivity() {
                 binding.llStats.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
                 binding.llServer.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
                 binding.llOther.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
-                binding.llAdvanced.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
             }
             1 -> {
                 binding.llHome.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
                 binding.llStats.setBackgroundColor(ContextCompat.getColor(this, R.color.light_blue))
                 binding.llServer.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
                 binding.llOther.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
-                binding.llAdvanced.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
             }
             2 -> {
                 binding.llHome.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
                 binding.llStats.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
                 binding.llServer.setBackgroundColor(ContextCompat.getColor(this, R.color.light_blue))
                 binding.llOther.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
-                binding.llAdvanced.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
             }
             3 -> {
                 binding.llHome.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
                 binding.llStats.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
                 binding.llServer.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
                 binding.llOther.setBackgroundColor(ContextCompat.getColor(this, R.color.light_blue))
-                binding.llAdvanced.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
             }
             4 -> {
                 binding.llHome.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
                 binding.llStats.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
                 binding.llServer.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
                 binding.llOther.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
-                binding.llAdvanced.setBackgroundColor(ContextCompat.getColor(this, R.color.light_blue))
             }
         }
     }

@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.widget.doAfterTextChanged
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -113,9 +114,13 @@ class LoginFragment : Fragment() {
                 }
             }
         }
-//weitermachen
+
         binding.editTextInputListName.setOnClickListener {
-            binding.scrollViewLogin.scrollTo(150,0)
+            binding.scrollViewLogin.scrollTo(0, 280)
+        }
+
+        binding.editTextInputListName.doAfterTextChanged {
+            binding.scrollViewLogin.scrollTo(0, 280)
         }
     }
 
@@ -129,11 +134,13 @@ class LoginFragment : Fragment() {
     }
 
     //set login data
-    private fun loginData(loginId :Int): Login? {
+    private fun loginData(loginId: Int): Login? {
         val ip = binding.editTextInputIp.text.toString()
 
-        val qPort = if (!binding.editTextInputQport.text.isNullOrEmpty()) binding.editTextInputQport.text.toString().toInt()
-        else null
+        val qPort =
+            if (!binding.editTextInputQport.text.isNullOrEmpty()) binding.editTextInputQport.text.toString()
+                .toInt()
+            else null
 
         if (qPort == null || ip.isEmpty()) {
             Toast.makeText(requireContext(), "Query port must not be empty!", Toast.LENGTH_SHORT)
@@ -152,7 +159,7 @@ class LoginFragment : Fragment() {
 
         var updateLoginId = 0
 
-        if (loginId != 0){
+        if (loginId != 0) {
             updateLoginId = loginId
         }
 

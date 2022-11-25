@@ -152,40 +152,5 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/ll_advanced"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="4dp"
-            android:layout_marginTop="6dp"
-            android:layout_marginRight="4dp"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <ImageView
-                    android:id="@+id/iv_advanced_btn"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:srcCompat="@tools:sample/avatars" />
-
-                <TextView
-                    android:id="@+id/tv_advanced_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/btnAdvanced"
-                    app:layout_constraintEnd_toEndOf="@+id/iv_advanced_btn"
-                    app:layout_constraintStart_toStartOf="@+id/iv_advanced_btn"
-                    app:layout_constraintTop_toBottomOf="@+id/iv_advanced_btn" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </LinearLayout>
-
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

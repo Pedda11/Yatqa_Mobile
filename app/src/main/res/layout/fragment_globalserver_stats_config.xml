@@ -113,8 +113,8 @@
 
                                         <ImageView
                                             android:id="@+id/iv_v_server_left_icon"
-                                            android:layout_width="48dp"
-                                            android:layout_height="48dp"
+                                            android:layout_width="32dp"
+                                            android:layout_height="32dp"
                                             android:layout_marginStart="12dp"
                                             app:layout_constraintBottom_toBottomOf="@+id/tv_channel"
                                             app:layout_constraintStart_toStartOf="parent"
@@ -245,8 +245,8 @@
 
                                         <ImageView
                                             android:id="@+id/iv_curr_upload_left_icon"
-                                            android:layout_width="48dp"
-                                            android:layout_height="48dp"
+                                            android:layout_width="32dp"
+                                            android:layout_height="32dp"
                                             android:layout_marginStart="12dp"
                                             app:layout_constraintBottom_toBottomOf="parent"
                                             app:layout_constraintStart_toStartOf="parent"
@@ -360,8 +360,8 @@
 
                                         <ImageView
                                             android:id="@+id/iv_curr_download_left_icon"
-                                            android:layout_width="48dp"
-                                            android:layout_height="48dp"
+                                            android:layout_width="32dp"
+                                            android:layout_height="32dp"
                                             android:layout_marginStart="12dp"
                                             app:layout_constraintBottom_toBottomOf="parent"
                                             app:layout_constraintStart_toStartOf="parent"
@@ -476,8 +476,8 @@
 
                                         <ImageView
                                             android:id="@+id/iv_transfered_data_left"
-                                            android:layout_width="48dp"
-                                            android:layout_height="48dp"
+                                            android:layout_width="32dp"
+                                            android:layout_height="32dp"
                                             android:layout_marginStart="12dp"
                                             app:layout_constraintBottom_toBottomOf="parent"
                                             app:layout_constraintStart_toStartOf="parent"
@@ -607,8 +607,8 @@
 
                                         <ImageView
                                             android:id="@+id/iv_packets_left"
-                                            android:layout_width="48dp"
-                                            android:layout_height="48dp"
+                                            android:layout_width="32dp"
+                                            android:layout_height="32dp"
                                             android:layout_marginStart="12dp"
                                             app:layout_constraintBottom_toBottomOf="parent"
                                             app:layout_constraintStart_toStartOf="parent"
@@ -738,8 +738,8 @@
 
                                         <ImageView
                                             android:id="@+id/iv_files_left"
-                                            android:layout_width="48dp"
-                                            android:layout_height="48dp"
+                                            android:layout_width="32dp"
+                                            android:layout_height="32dp"
                                             android:layout_marginStart="12dp"
                                             app:layout_constraintBottom_toBottomOf="parent"
                                             app:layout_constraintStart_toStartOf="parent"
@@ -882,8 +882,8 @@
 
                                         <ImageView
                                             android:id="@+id/iv_server_querys"
-                                            android:layout_width="48dp"
-                                            android:layout_height="48dp"
+                                            android:layout_width="32dp"
+                                            android:layout_height="32dp"
                                             android:layout_marginStart="12dp"
                                             android:layout_marginTop="4dp"
                                             app:layout_constraintStart_toStartOf="parent"
@@ -1038,8 +1038,8 @@
 
                                         <ImageView
                                             android:id="@+id/iv_standrad_groups"
-                                            android:layout_width="48dp"
-                                            android:layout_height="48dp"
+                                            android:layout_width="32dp"
+                                            android:layout_height="32dp"
                                             android:layout_marginStart="12dp"
                                             android:layout_marginTop="4dp"
                                             app:layout_constraintStart_toStartOf="parent"
@@ -1175,8 +1175,8 @@
 
                                         <ImageView
                                             android:id="@+id/iv_transfer"
-                                            android:layout_width="48dp"
-                                            android:layout_height="48dp"
+                                            android:layout_width="32dp"
+                                            android:layout_height="32dp"
                                             android:layout_marginStart="12dp"
                                             android:layout_marginTop="4dp"
                                             app:layout_constraintStart_toStartOf="parent"

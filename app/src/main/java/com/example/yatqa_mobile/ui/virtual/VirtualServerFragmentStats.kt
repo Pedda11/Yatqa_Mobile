@@ -46,14 +46,14 @@ class VirtualServerFragmentStats : Fragment() {
             if (it != null) {
 
                 var vServerName = it.name
-                if (it.name.length > 25) {
-                    vServerName = it.name.substring(0, 22) + "..."
+                if (it.name.length > 15) {
+                    vServerName = it.name.substring(0, 12) + "..."
                 }
                 binding.tvVNameValue.text = vServerName
 
                 var vServerPhonetic = it.phoneticName
-                if (it.phoneticName.length > 25) {
-                    vServerPhonetic = it.phoneticName.substring(0, 22) + "..."
+                if (it.phoneticName.length > 15) {
+                    vServerPhonetic = it.phoneticName.substring(0, 12) + "..."
                 }
                 binding.tvVPhoneticValue.text = vServerPhonetic
 
