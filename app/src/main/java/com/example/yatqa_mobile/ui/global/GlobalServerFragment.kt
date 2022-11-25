@@ -54,6 +54,7 @@ class GlobalServerFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //swipe down to refresh
         binding.scrollView.setOnScrollChangeListener { v: View, scrollX: Int, scrollY: Int, _: Int, _: Int ->
             binding.swiperefresh.isEnabled = scrollY == 0
         }

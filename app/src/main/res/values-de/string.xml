@@ -1,6 +1,6 @@
 <resources>
     //App name
-    <string name="app_name">Yatqa</string>
+    <string name="app_name">YaTQA</string>
 
     /login and favorite fragment
     <string name="ip">IP</string>
