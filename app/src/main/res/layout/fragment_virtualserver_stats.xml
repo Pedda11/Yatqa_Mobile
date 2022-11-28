@@ -13,6 +13,7 @@
 
         <TextView
             android:id="@+id/tv_general"
+            style="@style/TitleStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -36,24 +37,27 @@
 
                 <TextView
                     android:id="@+id/tv_v_base_config"
+                    style="@style/SubTitleStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="2dp"
+                    android:text="@string/currUploadTitle"
+                    app:layout_constraintBottom_toTopOf="@+id/materialCardView9"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:text="@string/currUploadTitle" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/materialCardView9"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="18dp"
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="18dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/tv_v_base_config">
+                    app:layout_constraintStart_toStartOf="parent">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
@@ -115,7 +119,6 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
                             android:text="@string/vServerState"
-                            android:textColor="#005EFF"
                             app:layout_constraintStart_toStartOf="@+id/tv_v_phonetic"
                             app:layout_constraintTop_toBottomOf="@+id/tv_v_port" />
 

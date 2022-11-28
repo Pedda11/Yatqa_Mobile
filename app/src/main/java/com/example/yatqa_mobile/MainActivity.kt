@@ -29,6 +29,14 @@ class MainActivity : AppCompatActivity() {
             )
         }
 
+        window.decorView.apply {
+            // Hide both the navigation bar and the status bar.
+            // SYSTEM_UI_FLAG_FULLSCREEN is only available on Android 4.1 and higher, but as
+            // a general rule, you should design your app to hide the status bar whenever you
+            // hide the navigation bar.
+            systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_FULLSCREEN
+        }
+
         binding = DataBindingUtil.setContentView(this,R.layout.activity_main)
 
         (supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment).also {

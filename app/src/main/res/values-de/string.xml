@@ -3,6 +3,8 @@
     <string name="app_name">YaTQA</string>
 
     /login and favorite fragment
+    <string name="favoritesTitle">Favoriten</string>
+    <string name="loginTitle">Login</string>
     <string name="ip">IP</string>
     <string name="connect">Verbinden</string>
     <string name="saveToFav">in Favoriten speichern</string>
@@ -16,6 +18,7 @@
     <string name="toLogin">zum manuellen Login</string>
 
     //global stats
+    <string name="globalServerTitle">Global Server</string>
     <string name="Stats">Statistiken(aus Sicht des Servers)</string>
     <string name="vServerTitle">Virtelle Server</string>
     <string name="vServerOnline">Server online:</string>
@@ -69,6 +72,7 @@
 
     //other
     <string name="slash">/</string>
+    <string name="virtualServerListTitle">Liste virtueller Server</string>
 
     //bottom navigation bar
     <string name="btnHome">Home</string>
@@ -87,6 +91,7 @@
     <string name="vServerOthers">Sonstiges</string>
 
     //virtual server generall
+    <string name="virtualServerTitle">Virtueller Server</string>
     <string name="vServerGeneral">Allgemein</string>
     <string name="vServerBaseConfig">Grundkonfiguration</string>
     <string name="vServerName">Name:</string>

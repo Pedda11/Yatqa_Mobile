@@ -91,6 +91,11 @@ class VirtualServerFragmentStats : Fragment() {
             var propertyKey: VirtualServerProperty = VirtualServerProperty.VIRTUALSERVER_AUTOSTART
             showDialog(propertyKey, viewModel.vServerInfo.value!!.isAutoStart.toString())
         }
+
+        binding.tvVSlots.setOnClickListener {
+            var propertyKey: VirtualServerProperty = VirtualServerProperty.VIRTUALSERVER_MAXCLIENTS
+            showDialog(propertyKey, viewModel.vServerInfo.value!!.maxClients.toString())
+        }
     }
 
     //AlertDialog with editText
@@ -154,11 +159,11 @@ class VirtualServerFragmentStats : Fragment() {
                                 Toast.LENGTH_SHORT
                             ).show()
                             return@setPositiveButton
-                        }else{
-                            if (newValue == "true"){
-                                newValue = "1"
-                            }else{
-                                newValue = "0"
+                        } else {
+                            newValue = if (newValue == "true") {
+                                "1"
+                            } else {
+                                "0"
                             }
                         }
                     }

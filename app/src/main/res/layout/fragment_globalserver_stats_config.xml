@@ -29,8 +29,11 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:subtitle="@string/globalServerTitle"
+                app:subtitleTextColor="@color/soft_white"
                 app:title="@string/app_name"
-                app:titleCentered="true" />
+                app:titleCentered="true"
+                app:titleTextColor="@color/soft_white" />
 
             <ScrollView
                 android:id="@+id/scrollView"

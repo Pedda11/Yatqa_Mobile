@@ -37,6 +37,7 @@
 
                 <TextView
                     android:id="@+id/tv_home_btn"
+                    style="@style/SubTitleStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/btnHome"
@@ -72,6 +73,7 @@
 
                 <TextView
                     android:id="@+id/tv_stats_btn"
+                    style="@style/SubTitleStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/btnStats"
@@ -107,6 +109,7 @@
 
                 <TextView
                     android:id="@+id/tv_other_btn"
+                    style="@style/SubTitleStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/btnServer"
@@ -142,6 +145,7 @@
 
                 <TextView
                     android:id="@+id/tv_server_btn"
+                    style="@style/SubTitleStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/btnOthers"

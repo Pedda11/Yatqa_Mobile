@@ -1,6 +1,7 @@
 package com.example.yatqa_mobile.ui.virtual
 
 import android.os.Bundle
+import android.text.Layout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

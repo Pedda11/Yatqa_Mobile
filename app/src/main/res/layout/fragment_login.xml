@@ -22,8 +22,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:subtitle="@string/loginTitle"
+            app:subtitleTextColor="@color/soft_white"
             app:title="@string/app_name"
-            app:titleCentered="true" />
+            app:titleCentered="true"
+            app:titleTextColor="@color/soft_white" />
 
         <ScrollView
             android:id="@+id/scrollViewLogin"
