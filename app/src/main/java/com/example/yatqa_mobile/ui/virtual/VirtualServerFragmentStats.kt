@@ -11,6 +11,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.yatqa_mobile.R
+import com.example.yatqa_mobile.adapter.ServerAdapter
 import com.example.yatqa_mobile.databinding.FragmentVirtualserverStatsBinding
 import com.example.yatqa_mobile.ui.main.MainViewModel
 import com.github.theholywaffle.teamspeak3.api.VirtualServerProperty
@@ -39,6 +40,15 @@ class VirtualServerFragmentStats : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+//        binding.scrollView.setOnScrollChangeListener { v: View, scrollX: Int, scrollY: Int, _: Int, _: Int ->
+//            binding.swiperefresh.isEnabled = scrollY == 0
+//        }
+
+        binding.swipeRefresh.setOnRefreshListener {
+            viewModel.getVirtualServerInfo()
+            binding.swipeRefresh.isRefreshing = false
+        }
 
         viewModel.vServerInfo.observe(
             viewLifecycleOwner

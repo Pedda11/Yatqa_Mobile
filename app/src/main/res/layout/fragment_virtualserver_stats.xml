@@ -1,230 +1,239 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/tv_general"
-            style="@style/TitleStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:text="@string/vServerGeneral"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cv_v_base_config"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_general">
+            android:layout_height="match_parent">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <TextView
+                android:id="@+id/tv_general"
+                style="@style/TitleStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/vServerGeneral"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cv_v_base_config"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_general">
 
-                <TextView
-                    android:id="@+id/tv_v_base_config"
-                    style="@style/SubTitleStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="2dp"
-                    android:layout_marginBottom="2dp"
-                    android:text="@string/currUploadTitle"
-                    app:layout_constraintBottom_toTopOf="@+id/materialCardView9"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/materialCardView9"
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="18dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent">
+                    android:layout_height="match_parent">
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
+                    <TextView
+                        android:id="@+id/tv_v_base_config"
+                        style="@style/SubTitleStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginBottom="2dp"
+                        android:text="@string/currUploadTitle"
+                        app:layout_constraintBottom_toTopOf="@+id/materialCardView9"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/materialCardView9"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginBottom="18dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent">
 
-                        <ImageView
-                            android:id="@+id/iv_transfer"
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:layout_marginStart="4dp"
-                            android:layout_marginTop="4dp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:srcCompat="@drawable/baseconfig" />
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
 
-                        <TextView
-                            android:id="@+id/tv_v_name"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="16dp"
-                            android:layout_marginTop="8dp"
-                            android:text="@string/vServerName"
-                            android:textColor="#005EFF"
-                            app:layout_constraintStart_toEndOf="@+id/iv_transfer"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            <ImageView
+                                android:id="@+id/iv_transfer"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:layout_marginStart="4dp"
+                                android:layout_marginTop="4dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:srcCompat="@drawable/baseconfig" />
 
-                        <TextView
-                            android:id="@+id/tv_v_phonetic"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="@string/vServerPhonetic"
-                            android:textColor="#005EFF"
-                            app:layout_constraintStart_toStartOf="@+id/tv_v_name"
-                            app:layout_constraintTop_toBottomOf="@+id/tv_v_name" />
+                            <TextView
+                                android:id="@+id/tv_v_name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="16dp"
+                                android:layout_marginTop="8dp"
+                                android:text="@string/vServerName"
+                                android:textColor="#005EFF"
+                                app:layout_constraintStart_toEndOf="@+id/iv_transfer"
+                                app:layout_constraintTop_toTopOf="parent" />
 
-                        <TextView
-                            android:id="@+id/tv_v_machine_id"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="@string/vServerMachineId"
-                            app:layout_constraintStart_toStartOf="@+id/tv_v_phonetic"
-                            app:layout_constraintTop_toBottomOf="@+id/tv_v_phonetic" />
+                            <TextView
+                                android:id="@+id/tv_v_phonetic"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:text="@string/vServerPhonetic"
+                                android:textColor="#005EFF"
+                                app:layout_constraintStart_toStartOf="@+id/tv_v_name"
+                                app:layout_constraintTop_toBottomOf="@+id/tv_v_name" />
 
-                        <TextView
-                            android:id="@+id/tv_v_port"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="@string/vServerPort"
-                            android:textColor="#005EFF"
-                            app:layout_constraintStart_toStartOf="@+id/tv_v_phonetic"
-                            app:layout_constraintTop_toBottomOf="@+id/tv_v_machine_id" />
+                            <TextView
+                                android:id="@+id/tv_v_machine_id"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:text="@string/vServerMachineId"
+                                app:layout_constraintStart_toStartOf="@+id/tv_v_phonetic"
+                                app:layout_constraintTop_toBottomOf="@+id/tv_v_phonetic" />
 
-                        <TextView
-                            android:id="@+id/tv_v_state"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="@string/vServerState"
-                            app:layout_constraintStart_toStartOf="@+id/tv_v_phonetic"
-                            app:layout_constraintTop_toBottomOf="@+id/tv_v_port" />
+                            <TextView
+                                android:id="@+id/tv_v_port"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:text="@string/vServerPort"
+                                android:textColor="#005EFF"
+                                app:layout_constraintStart_toStartOf="@+id/tv_v_phonetic"
+                                app:layout_constraintTop_toBottomOf="@+id/tv_v_machine_id" />
 
-                        <TextView
-                            android:id="@+id/tv_v_autostart"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="@string/vServerAutostart"
-                            android:textColor="#005EFF"
-                            app:layout_constraintStart_toStartOf="@+id/tv_v_phonetic"
-                            app:layout_constraintTop_toBottomOf="@+id/tv_v_state" />
+                            <TextView
+                                android:id="@+id/tv_v_state"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:text="@string/vServerState"
+                                app:layout_constraintStart_toStartOf="@+id/tv_v_phonetic"
+                                app:layout_constraintTop_toBottomOf="@+id/tv_v_port" />
 
-                        <TextView
-                            android:id="@+id/tv_v_slots"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="@string/vServerSlots"
-                            android:textColor="#005EFF"
-                            app:layout_constraintBottom_toTopOf="@+id/progressBar_vserver_user"
-                            app:layout_constraintStart_toStartOf="@+id/tv_v_phonetic"
-                            app:layout_constraintTop_toBottomOf="@+id/tv_v_autostart" />
+                            <TextView
+                                android:id="@+id/tv_v_autostart"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:text="@string/vServerAutostart"
+                                android:textColor="#005EFF"
+                                app:layout_constraintStart_toStartOf="@+id/tv_v_phonetic"
+                                app:layout_constraintTop_toBottomOf="@+id/tv_v_state" />
 
-                        <TextView
-                            android:id="@+id/tv_v_name_value"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="16dp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="@+id/tv_v_name"
-                            tools:text="Text und so" />
+                            <TextView
+                                android:id="@+id/tv_v_slots"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:text="@string/vServerSlots"
+                                android:textColor="#005EFF"
+                                app:layout_constraintStart_toStartOf="@+id/tv_v_phonetic"
+                                app:layout_constraintTop_toBottomOf="@+id/tv_v_autostart" />
 
-                        <TextView
-                            android:id="@+id/tv_v_phonetic_value"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            app:layout_constraintEnd_toEndOf="@+id/tv_v_name_value"
-                            app:layout_constraintTop_toBottomOf="@+id/tv_v_name_value"
-                            tools:text="Text und so" />
+                            <TextView
+                                android:id="@+id/tv_v_name_value"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="16dp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="@+id/tv_v_name"
+                                tools:text="Text und so" />
 
-                        <TextView
-                            android:id="@+id/tv_v_machine_id_value"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            app:layout_constraintEnd_toEndOf="@+id/tv_v_name_value"
-                            app:layout_constraintTop_toBottomOf="@+id/tv_v_phonetic_value"
-                            tools:text="Text und so" />
+                            <TextView
+                                android:id="@+id/tv_v_phonetic_value"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                app:layout_constraintEnd_toEndOf="@+id/tv_v_name_value"
+                                app:layout_constraintTop_toBottomOf="@+id/tv_v_name_value"
+                                tools:text="Text und so" />
 
-                        <TextView
-                            android:id="@+id/tv_v_port_value"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            app:layout_constraintEnd_toEndOf="@+id/tv_v_name_value"
-                            app:layout_constraintTop_toBottomOf="@+id/tv_v_machine_id_value"
-                            tools:text="Text und so" />
+                            <TextView
+                                android:id="@+id/tv_v_machine_id_value"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                app:layout_constraintEnd_toEndOf="@+id/tv_v_name_value"
+                                app:layout_constraintTop_toBottomOf="@+id/tv_v_phonetic_value"
+                                tools:text="Text und so" />
 
-                        <TextView
-                            android:id="@+id/tv_v_state_value"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            app:layout_constraintEnd_toEndOf="@+id/tv_v_name_value"
-                            app:layout_constraintTop_toBottomOf="@+id/tv_v_port_value"
-                            tools:text="Text und so" />
+                            <TextView
+                                android:id="@+id/tv_v_port_value"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                app:layout_constraintEnd_toEndOf="@+id/tv_v_name_value"
+                                app:layout_constraintTop_toBottomOf="@+id/tv_v_machine_id_value"
+                                tools:text="Text und so" />
 
-                        <TextView
-                            android:id="@+id/tv_v_autostart_value"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            app:layout_constraintEnd_toEndOf="@+id/tv_v_name_value"
-                            app:layout_constraintTop_toBottomOf="@+id/tv_v_state_value"
-                            tools:text="Text und so" />
+                            <TextView
+                                android:id="@+id/tv_v_state_value"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                app:layout_constraintEnd_toEndOf="@+id/tv_v_name_value"
+                                app:layout_constraintTop_toBottomOf="@+id/tv_v_port_value"
+                                tools:text="Text und so" />
 
-                        <TextView
-                            android:id="@+id/tv_v_slots_value"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            app:layout_constraintEnd_toEndOf="@+id/tv_v_name_value"
-                            app:layout_constraintTop_toBottomOf="@+id/tv_v_autostart_value"
-                            tools:text="Text und so" />
+                            <TextView
+                                android:id="@+id/tv_v_autostart_value"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                app:layout_constraintEnd_toEndOf="@+id/tv_v_name_value"
+                                app:layout_constraintTop_toBottomOf="@+id/tv_v_state_value"
+                                tools:text="Text und so" />
 
-                        <ProgressBar
-                            android:id="@+id/progressBar_vserver_user"
-                            style="?android:attr/progressBarStyleHorizontal"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:progress="50"
-                            android:progressBackgroundTint="#0037DA"
-                            android:progressBackgroundTintMode="src_over"
-                            android:progressTint="#91E800"
-                            android:progressTintMode="src_over"
-                            android:scaleY="2"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="@+id/tv_v_slots_value"
-                            app:layout_constraintStart_toStartOf="@+id/tv_v_slots"
-                            app:layout_constraintTop_toBottomOf="@+id/tv_channel" />
+                            <TextView
+                                android:id="@+id/tv_v_slots_value"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                app:layout_constraintEnd_toEndOf="@+id/tv_v_name_value"
+                                app:layout_constraintTop_toBottomOf="@+id/tv_v_autostart_value"
+                                tools:text="Text und so" />
 
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-                </com.google.android.material.card.MaterialCardView>
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </com.google.android.material.card.MaterialCardView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                            <ProgressBar
+                                android:id="@+id/progressBar_vserver_user"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:layout_marginBottom="4dp"
+                                android:progress="50"
+                                android:progressBackgroundTint="#0037DA"
+                                android:progressBackgroundTintMode="src_over"
+                                android:progressTint="#91E800"
+                                android:progressTintMode="src_over"
+                                android:scaleY="2"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="@+id/tv_v_slots_value"
+                                app:layout_constraintStart_toStartOf="@+id/tv_v_slots"
+                                app:layout_constraintTop_toBottomOf="@+id/tv_v_slots" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </com.google.android.material.card.MaterialCardView>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </layout>
