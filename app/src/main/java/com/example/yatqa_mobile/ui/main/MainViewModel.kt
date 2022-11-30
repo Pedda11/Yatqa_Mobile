@@ -30,6 +30,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private val database = getDatabase(application)
     private val repository = Repository(database)
 
+    //set the variables from ts3 api
     val loginList = repository.loginList
     lateinit var hostInfo: HostInfo
     lateinit var instanceInfo: InstanceInfo
@@ -73,7 +74,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    fun setConnectComplete() {
+    private fun setConnectComplete() {
         _connectionCompleted.postValue(true)
     }
 
@@ -81,7 +82,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         _connectionCompleted.value = false
     }
 
-    fun setGetDataComplete() {
+    private fun setGetDataComplete() {
         _getGlobalDataCompleted.value = true
     }
 

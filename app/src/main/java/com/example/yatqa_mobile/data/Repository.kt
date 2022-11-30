@@ -120,10 +120,12 @@ class Repository(private val database: LoginDatabase) {
         return _ts3Api.value?.serverInfo
     }
 
+    //set Server Instance Properties
     fun setServerInstanceProperties(prop: ServerInstanceProperty, value: String) {
         _ts3Api.value?.editInstance(prop, value)
     }
 
+    //set Virtual Server Properties
     fun setVirtualServerProperties(prop: MutableMap<VirtualServerProperty,String>) {
         _ts3Api.value?.editServer(prop)
     }
