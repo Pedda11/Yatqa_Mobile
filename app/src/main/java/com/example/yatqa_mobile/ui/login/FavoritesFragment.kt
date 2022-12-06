@@ -49,6 +49,12 @@ class FavoritesFragment : Fragment() {
         viewModel.loginList.observe(
             viewLifecycleOwner
         ) {
+            if (it.isEmpty()){
+                binding.tvInfo.visibility = View.VISIBLE
+            }
+            else{
+                binding.tvInfo.visibility = View.GONE
+            }
             //generate adapter
             val recycler = binding.rvFavorites
             recycler.adapter = FavoritesAdapter(it, viewModel.ts3ApiConnect, viewModel.removeLogin)

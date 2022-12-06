@@ -24,4 +24,9 @@
         <item name="android:gravity">right|center_vertical</item>
         <item name="android:paddingRight">16dp</item>
     </style>
+
+    <style name="cornerStyle">
+        <item name="cornerRadius">8dp</item>
+        <item name="cornerSize">8dp</item>
+    </style>
 </resources>

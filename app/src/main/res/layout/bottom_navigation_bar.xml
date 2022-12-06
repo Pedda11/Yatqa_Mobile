@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cv_bottom_nav_bar"
     android:layout_width="match_parent"
-    android:layout_height="80dp">
+    android:layout_height="60dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:baselineAligned="false">
+        android:baselineAligned="false"
+        android:orientation="horizontal">
 
         <LinearLayout
             android:id="@+id/ll_home"
@@ -20,6 +20,7 @@
             android:layout_marginTop="6dp"
             android:layout_marginEnd="4dp"
             android:layout_weight="1"
+            android:background="@drawable/shape"
             android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -28,12 +29,12 @@
 
                 <ImageView
                     android:id="@+id/iv_home_btn"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:srcCompat="@tools:sample/avatars"/>
+                    tools:srcCompat="@tools:sample/avatars" />
 
                 <TextView
                     android:id="@+id/tv_home_btn"
@@ -50,12 +51,14 @@
 
         <LinearLayout
             android:id="@+id/ll_stats"
+            style="@style/cornerStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="4dp"
             android:layout_marginTop="6dp"
             android:layout_marginRight="4dp"
             android:layout_weight="1"
+            android:background="@drawable/shape"
             android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -64,8 +67,8 @@
 
                 <ImageView
                     android:id="@+id/iv_stats_btn"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -86,12 +89,14 @@
 
         <LinearLayout
             android:id="@+id/ll_server"
+            style="@style/cornerStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="4dp"
             android:layout_marginTop="6dp"
             android:layout_marginRight="4dp"
             android:layout_weight="1"
+            android:background="@drawable/shape"
             android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -100,8 +105,8 @@
 
                 <ImageView
                     android:id="@+id/iv_other_btn"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -122,12 +127,14 @@
 
         <LinearLayout
             android:id="@+id/ll_other"
+            style="@style/cornerStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="4dp"
             android:layout_marginTop="6dp"
             android:layout_marginRight="4dp"
             android:layout_weight="1"
+            android:background="@drawable/shape"
             android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -136,8 +143,8 @@
 
                 <ImageView
                     android:id="@+id/iv_server_btn"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"

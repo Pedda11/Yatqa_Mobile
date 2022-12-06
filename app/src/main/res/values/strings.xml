@@ -16,6 +16,9 @@
     <string name="del">delete</string>
     <string name="saveChanges">save changes</string>
     <string name="toLogin">go to manual login</string>
+    <string name="favInfo"><b>Welcome to YaTQA-mobile.</b>\n\n
+No favorites are saved yet.\n
+You can create a favorite when logging in manually.</string>
 
     //global stats
     <string name="globalServerTitle">Global Server</string>

@@ -95,7 +95,6 @@ class GlobalServerFragment : Fragment() {
                 binding.progressBarUser.progress = viewModel.hostInfo.totalClientsOnline
                 binding.progressBarUser.max = viewModel.hostInfo.totalMaxClients
 
-
                 //Current upload
                 binding.tvCurUploadTotalSekValue.text = getString(
                     R.string.strKibs, String.format(
@@ -159,12 +158,8 @@ class GlobalServerFragment : Fragment() {
                 )
                 binding.ivTransferedDataLeft.setImageResource(R.drawable.tranferred_data)
 
-                val c = ((viewModel.hostInfo.bytesSentTotal +
-                        viewModel.hostInfo.bytesReceivedTotal) / giB
-                        ).toInt()
-
-                binding.progressBarDataTransfer.progress = c
-                binding.progressBarDataTransfer.max = 100
+                binding.progressBarDataTransfer.progress = (viewModel.hostInfo.bytesReceivedTotal / giB).toInt()
+                binding.progressBarDataTransfer.max = (viewModel.hostInfo.bytesSentTotal / giB).toInt()
 
                 //Transferred packets
                 binding.tvPacketsSentValue.text = getString(
@@ -188,10 +183,8 @@ class GlobalServerFragment : Fragment() {
 
                 binding.ivPacketsLeft.setImageResource(R.drawable.transferred_packages)
 
-                binding.progressBarPackets.progress = ((viewModel.hostInfo.packetsSentTotal +
-                        viewModel.hostInfo.packetsReceivedTotal) / mB
-                        ).toInt()
-                binding.progressBarPackets.max = 1000
+                binding.progressBarPackets.progress = (viewModel.hostInfo.packetsReceivedTotal / mB).toInt()
+                binding.progressBarPackets.max = (viewModel.hostInfo.packetsSentTotal / mB).toInt()
 
                 //Transferred files
                 binding.tvFilesSentValue.text = getString(
@@ -203,7 +196,7 @@ class GlobalServerFragment : Fragment() {
                 binding.tvFilesReceivedValue.text = getString(
                     R.string.strMib, String.format(
                         "%.2f",
-                        viewModel.hostInfo.fileTransferBytesReceived.toDouble() / kiB
+                        viewModel.hostInfo.fileTransferBytesReceived.toDouble() / miB
                     )
                 )
                 binding.tvFilesSumValue.text = getString(
@@ -215,10 +208,8 @@ class GlobalServerFragment : Fragment() {
 
                 binding.ivFilesLeft.setImageResource(R.drawable.transferred_files)
 
-                binding.progressBarFiles.progress = ((viewModel.hostInfo.fileTransferBytesSent +
-                        viewModel.hostInfo.fileTransferBytesReceived) / miB
-                        ).toInt()
-                binding.progressBarFiles.max = 100
+                binding.progressBarFiles.progress = (viewModel.hostInfo.fileTransferBytesReceived / miB).toInt()
+                binding.progressBarFiles.max = (viewModel.hostInfo.fileTransferBytesSent / miB).toInt()
 
                 //Server queries
                 binding.tvGuestQueryGroupValue.text =

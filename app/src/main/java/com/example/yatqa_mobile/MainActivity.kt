@@ -57,7 +57,6 @@ class MainActivity : AppCompatActivity() {
             bottomNavBarVisible(2)
             navController.navigate(R.id.serverListFragment)
         }
-
     }
 
     fun bottomNavBarVisible(activeId: Int) {
@@ -65,34 +64,28 @@ class MainActivity : AppCompatActivity() {
 
         when (activeId) {
             0 -> {
-                binding.llHome.setBackgroundColor(ContextCompat.getColor(this, R.color.light_blue))
+                binding.llHome.setBackgroundResource(R.drawable.shape)
                 binding.llStats.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
                 binding.llServer.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
                 binding.llOther.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
             }
             1 -> {
                 binding.llHome.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
-                binding.llStats.setBackgroundColor(ContextCompat.getColor(this, R.color.light_blue))
+                binding.llStats.setBackgroundResource(R.drawable.shape)
                 binding.llServer.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
                 binding.llOther.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
             }
             2 -> {
                 binding.llHome.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
                 binding.llStats.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
-                binding.llServer.setBackgroundColor(ContextCompat.getColor(this, R.color.light_blue))
+                binding.llServer.setBackgroundResource(R.drawable.shape)
                 binding.llOther.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
             }
-            3 -> {
+            else -> {
                 binding.llHome.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
                 binding.llStats.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
                 binding.llServer.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
-                binding.llOther.setBackgroundColor(ContextCompat.getColor(this, R.color.light_blue))
-            }
-            4 -> {
-                binding.llHome.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
-                binding.llStats.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
-                binding.llServer.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
-                binding.llOther.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+                binding.llOther.setBackgroundResource(R.drawable.shape)
             }
         }
     }
