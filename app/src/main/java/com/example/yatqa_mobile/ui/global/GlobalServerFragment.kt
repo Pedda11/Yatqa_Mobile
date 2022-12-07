@@ -414,6 +414,7 @@ class GlobalServerFragment : Fragment() {
 
                 val newValue = textBox.text.toString()
 
+                //Empty check
                 if (newValue.isEmpty()) {
                     Toast.makeText(
                         requireContext(),
@@ -424,6 +425,7 @@ class GlobalServerFragment : Fragment() {
                     return@setPositiveButton
                 }
 
+                //Empty check
                 try {
                     val parseToInt: Int = newValue.toInt()
                 } catch (e: Exception) {

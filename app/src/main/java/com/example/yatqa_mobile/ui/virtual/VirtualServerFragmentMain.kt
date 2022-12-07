@@ -40,11 +40,13 @@ class VirtualServerFragmentMain : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //loading virtual server infos
         val vServerPort = requireArguments().getInt("vServerPort", 0)
         viewModel.getCurrentVirtualServerDetails(vServerPort)
         viewModel.connectToVirtualServer()
         viewModel.getVirtualServerInfo()
 
+        //load spinner
         val spinnerItemList = listOf(
             getString(R.string.vServerStats),
             getString(R.string.vServerAdvanced),
@@ -64,6 +66,7 @@ class VirtualServerFragmentMain : Fragment() {
         arrayAdapter.setDropDownViewResource(R.layout.dropdown_item)
         binding.spinnerVirtualServerOptions.adapter = arrayAdapter
 
+        //select spinner item
         binding.spinnerVirtualServerOptions.onItemSelectedListener =
             object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(

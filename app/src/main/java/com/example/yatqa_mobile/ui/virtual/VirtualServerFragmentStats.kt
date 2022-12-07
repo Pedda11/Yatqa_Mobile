@@ -40,47 +40,61 @@ class VirtualServerFragmentStats : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+/*
 
-//        binding.scrollView.setOnScrollChangeListener { v: View, scrollX: Int, scrollY: Int, _: Int, _: Int ->
-//            binding.swiperefresh.isEnabled = scrollY == 0
-//        }
+        binding.scrollView.setOnScrollChangeListener { v: View, scrollX: Int, scrollY: Int, _: Int, _: Int ->
+            binding.swiperefresh.isEnabled = scrollY == 0
+        }
+*/
 
+        //swipe refresh
         binding.swipeRefresh.setOnRefreshListener {
             viewModel.getVirtualServerInfo()
             binding.swipeRefresh.isRefreshing = false
         }
 
+        //virtual server info observer
         viewModel.vServerInfo.observe(
             viewLifecycleOwner
         ) {
             if (it != null) {
 
+                //virtual server name
                 var vServerName = it.name
                 if (it.name.length > 15) {
                     vServerName = it.name.substring(0, 12) + "..."
                 }
                 binding.tvVNameValue.text = vServerName
 
+                //virtual server phonetic
                 var vServerPhonetic = it.phoneticName
                 if (it.phoneticName.length > 15) {
                     vServerPhonetic = it.phoneticName.substring(0, 12) + "..."
                 }
                 binding.tvVPhoneticValue.text = vServerPhonetic
 
+                //virtual server max clients
                 binding.tvVSlotsValue.text =
                     "${it.clientsOnline - it.queryClientsOnline}+${it.queryClientsOnline}/${it.maxClients}"
 
+                //virtual server machineID
                 binding.tvVMachineIdValue.text =
                     if (it.machineId.isNullOrEmpty()) "---" else it.machineId.toString()
+
+                //virtual server port
                 binding.tvVPortValue.text = it.port.toString()
+                //virtual server state: on-/off-line
                 binding.tvVStateValue.text = it.status.name
+                //virtual server autostart
                 binding.tvVAutostartValue.text = it.isAutoStart.toString()
 
+                //virtual server online clients diagram
                 binding.progressBarVserverUser.progress = it.clientsOnline
                 binding.progressBarVserverUser.max = it.maxClients
             }
         }
 
+        //virtual server setter
         binding.tvVName.setOnClickListener {
             var propertyKey: VirtualServerProperty = VirtualServerProperty.VIRTUALSERVER_NAME
             showDialog(propertyKey, viewModel.vServerInfo.value!!.name)

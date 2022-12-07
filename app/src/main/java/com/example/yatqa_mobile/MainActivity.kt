@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        //make app fullscreen
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             window.setDecorFitsSystemWindows(false)
         } else {
@@ -39,6 +40,7 @@ class MainActivity : AppCompatActivity() {
 
         binding = DataBindingUtil.setContentView(this,R.layout.activity_main)
 
+        //apply navController
         (supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment).also {
             navController = it.navController
         }
@@ -59,6 +61,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    //bottom navigation bar visibility and highlighting
     fun bottomNavBarVisible(activeId: Int) {
         binding.cvBottomNavBar.visibility = View.VISIBLE
 
