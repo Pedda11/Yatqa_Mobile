@@ -117,16 +117,29 @@ class Repository(private val database: LoginDatabase) {
 
     //get virtualServerInfo
     fun apiGetVirtualServerInfo():VirtualServerInfo? {
-        return _ts3Api.value?.serverInfo
+        return try {
+            _ts3Api.value?.serverInfo
+        } catch (e: Exception) {
+            Log.e(TAG, "Error while getting virtual server info: $e")
+            return null
+        }
     }
 
     //set Server Instance Properties
     fun setServerInstanceProperties(prop: ServerInstanceProperty, value: String) {
-        _ts3Api.value?.editInstance(prop, value)
+        try {
+            _ts3Api.value?.editInstance(prop, value)
+        }catch (e: Exception){
+            Log.e(TAG, "Error while setting instance properties: $e")
+        }
     }
 
     //set Virtual Server Properties
     fun setVirtualServerProperties(prop: MutableMap<VirtualServerProperty,String>) {
-        _ts3Api.value?.editServer(prop)
+        try {
+            _ts3Api.value?.editServer(prop)
+        }catch (e: Exception){
+            Log.e(TAG, "Error while setting virtual server properties: $e")
+        }
     }
 }
